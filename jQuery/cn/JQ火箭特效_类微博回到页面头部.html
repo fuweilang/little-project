@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<script src="../js/jquery-1.11.3.min.js" charset="utf-8" type="text/javascript"></script>
+	<style>
+		.wrap {
+			height: 2000px;
+		}
+		.rocket {
+			position: fixed;
+			right: 60px;
+			top: 55%;
+			width: 63px;
+			height: 193px;
+			background: url("../images/rocket0.png") no-repeat;
+			display: none;
+			cursor: pointer;
+		}
+		.rocket img{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap clearfix" id="main">
+		<div class="rocket">
+			<img src="../images/rocket1.png" alt="" title="1">
+			<img src="../images/rocket2.png" alt="" title="2">
+			<img src="../images/rocket3.png" alt="" title="3">
+			<img src="../images/rocket4.png" alt="" title="4">
+			<img src="../images/rocket5.png" alt="" title="5">
+			<img src="../images/rocket6.png" alt="" title="6">
+			<img src="../images/rocket7.png" alt="" title="7">
+			<img src="../images/rocket8.png" alt="" title="8">
+			<img src="../images/rocket9.png" alt="" title="9">
+		</div>
+	</div>
+	<script>
+		var timer;
+		var flag = true;
+		var index = 0;
+		$(window).scroll(
+			function() {
+				var scrT = $("body")[0].scrollTop;
+				if(scrT >= 150) {
+					$(".rocket").css({
+						'top' : '55%'
+					}).fadeIn(300);
+				} else {
+					$(".rocket").fadeOut(300);
+				}
+			}
+		)
+
+		$(".rocket").hover(
+			function() {
+				$(".rocket img").eq(0).fadeIn(300);
+			},
+			function() {
+				$(".rocket img").eq(0).fadeOut(300);
+			}
+		)
+		
+		function changeIndex() {
+			index++;
+			if(index >= 8) {
+				index = 0;
+				clearInterval(timer);
+			}
+			$(".rocket img").css({
+				'display' : 'none'
+			})
+			$(".rocket img")[index].style.display = "block";
+		}
+		
+		$(".rocket").on("click", function(){
+			$("body, html").stop(true, true).animate({
+				'scrollTop' : '0'
+			}, 500);
+			if(timer) {
+				clearInterval(timer);
+			}
+			timer = setInterval(changeIndex, 40);
+			$(this).delay(360).animate({
+				'top' : '-193px'
+			}, 300, function() {
+				$(".rocket img").css({
+					'display' : 'none'
+				})
+			})
+		})
+
+	</script>
+</body>
+</html>

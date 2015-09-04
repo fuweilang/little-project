@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<script src="../js/jquery-1.11.3.min.js" charset="utf-8" type="text/javascript"></script>	<style>
+		body {
+			-webkit-perspective: 1000; 
+		}
+		.outer {
+			position: relative;
+			/*width: 100%;*/
+			width: 600px;
+			height: 300px;
+			border: 1px solid #000;
+			background: #0b0c0c;
+			-webkit-transform-style: preserve-3d;
+		}
+		.outer div {
+			position: absolute;
+			width: 20px;
+			height: 20px;
+			border-radius: 50%;
+			background: #f8f;
+		}
+	</style>
+</head>
+<body>
+	<div class="outer" id="outerBox">
+	</div>
+	<script>
+		// 实现一个碰壁反弹
+		function Bounce(outerid) {		
+			var _this = this;
+			this.outer = document.getElementById(outerid);
+			this.newBall = document.createElement("div");
+			this.outer.appendChild(this.newBall);
+			this.flagX = true;
+			this.flagY = true;
+			this.limitX = this.outer.clientWidth - this.newBall.offsetWidth;
+			this.limitY = this.outer.clientHeight - this.newBall.offsetHeight;
+			this.sportX = 0;
+			this.sportY = 0;
+			
+			this.assignment();
+			this.timer = setTimeout(function(){
+				_this.move();
+				setTimeout(arguments.callee, 16);
+			}, 16)
+		}
+		Bounce.prototype.move = function() {
+			if(this.flagX) {
+				this.sportX += 5;
+				if (this.sportX >= this.limitX) {
+					this.sportX = this.limitX;
+					this.flagX = false;
+				};
+			} else {
+				this.sportX -= 5;
+				if (this.sportX <= 0) {
+					this.sportX = 0;
+					this.flagX = true;
+				};
+			}
+			if(this.flagY) {
+				this.sportY += 5;
+				if (this.sportY >= this.limitY) {
+					this.sportY = this.limitY;
+					this.flagY = false;
+				};
+			} else {
+				this.sportY -= 5;
+				if (this.sportY <= 0) {
+					this.sportY = 0;
+					this.flagY = true;
+				};
+			}
+			this.assignment();
+		}
+		Bounce.prototype.assignment = function() {
+			this.newBall.style.left = this.sportX + "px";
+			this.newBall.style.top = this.sportY + "px";
+		}
+		// var obj = new Bounce("outerBox");
+
+		/*******************利用组合继承，实现自动创建100个球不规则滚动和碰壁反弹******************************/ 
+		function limitBounce(outerid) {
+			Bounce.call(this, outerid);
+			this.flagX = Math.floor(Math.random() * 2) == 1 ? true : false;
+			this.flagY = Math.floor(Math.random() * 2) == 1 ? true : false;
+			this.limitX = this.outer.clientWidth - this.newBall.offsetWidth;
+			this.limitY = this.outer.clientHeight - this.newBall.offsetHeight;
+			this.sportX = Math.floor(Math.random() * this.limitX);
+			this.sportY = Math.floor(Math.random() * this.limitY);
+			this.colorR = Math.floor(Math.random() * 256);
+			this.colorG = Math.floor(Math.random() * 256);
+			this.colorB = Math.floor(Math.random() * 256);
+			this.newBall.style.background = "rgb(" + this.colorR + ", " + this.colorG + ", " + this.colorB + ")";
+			this.assignment();
+		}
+		for(var i in Bounce.prototype) {
+			limitBounce.prototype[i] = Bounce.prototype[i];
+		}
+
+		for (var i = 0; i < 1000; i++) {
+			var objTwo = new limitBounce("outerBox");
+		};
+		
+
+	</script>
+</body>
+</html>

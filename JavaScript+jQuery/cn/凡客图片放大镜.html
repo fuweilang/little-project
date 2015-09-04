@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<script src="../js/jquery-1.11.3.min.js" charset="utf-8" type="text/javascript"></script>
+	<style>
+		.wrap {
+			margin: 10px auto;
+			width: 700px;
+		}
+		.small {
+			overflow: hidden;
+			position: relative;
+			float: left;
+			width: 200px;
+			height: 200px;
+			background: url("../images/chongfengyi.jpg") no-repeat;
+			background-size: cover;
+			border: 1px solid #777;
+			cursor: pointer;
+		}
+		.filter {
+			position: absolute;
+			width: 80px;
+			height: 80px;
+			background: #4ee;
+			opacity: 0.6;
+			cursor: pointer;
+			visibility: hidden;
+		}
+		.big {
+			display: none;
+			position: relative;
+			overflow: hidden;
+			float: left;
+			width: 320px;
+			height: 320px;
+			border: 1px solid #000;
+		}
+		.big img {
+			position: absolute;
+			width: 800px;
+			height: 800px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap clearfix">
+		<div class="small">
+			<div class="filter"></div>
+		</div>
+		<div class="big">
+			<img src="../images/chongfengyi.jpg" alt="" title="">
+		</div>
+	</div>
+	<script>
+		var small = $(".small");
+		var big = $(".big");
+		var filter =$(".filter");
+		var img = $(".big img");
+
+		small.on("mouseenter", function(e){
+			e.preventDefault();
+			// 鼠标一开始移入@small得到的相对浏览器的x,y坐标
+			var startX = e.clientX;  
+			var startY = e.clientY;
+			// 鼠标一开始移入@small而得到的滤镜left和top值
+			var startLeft = e.offsetX - (filter[0].offsetWidth / 2);	 
+			var startTop = e.offsetY - (filter[0].offsetHeight / 2);
+			// 滤镜在@small中可设置的最大left和top值
+			var maxLeft = small[0].clientWidth - filter[0].offsetWidth;	 
+			var maxTop = small[0].clientHeight - filter[0].offsetHeight;
+			// 设置滤镜在@small中left和top的取值范围
+			if(e.offsetX <= 0) {
+				startLeft = 0;
+			}
+			if(e.offsetX >= small[0].offsetWidth) {
+				startLeft = maxLeft;
+			}
+			if(e.offsetY <= 0) {
+				startTop = 0;
+			}
+			if(e.offsetY >= small[0].offsetHeight) {
+				startTop = maxTop;
+			}
+			// 鼠标一开始移入@small得到的滤镜的left和top的值
+			filter.css({
+				"visibility" : "visible",
+				"left" : startLeft + "px",
+				"top" : startTop + "px"
+			})
+			big.css({
+				"display" : "block"
+			})
+
+			// 鼠标一开始移入@small，相应的原图在@big中显示的left和top值
+			var imgStartLeft = (img[0].width - big[0].offsetWidth) * startLeft / maxLeft;
+			var imgStartTop = (img[0].height - big[0].offsetHeight) * startTop / maxTop;
+
+			img.css({
+				"left" : -imgStartLeft + "px",
+				"top" : -imgStartTop + "px"
+			})
+
+			$(document).on("mousemove", function(e){
+				e.preventDefault();
+				// 鼠标在@small移动中得到的相对浏览器的x,y坐标
+				var nowX = e.clientX;
+				var nowY = e.clientY;
+				// 鼠标在@small移动中得到的滤镜的left和top的值
+				var endLeft = startLeft + nowX - startX;
+				var endTop = startTop + nowY - startY;
+				// 鼠标在@small移动中得到滤镜的left和top值的取值范围
+				if(endLeft <= 0) {
+					endLeft = 0;
+				} 
+				if(endLeft >= maxLeft) {
+					endLeft = maxLeft;
+				}
+				if(endTop <=0 ) {
+					endTop = 0;
+				}
+				if(endTop >= maxTop) {
+					endTop = maxTop;
+				}
+				// 鼠标在@small移动中滤镜设置的left和top值
+				filter.css({
+					"left" : endLeft + "px",
+					"top" : endTop + "px"
+				})
+				// 鼠标一开始移入@small，相应的原图在@big中显示的left和top值
+				var imgEndLeft = (img[0].width - big[0].offsetWidth) * endLeft / maxLeft;
+				var imgEndTop = (img[0].height - big[0].offsetHeight) * endTop / maxTop;
+
+				img.css({
+					"left" : -imgEndLeft + "px",
+					"top" : -imgEndTop + "px"
+				})
+			})
+		})
+		
+		/**
+		 * [鼠标移开small，清空mousemove事件，同时滤镜和big隐藏]
+		 * @param  {[type]})
+		 * @return {[type]}    [description]
+		 */
+		small.on("mouseleave", function(e) {
+			e.preventDefault();
+			filter.css({
+				"visibility" : "hidden"
+			})
+			big.css({
+				"display" : "none"
+			})
+			$(document).off("mousemove");
+		})
+	</script>
+</body>
+</html>

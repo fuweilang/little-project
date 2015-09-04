@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<script src="../js/jquery-1.11.3.min.js" charset="utf-8" type="text/javascript"></script>
+	<style>
+		.wrap {
+			position: relative;
+			margin: 0 auto;
+			width: 400px;
+			height: 500px;
+			border: 1px solid #000;
+			-webkit-transform-style: preserve-3d;
+		}
+		.wrap div {
+			position: absolute;
+		}
+		@-webkit-keyframes Clockwise {
+			from {
+				-webkit-transform: rotateZ(0);
+			}
+			to {
+				-webkit-transform: rotateZ(360deg);
+				
+			}
+		}
+		@-webkit-keyframes antiClockwise {
+			from {
+				-webkit-transform: rotateZ(0);
+			}
+			to {
+				-webkit-transform: rotateZ(-360deg);
+			}
+		}
+		.wrap div:nth-child(1) {
+			top: 81px;
+			left: 21px;
+			width: 85px;
+			height: 85px;
+			background: url("../images/齿轮 (1).png");
+
+			-webkit-animation: Clockwise 9s linear infinite;
+		}
+		.wrap div:nth-child(2) {
+			top: 21px;
+			left: 85px;
+			width: 125px;
+			height: 125px;
+			background: url("../images/齿轮 (2).png");
+
+			-webkit-animation: antiClockwise 15s linear infinite;
+		}
+		.wrap div:nth-child(3) {
+			top: 127px;
+			left: 128px;
+			width: 103px;
+			height: 103px;
+			background: url("../images/齿轮 (3).png");
+
+			-webkit-animation: Clockwise 12s linear infinite;
+		}
+		.wrap div:nth-child(4) {
+			top: 197px;
+			left: 42px;
+			width: 144px;
+			height: 144px;
+			background: url("../images/齿轮 (4).png");
+
+			-webkit-animation: antiClockwise 18s linear infinite;
+		}
+		.wrap div:nth-child(5) {
+			top: 315px;
+			left: 123px;
+			width: 85px;
+			height: 85px;
+			background: url("../images/齿轮 (1).png");
+
+			-webkit-animation: Clockwise 9s linear infinite;
+		}
+		.wrap div:nth-child(6) {
+			top: 303px;
+			left: 195px;
+			width: 125px;
+			height: 125px;
+			background: url("../images/齿轮 (2).png");
+
+			-webkit-animation: antiClockwise 15s linear infinite;
+		}
+		.wrap div:nth-child(7) {
+			top: 225px;
+			left: 253px;
+			width: 103px;
+			height: 103px;
+			background: url("../images/齿轮 (3).png");
+
+			-webkit-animation: Clockwise 12s linear infinite;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+	<script></script>
+</body>
+</html>

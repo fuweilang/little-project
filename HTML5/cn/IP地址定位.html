@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>GPS转百度</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<script src="../js/jquery-1.11.3.min.js" charset="utf-8" type="text/javascript"></script>
+	<style type="text/css">
+		body, html, .wrap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+	</style>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.4"></script>
+	<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+</head>
+<body>
+	<div class="wrap" id="con">
+	</div>
+	<script>
+		var newScript = document.createElement("script");
+		newScript.src = "http://api.map.baidu.com/location/ip?ak=gwEwkcqImNldzLng8zd8sCaV&coor=bd09ll&callback=update"
+		document.body.appendChild(newScript);
+
+		function update(date) {
+			/*var arr = [];
+			arr.push(date.content.point.x);
+			arr.push(date.content.point.y);
+			console.log(arr);*/
+			change(date.content.point.x, date.content.point.y)
+		}
+
+		function change(weidu,jingdu) {
+			var xx = weidu;
+			var yy = jingdu;
+			var gpsPoint = new BMap.Point(xx,yy);
+
+			//地图初始化
+			var bm = new BMap.Map("con");
+			bm.centerAndZoom(gpsPoint, 15);
+			bm.addControl(new BMap.NavigationControl());
+
+			//坐标转换完之后的回调函数
+			translateCallback = function (point){
+				var marker = new BMap.Marker(point);
+				bm.addOverlay(marker);
+				var label = new BMap.Label("人才中心",{offset:new BMap.Size(20,-10)});
+				marker.setLabel(label); //添加百度label
+				bm.setCenter(point);
+				alert(point.lng + "," + point.lat);
+			}
+
+			setTimeout(function(){
+				BMap.Convertor.translate(gpsPoint,0,translateCallback);     //真实经纬度转成百度坐标
+			}, 2000);	
+		}
+
+
+	</script>
+</body>
+</html>

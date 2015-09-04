@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>HTML5学堂</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+		.wrap {
+			margin: 20px auto;
+			position: relative;
+			width: 1000px;
+		}
+		.outer {
+			overflow: hidden;
+			width: 1000px;
+		}
+		.left,
+		.right {
+			position: absolute;
+			top: 120px;
+			width: 50px;
+			height: 70px;
+			line-height: 70px;
+			text-align: center;
+			background-color: rgba(255, 255, 255, 0.5);
+			cursor: pointer;
+		}
+		.left {
+			left: 0;
+		}
+		.right {	
+			right: 0;
+		}
+		.inner {
+			width: 2000px;
+			height: 310px;
+		}
+		.inner img {
+			float: left;
+			width: 200px;
+			height: 310px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="outer" id="outerBox">
+			<div class="inner" id="innerBox">
+				<img src="../images/(1).jpg" alt="" title="">
+				<img src="../images/(2).jpg" alt="" title="">
+				<img src="../images/(3).jpg" alt="" title="">
+				<img src="../images/(4).jpg" alt="" title="">
+				<img src="../images/(5).jpg" alt="" title="">
+				<img src="../images/(1).jpg" alt="" title="">
+				<img src="../images/(2).jpg" alt="" title="">
+				<img src="../images/(3).jpg" alt="" title="">
+				<img src="../images/(4).jpg" alt="" title="">
+				<img src="../images/(5).jpg" alt="" title="">
+			</div>
+		</div>
+		<div class="left" id="leftArrow">向左</div>
+		<div class="right" id="rightArrow">向右</div>
+	</div>
+	<script>
+		//获取标签
+		var outer = document.getElementById("outerBox");
+		var inner = document.getElementById("innerBox");
+		var getLeft = document.getElementById("leftArrow");
+		var getRight = document.getElementById("rightArrow");
+		var timer = null;
+		var flag = true; // 给图片向左滑动还是向右滑动做标记
+
+
+		/*
+		 * 图片向左滑动的函数
+		 *
+		 */
+		function moveLeft() {
+			outer.scrollLeft += 2;
+			if (outer.scrollLeft >= inner.offsetWidth - outer.clientWidth) {
+				outer.scrollLeft = 0;
+			};
+
+			if(outer.scrollLeft % 200 == 0) {
+				clearInterval(timer);
+				timer = setTimeout(clockLeft, 1000);
+			}
+		}
+
+		/*
+		 * 给图片向左滑动设置计时器
+		 *
+		 */
+		function clockLeft() {
+			timer = setInterval(moveLeft, 16);
+		} clockLeft();
+
+		// 点击左箭头，让图片向左滑动
+		getLeft.onclick = function () {
+			if(timer) {
+				clearInterval(timer);
+			}
+			flag = true;
+			clock();
+		}
+
+		/*
+		 * 图片向右滑动的函数
+		 *
+		 */
+		function moveRight() {
+			outer.scrollLeft -= 2;
+			if (outer.scrollLeft <= 0) {
+				outer.scrollLeft = inner.offsetWidth - outer.clientWidth;
+			};
+
+			if(outer.scrollLeft % 200 == 0) {
+				clearInterval(timer);
+				timer = setTimeout(clockRight, 1000);
+			}
+		}
+
+		/*
+		 * 给图片向右滑动设置计时器
+		 *
+		 */
+		function clockRight() {
+			timer = setInterval(moveRight, 16);
+		} 
+
+		// 点击右箭头，让图片向右滑动
+		getRight.onclick = function() {
+			if(timer) {
+				clearInterval(timer);
+			}
+			flag = false;
+			clock();
+		}
+
+		// 执行滑动的函数（先做判断，如果点击了左箭头，则执行向左滑动的计时器，如果点击了右箭头，则执行向右滑动的计时器）
+		function clock() {
+			if (flag) {
+				clockLeft();
+			} else {
+				clockRight();
+			}
+		}
+
+		// 鼠标放在图片上，停止滚动
+		outer.onmouseover = function() {
+			clearInterval(timer);
+		}
+
+		// 鼠标离开图片，继续滚动
+		outer.onmouseout = function() {
+			clock();
+		}
+
+	</script>
+</body>
+</html>

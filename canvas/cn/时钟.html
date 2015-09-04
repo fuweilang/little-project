@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<script src="../js/jquery-1.11.3.min.js" charset="utf-8" type="text/javascript"></script>
+	<style>
+		.wrap {
+			width: 400px;
+			height: 400px;
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<canvas width="400" height="400"></canvas>
+	</div>
+	<script>
+		var getCanvas = $(".wrap canvas")[0];
+		var getcon = getCanvas.getContext("2d");
+		
+		// 定位圆心
+		getcon.translate(200, 200);
+		// 定位一开始的旋转角度
+		getcon.rotate(Math.PI);
+
+		function clock() {
+			getcon.clearRect(-200, -200, 400, 400);
+
+			// 画圆
+			getcon.beginPath();
+			getcon.lineWidth = "1";
+			getcon.strokeStyle = "#999";
+			getcon.lineCap = "round";
+			getcon.arc(0, 0, 120, 0, 2 * Math.PI, false);
+			getcon.stroke();
+
+			// 画秒针表盘刻度
+			getcon.beginPath();
+			for (var i = 0; i < 60; i++) {
+				var startx = 120 * Math.sin(-6 * i * Math.PI / 180);
+				var starty = 120 * Math.cos(-6 * i * Math.PI / 180);
+				var endx = 105 * Math.sin(-6 * i * Math.PI / 180);
+				var endy = 105 * Math.cos(-6 * i * Math.PI / 180);
+				getcon.moveTo(startx, starty);
+				getcon.lineTo(endx, endy);
+				getcon.stroke();
+			};
+
+			// 画时钟表盘刻度
+			getcon.beginPath();
+			getcon.strokeStyle = "#148c41";
+			getcon.lineWidth = "4";
+			for (var i = 0; i < 12; i++) {
+				var startx = 120 * Math.sin(-30 * i * Math.PI / 180);
+				var starty = 120 * Math.cos(-30 * i * Math.PI / 180);
+				var endx = 97 * Math.sin(-30 * i * Math.PI / 180);
+				var endy = 97 * Math.cos(-30 * i * Math.PI / 180);
+				getcon.moveTo(startx, starty);
+				getcon.lineTo(endx, endy);
+				getcon.stroke();
+			};
+
+			// 获取当前时间
+			var nowTime = new Date();
+			var nowhour = nowTime.getHours();
+			var nowminute = nowTime.getMinutes();
+			var nowsecond = nowTime.getSeconds();
+			
+			// 画当前秒针的位置
+			getcon.beginPath();
+			getcon.strokeStyle = "#aaa";
+			getcon.lineWidth = "2";
+			var secondx = 84 * Math.sin(-6 * nowsecond * Math.PI / 180);
+			var secondy = 84 * Math.cos(-6 * nowsecond * Math.PI / 180);
+			getcon.moveTo(0, 0);
+			getcon.lineTo(secondx, secondy);
+			getcon.stroke();
+
+			// 画当前分针的位置
+			getcon.beginPath();
+			getcon.lineWidth = "4";
+			var minutex = 75 * Math.sin(-6 * nowminute * Math.PI / 180);
+			var minutey = 75 * Math.cos(-6 * nowminute * Math.PI / 180);
+			getcon.moveTo(0, 0);
+			getcon.lineTo(minutex, minutey);
+			getcon.stroke(); 
+
+			// 画当前时针的位置
+			getcon.beginPath();
+			getcon.lineWidth = "6";
+			var hourx = 60 * Math.sin(-30 * nowhour * Math.PI / 180);
+			var houry = 60 * Math.cos(-30 * nowhour * Math.PI / 180);
+			getcon.moveTo(0, 0);
+			getcon.lineTo(hourx, houry);
+			getcon.stroke(); 
+		}
+		var timer = setInterval(function(){
+			clock();
+		}, 1000);
+
+	</script>
+</body>
+</html>

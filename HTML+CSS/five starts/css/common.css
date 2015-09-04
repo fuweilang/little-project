@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+.common-title h3 {
+	float: left;
+	height: 32px;
+	line-height: 32px;
+	font-size: 16px;
+	color: #af0308;
+}
+.superscript {
+	float: right;
+	width: 16px;
+	height: 31px;
+	background: url("../images/layout.png") -2px -371px;
+}
+.common-title a {
+	display: block;
+	height: 32px;
+	line-height: 32px;
+	float: right;
+	color: #ed5555;
+}
+.common-title a:hover {
+	color: #edf;
+}
+.partner-title {
+	width: 990px;
+	height: 36px;
+	padding-left: 10px;
+	background: url("../images/layout.png") 0 -1007px;
+}

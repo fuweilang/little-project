@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>HTML5学堂</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/layout.css">
+	<script src="../js/jquery-1.11.2.js" charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+	<div class="wrap clearfix">
+		<div class="aside-list clearfix" id="aside">
+			<span></span>
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<span></span>
+		</div>
+		<div class="con-list clearfix" id="conList">
+			<h1></h1>
+			<div class="con" id="content">
+				<ul>
+					<li>
+						<a href="">
+							<img>
+						</a>
+						<span></span>
+					</li>
+					<li>
+						<a href="">
+							<img>
+						</a>
+						<span></span>
+					</li>
+					<li>
+						<a href="">
+							<img>
+						</a>
+						<span></span>
+					</li>
+					<li>
+						<a href="">
+							<img>
+						</a>
+						<span></span>
+					</li>
+					<li>
+						<a href="">
+							<img>
+						</a>
+						<span></span>
+					</li>
+					<li>
+						<a href="">
+							<img>
+						</a>
+						<span></span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script>
+		var getLI = $("#aside li");
+		var getH1 = $("#conList h1") 
+		var getImg = $("#content img");
+		var getSpan = $("#content span");
+		var obj;  // 定义一个对象
+
+		$.ajax({
+			"url" : "http://localhost/AJAX/tabsucai2/cn/date.json",
+			"type" : "get",
+			"success" : function(date){
+				obj = date;
+				getH1.html(obj[0].h1);
+				getImg.each(function(i){
+					$(this).attr("src", obj[0].imgUrl[i]);
+					getSpan[i].innerHTML = obj[0].info[i];
+				})
+			}
+		})
+		
+		// 滑动鼠标，改变li的背景
+		getLI.on("mouseover", function() {
+			var index = $(this).index();
+			$(this).siblings().removeClass();
+			changeLiBg(index);
+			getH1.html(obj[index].h1);
+			getImg.each(function(i){
+				$(this).attr("src", obj[index].imgUrl[i]);
+				getSpan[i].innerHTML = obj[index].info[i];
+			})
+		})
+
+		/*
+		 * 根据li索引值，改变li的背景图片样式
+		 * @index, li的索引值
+		 */
+		function changeLiBg(index) {
+			var path = null;
+			switch(index) {
+				case 0 : path = "li-one"; break;
+				case 1 : path = "li-two"; break;
+				case 2 : path = "li-three"; break;
+				case 3 : path = "li-four"; break;
+				case 4 : path = "li-five"; break;
+				case 5 : path = "li-six"; break;
+			}
+			getLI[index].className = path;
+		}
+	</script>
+</body>
+</html>

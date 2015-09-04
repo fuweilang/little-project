@@ -1,0 +1,323 @@
+@charset "utf-8";
+
+@media screen and (min-width: 320px) and (max-width: 479px) {
+	html {
+		font-size: 20px;
+	}
+}
+@media screen and (min-width: 480px) and (max-width: 639px) {
+	html {
+		font-size: 30px;
+	}
+}
+@media screen and (min-width: 640px) {
+	html {
+		font-size: 40px;
+	}
+}
+
+.wrap {
+	margin: 0 auto;
+	width: 16rem;
+}
+.wrap header {
+	width: 100%;
+	height: 1.95rem;
+	background: #f9f9f9;
+}
+.previous,
+.previous a,
+.search,
+.search a {
+	display: block;
+	width: 2.5rem;
+	height: 1.95rem;
+}
+.previous {
+	float: left;
+}
+.previous a {
+	background: url("../images/xiaoquwuye.png") 0.45rem -1.07rem no-repeat;
+	background-size: 16rem;
+}
+.wrap header p {
+	float: left;
+	width: 11rem;
+	height: 1.95rem;
+	line-height: 1.95rem;
+	font-size: 0.8rem;
+	text-align: center;
+}
+.search {
+	float: right;
+}
+.search a {
+	background: url("../images/xiaoquwuye.png") 0.2rem -3.08rem no-repeat;
+	background-size: 16rem;
+}
+.main {
+	width: 95%;
+	padding: 0.6rem 2% 1.2rem 3%;
+	background: #f0eff4;
+}
+.main nav {
+	overflow: hidden;
+	width: 100%;
+	height: 7.55rem;
+}
+.main nav ul {
+	width: 15.47rem;
+}
+.main nav li {
+	float: left;
+	width: 3.65rem;
+	height: 3.65rem;
+	margin-right: 0.17rem;
+	margin-bottom: 0.25rem;
+}
+.main nav li a {
+	display: block;
+	width: 3.65rem;
+	height: 0.9rem;
+	padding-top: 2.75rem;
+	font-size: 0.55rem;
+	color: #fff;
+	text-align: center;
+}
+.main nav li:nth-child(1) {
+	width: 7.47rem;
+	height: 3.65rem;
+}
+.main nav li:nth-child(1) a {
+	display: block;
+	width: 7.47rem;
+	height: 0.9rem;
+	padding-top: 2.75rem;
+	font-size: 0.55rem;
+	color: #fff;
+	text-align: center;
+	background: #e66444 url("../images/xiaoquwuye.png") 2.42rem -5.78rem no-repeat;
+	background-size: 16rem;
+}
+.main nav li:nth-child(2) a {
+	background: #f09056 url("../images/xiaoquwuye.png") 0.55rem -8.85rem no-repeat;
+	background-size: 16rem;
+}
+.main nav li:nth-child(3) a {
+	background: #a2c159 url("../images/xiaoquwuye.png") 0.53rem -12.68rem no-repeat;
+	background-size: 16rem;
+}
+.main nav li:nth-child(4) a {
+	background: #9178af url("../images/xiaoquwuye.png") 0.5rem -15.85rem no-repeat;
+	background-size: 16rem;
+}
+.main nav li:nth-child(5) a {
+	background: #49a7da url("../images/xiaoquwuye.png") 0.5rem -18.55rem no-repeat;
+	background-size: 16rem;
+}
+.main nav li:nth-child(6) a {
+	background: #56bc8a url("../images/xiaoquwuye.png") 0.4rem -21.63rem no-repeat;
+	background-size: 16rem;
+}
+.main nav li:nth-child(7) a {
+	background: #d179ad url("../images/xiaoquwuye.png") 0.45rem -24.75rem no-repeat;
+	background-size: 16rem;
+}
+.main section {
+	margin: 0 auto;
+	width: 14.9rem;
+	height: 5.9rem;
+	margin-top: 0.63rem;
+	border: 0.05rem solid #cfcfcf;
+	border-radius: 0.1rem;
+	background: #fff;
+}
+.left {
+	position: relative;
+	float: left;
+	width: 4.95rem;
+	height: 5.9rem;
+}
+.main section:nth-child(2) .left {
+	background: url("../images/xiaoquwuye.png") 1.2rem -38.63rem no-repeat;
+	background-size: 16rem;
+}
+.main section:nth-child(3) .left {
+	background: url("../images/xiaoquwuye.png") 0.6rem -44.75rem no-repeat;
+	background-size: 16rem;
+}
+.main section:nth-child(4) .left {
+	background: url("../images/xiaoquwuye.png") 1.1rem -51.17rem no-repeat;
+	background-size: 16rem;
+}
+.main section:nth-child(5) .left {
+	background: url("../images/xiaoquwuye.png") 0.9rem -57.4rem no-repeat;
+	background-size: 16rem;
+}
+.main section:nth-child(6) .left {
+	background: url("../images/xiaoquwuye.png") 1.07rem -63.25rem no-repeat;
+	background-size: 16rem;
+}
+.main section:nth-child(7) .left {
+	background: url("../images/xiaoquwuye.png") 0.72rem -69.1rem no-repeat;
+	background-size: 16rem;
+}
+.left-content a {
+	display: block;
+	width: 2rem;
+	height: 2.25rem;
+	padding: 0.45rem 2.5rem 0 0.45rem;
+	font-size: 0.8rem;
+}
+.main section:nth-child(2) .left-content a {
+	color: #fb9543;
+	width: 3rem;
+	height: 2.25rem;
+	padding: 0.45rem 1.5rem 0 0.45rem;
+	background-size: 16rem;
+}
+.main section:nth-child(2) .left-content a span {
+	display: block;
+	float: right;
+	width: 1rem;
+	height: 1.05rem;
+	background: url("../images/xiaoquwuye.png") -0.8rem -28.3rem no-repeat;
+	background-size: 16rem;
+}
+.main section:nth-child(3) .left-content a {
+	color: #87be31;
+	background: url("../images/xiaoquwuye.png") 1.63rem -29.68rem no-repeat;
+	background-size: 16rem;
+}
+.main section:nth-child(4) .left-content a {
+	color: #e79493;
+	background: url("../images/xiaoquwuye.png") -4.88rem -30.55rem no-repeat;
+	background-size: 16rem;
+}
+.main section:nth-child(5) .left-content a {
+	color: #94b9df;
+	background: url("../images/xiaoquwuye.png") 1.68rem -32.27rem no-repeat;
+	background-size: 16rem;
+}
+.main section:nth-child(6) .left-content a {
+	color: #9aa0c3;
+	background: url("../images/xiaoquwuye.png") -4.75rem -34.45rem no-repeat;
+	background-size: 16rem;
+}
+.main section:nth-child(7) .left-content a {
+	color: #ebb875;
+	background: url("../images/xiaoquwuye.png") 1.82rem -37.15rem no-repeat;
+	background-size: 16rem;
+}
+.left-icon {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 3.3rem;
+	height: 1.1rem;
+}
+.left-icon a {
+	display: block;
+	float: left;
+	width: 0.75rem;
+	height: 0.75rem;
+	padding: 0.17rem;
+}
+.left-icon a span {
+	display: block;
+	width: 0.75rem;
+	height: 0.75rem;
+	border-radius: 0.38rem;
+	font-size: 0.55rem;
+	color: #fff;
+	line-height: 0.75rem;
+	text-align: center;
+}
+.left-icon a:nth-child(1) span {
+	background: #ffad63;
+}
+.left-icon a:nth-child(2) span {
+	background: #ff7f7f;
+}
+.left-icon a:nth-child(3) span {
+	background: #85e89a;
+}
+.main section:nth-child(2) .left-icon a:nth-child(3) span {
+	background: rgba(0,0,0,0);
+}
+.main section:nth-child(3) .left-icon a:nth-child(2) span {
+	background: rgba(0,0,0,0);
+}
+.main section:nth-child(3) .left-icon a:nth-child(3) span {
+	background: rgba(0,0,0,0);
+}
+.right {
+	float: left;
+	overflow: hidden;
+	width: 9.95rem;
+	height: 5.9rem;
+}
+.right a {
+	display: block;
+	float: left;
+	width: 4.92rem;
+	height: 1.98rem;
+	border-left: 0.05rem solid #ececec;
+	border-top: 0.05rem solid #ececec;
+	margin-top: -0.05rem;
+	line-height: 1.98rem;
+	font-size: 0.55rem;
+	color: #414141;
+	text-align: center;
+}
+
+.wrap footer {
+	width: 100%;
+	height: 2.48rem;
+}
+
+footer li {
+	float: left;
+	width: 20%;
+	height: 2.48rem;
+}
+footer li a {
+	display: block;
+	margin: 0 auto;
+	width: 2rem;
+	height: 0.88rem;
+	padding-top: 1.6rem;
+	font-size: 0.5rem;
+	text-align: center;
+}
+footer li:nth-child(1) a {
+	background: url("../images/xiaoquwuye.png") -0.53rem -76.88rem no-repeat;
+	background-size: 16rem;
+	color: #0079ff;
+}
+footer li:nth-child(2) a {
+	background: url("../images/xiaoquwuye.png") -0.45rem -79.38rem no-repeat;
+	background-size: 16rem;
+}
+footer li:nth-child(3) {
+	position: relative;
+}
+footer li:nth-child(3) a {
+	position: absolute;
+	left: 0; 
+	right: 0;
+	bottom: 0;
+	width: 2.58rem;
+	height: 0.88rem;
+	background: url("../images/xiaoquwuye.png") -6.15rem -81.7rem no-repeat;
+	background-size: 16rem;
+	padding-top: 2.5rem;
+}
+footer li:nth-child(4) a {
+	background: url("../images/xiaoquwuye.png") -0.63rem -85rem no-repeat;
+	background-size: 16rem;
+}
+footer li:nth-child(5) a {
+	background: url("../images/xiaoquwuye.png") -0.42rem -87.92rem no-repeat;
+	background-size: 16rem;
+}

@@ -1,0 +1,355 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<script src="../js/jquery-1.11.3.min.js" charset="utf-8" type="text/javascript"></script>
+	<style>
+		.wrap {
+			margin: 0 auto;
+			width: 1000px;
+		}
+		.aside {
+			float: left;
+			width: 50px;
+			height: 495px;
+			padding-top: 25px;
+		}
+		.aside li {
+			width: 30px;
+			height: 128px;
+			background: #cdd3fb;
+			margin-bottom: 5px;
+			font-size: 24px;
+			padding: 25px 10px 0;
+			text-align: center;
+			border-radius: 5px 0 0 5px / 5px 0 0 5px;
+		    opacity: 0.8;
+		}
+		.main {
+			float: left;
+			width: 892px;
+			height: 494px;
+			padding: 13px;
+			background: #c5cdf9;
+			border-radius: 10px;
+		}
+		.left {
+			overflow: hidden;
+			float: left;
+			width: 401px;
+			height: 483px;
+			padding-top: 10px;
+			background: #eef1ff;
+			border-radius: 10px;
+		}
+		.choseArea {
+			width: 401px;
+			height: 350px;
+			padding-left: 5px;
+		}
+		.choseArea div,
+		.choseResultArea div,
+		.lotteryResult div {
+			float: left;
+			width: 48px;
+			height: 48px;
+			margin: 11px 3px;
+			border-radius: 50%;
+			background: #fff;
+			cursor: pointer;
+			box-shadow: 0px 0px 26px 14px rgba(169, 184, 251, 0.8) inset;
+			line-height: 48px;
+			text-align: center;
+		}
+		.choseArea div:hover {
+			box-shadow: 0px 0px 26px 14px rgba(48, 82, 251, 0.8) inset;
+		}
+		.amount {
+			width: 321px;
+			height: 60px;
+			line-height: 70px;
+			padding: 10px 0 0 80px;
+		}
+		.amount span:nth-child(1) {
+			float: left;
+			display: block;
+			width: 100px;
+			height: 43px;
+			line-height: 43px;
+			font-size: 18px;
+			color: #6780ff;
+		}
+		.amount span:nth-child(2) {
+			float: left;
+			display: block;
+			width: 100px;
+			height: 43px;
+			line-height: 43px;
+			border: 1px solid #6780ff;
+			border-radius: 5px;
+			color: #6780ff;
+			font-size: 18px;
+			text-align: center;
+		}
+		.buttonArea {
+			width: 341px;
+			height: 50px;
+			padding: 5px 0 0 60px;
+		}
+		.buttonArea input {
+			float: left;
+			display: block;
+			width: 109px;
+			height: 41px;
+			background: #398edf;
+			border: 0;
+			border-radius: 5px;
+			cursor: pointer;
+			color: #fff;
+			margin-right: 20px;
+		}
+		.right {
+			overflow: hidden;
+			float: left;
+			width: 465px;
+			height: 493px;
+			margin-left: 20px;
+		}
+		.choseResult {
+			width: 451px;
+			height: 137px;
+			background: #eef1ff;
+			border-radius: 10px;
+			padding: 16px 0 0 14px;
+		}
+		.choseResult p,
+		.lottery p {
+			font-size: 18px;
+			color: #6780ff;
+		}
+		.choseResultArea {
+			margin-top: 20px;
+			width: 411px;
+			height: 70px;
+			padding-left: 40px;
+		}
+		.choseResultArea div {
+			box-shadow: 0px 0px 26px 14px rgba(48, 82, 251, 0.8) inset;
+		}
+		.right input {
+			margin: 22px auto;
+			display: block;
+			width: 109px;
+			height: 41px;
+			background: #f74f4f;
+			border: 0;
+			border-radius: 5px;
+			cursor: pointer;
+			color: #fff;
+		}
+		.lottery {
+			width: 451px;
+			height: 235px;
+			background: #eef1ff;
+			margin-top: 25px;
+			padding: 16px 0 0 14px;
+			border-radius: 10px;
+		}
+		.lotteryResult {
+			width: 411px;
+			height: 70px;
+			padding-left: 40px;
+		}
+		.lotteryResult div {
+			box-shadow: 0px 0px 26px 14px rgba(255, 109, 109, 0.8) inset;
+		}
+		.info {
+			width: 100%;
+			height: 100px;
+		}
+		.info p {
+			font-size: 26px;
+			font-weight: bold;
+			color: #f00;
+			text-align: center;
+		}
+		.choseArea .selected {
+			box-shadow: 0px 0px 26px 14px rgba(48, 82, 251, 0.8) inset;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap clearfix">
+		<div class="aside">
+			<ul>
+				<li>33选7</li>
+				<li>33选7</li>
+				<li>33选7</li>
+			</ul>
+		</div>
+		<div class="main">
+			<form action="">
+				<div class="left">
+					<div class="choseArea"></div>
+					<div class="amount ">
+						<span>投注注数: </span>
+						<span>100注</span>
+					</div>
+					<div class="buttonArea">
+						<input type="button" value="随机选号" id="choseButton">
+						<input type="button" value="重新选号" id="resetButton">
+					</div>
+				</div>
+				<div class="right">
+					<div class="choseResult">
+						<p>选号结果：</p>
+						<div class="choseResultArea">	
+						</div>
+					</div>
+					<input type="button" value="开奖" id="lotteryButton">
+					<div class="lottery">
+						<p>开奖结果：</p>
+						<div class="lotteryResult"></div>
+						<p>开奖信息：</p>
+						<div class="info">
+							<p></p>
+							<p></p>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script>
+		var arr = [];
+		var index = -1;
+		var flag = true;
+		var lotteryFlag = false;
+
+		for (var i = 0; i < 33; i++) {
+			$(".choseArea").append("<div>" + (i + 1) + "</div>")
+		};
+
+		for (var i = 0; i < 7; i++) {
+			$(".choseResultArea, .lotteryResult").append("<div></div>")
+		};
+
+		
+		// 随机选号按钮点击事件
+		$("#choseButton").on("click", function(){
+			$(".choseArea div").removeClass("selected");
+
+			// 选取7个随机数
+			getRandom(arr);
+
+			// 给"选号结果"里面的球赋值并排序，并且让选项区里面被选中的球变颜色
+			for (var i = 0; i < 7; i++) {
+				$(".choseResultArea div").eq(i).html(arr[i]);
+				for (var j = 0; j < 33; j++) {
+					if(arr[i] == $(".choseArea div").eq(j).text()) {
+						$(".choseArea div").eq(j).addClass("selected");
+					}
+				};
+			};
+
+			flag = false;
+			lotteryFlag = true;
+		})
+
+		// 重新选号重置按钮点击事件
+		$("#resetButton").on("click", function(){
+			$(".choseArea div").removeClass("selected")
+			for (var i = 0; i < 7; i++) {
+				$(".choseResultArea div").eq(i).html("");
+				$(".lotteryResult div").eq(i).html("");
+			}
+			index = -1;
+			flag = true;
+			arr = [];
+			lotteryFlag = false;
+		})
+
+		// 点击彩色球来选号事件
+		$(".choseArea div").on("click", function(){	
+			if(flag) {
+				if(!($(this).hasClass("selected"))) {
+					index++;
+					if(index >= 6) {
+						flag = false;
+						lotteryFlag = true;
+					}
+					$(this).addClass("selected");	
+					arr[index] = $(this).html();
+					arr.sort(numberOrder)
+					// 给"选号结果"里面的球赋值并排序
+					for (var i = 0; i < arr.length; i++) {
+						$(".choseResultArea div").eq(i).html(arr[i]);
+					};
+				}
+			} else {
+				alert("已经选7个了，不能再选了");
+			}
+			
+		})
+
+		$("#lotteryButton").on("click", function() {
+			if(lotteryFlag) {
+				// 选取7个随机数
+				getRandom(arr);
+
+				// 给"开奖结果"里面的球赋值并排序
+				for (var i = 0; i < 7; i++) {
+					$(".lotteryResult div").eq(i).html(arr[i]);
+				};
+
+				// 获取中奖号码个数
+				var lotteryIndex = 0;
+				for (var i = 0; i < 7; i++) {
+					for (var j = 0; j < 7; j++) {
+						if($(".choseResultArea div").eq(i).html() == $(".lotteryResult div").eq(j).html()) {
+							lotteryIndex++;
+						}
+					};
+				};
+				var lotteryInfoOne = "恭喜您中了" + lotteryIndex + "个号码";
+				var lotteryInfoTwo = "但可惜没中奖";
+				switch (lotteryIndex) {
+					case 5: lotteryInfoTwo = "恭喜您中了三等奖"; break;
+					case 6: lotteryInfoTwo = "恭喜您中了二等奖"; break;
+					case 7: lotteryInfoTwo = "恭喜您中了一等奖"; break;
+				}
+				$(".info p").eq(0).html(lotteryInfoOne);
+				$(".info p").eq(1).html(lotteryInfoTwo);	
+			} else {
+				alert("请先投注选号再开奖，谢谢！");
+			}
+		})
+
+		/**
+		 * // 选取7个不能相等随机数，并给这7个随机数排序
+		 * 
+		 */
+		function getRandom(arr) {
+			for(var i = 0; i < 7; i++) {
+				arr[i] = Math.floor(Math.random() * 33 + 1);
+				// 判断这7个随机数不能重复
+				for (var j = 0; j < i; j++) {
+					if(arr[j] == arr[i]) {
+						arr[i] = null;
+						i--;
+					}
+				};
+			}
+			arr.sort(numberOrder)
+		}
+
+		function numberOrder(a, b) {
+			return a - b;
+		}
+
+		
+	</script>
+</body>
+</html>

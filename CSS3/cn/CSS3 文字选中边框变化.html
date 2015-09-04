@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<script src="../js/jquery-1.11.3.min.js" charset="utf-8" type="text/javascript"></script>
+	<style>
+		.wrap {
+			margin: 0 auto;
+			width: 360px;
+			height: 560px;
+			background: #2d3c51;
+			padding-top: 10px;
+		}
+		.main {
+			position: relative;
+			margin: 0 auto;
+			width: 300px;
+			height: 500px;
+			padding: 10px;
+			background: #2d3c51;
+			/*background: #888;*/
+			cursor: pointer;
+
+			-webkit-transform-style: preserve-3d;
+		}
+
+		.centerCover {
+			width: 300px;
+			height: 500px;
+			background: #2d3c51;
+			line-height: 500px;
+			font-size: 50px;
+			text-align: center;
+			color: #fff;
+
+			-webkit-transform: translateZ(50px);
+		}
+		.top {
+			position: absolute;
+			left: 0;
+			top: 0;
+			background: #fff;
+			width: 100%;
+			height: 1px;
+		}
+		
+		.right {
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 1px;
+			height: 100%;
+			background: #fff;
+		}
+		.bottom {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			background: #fff;
+			width: 100%;
+			height: 1px;
+		}
+		.left {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 1px;
+			height: 100%;
+			background: #fff;
+		}
+
+		@-webkit-keyframes hover_TopBottom {
+			0% {
+				width: 100%;
+				height: 1px;
+			}
+			70% {
+				width: 30%;
+				height: 10px;
+			}
+			100% {
+				width: 50px;
+				height: 50px;
+			}
+		}
+		@-webkit-keyframes out_TopBottom {
+			0% {
+				width: 50px;
+				height: 50px;
+			}
+			30% {
+				width: 30%;
+				height: 10px;
+			}
+			100% {
+				width: 100%;
+				height: 1px;
+			}
+		}
+		@-webkit-keyframes hover_LeftRight {
+			0% {
+				width: 1px;
+				height: 100%;
+			}
+			70% {
+				width: 10px;
+				height: 30%;
+			}
+			100% {
+				width: 50px;
+				height: 50px;
+			}
+		}
+		@-webkit-keyframes out_LeftRight {
+			0% {
+				width: 50px;
+				height: 50px;
+			}
+			30% {
+				width: 10px;
+				height: 30%;
+			}
+			100% {
+				width: 1px;
+				height: 100%;
+			}
+		}
+
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="main">
+			<div class="centerCover">
+				西门飞机
+			</div>
+			<div class="top"></div>
+			<div class="right"></div>
+			<div class="bottom"></div>
+			<div class="left"></div>
+		</div>
+	</div>
+	<script>
+		$(".main").on("mouseenter", function(){
+			$(".top, .bottom").css({
+				"animation": "hover_TopBottom 500ms linear",
+				"width": "50px",
+				"height": "50px"
+			})
+			$(".left, .right").css({
+				"animation": "hover_LeftRight 500ms linear",
+				"width": "50px",
+				"height": "50px"
+			})
+		})
+		$(".main").on("mouseleave", function(){
+			$(".top, .bottom").css({
+				"animation": "out_TopBottom 500ms linear",
+				"width": "100%",
+				"height": "1px"
+			})
+			$(".left, .right").css({
+				"animation": "out_LeftRight 500ms linear",
+				"width": "1px",
+				"height": "100%"
+			})
+		})
+
+		
+	</script>
+</body>
+</html>

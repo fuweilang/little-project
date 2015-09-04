@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<script src="../js/jquery-1.11.3.min.js" charset="utf-8" type="text/javascript"></script>
+	<style>
+		.wrap {
+			margin: 10px auto;
+			width: 250px;
+			height: 50px;
+			padding: 0 20px;
+			background-color: #888;
+			border-radius: 10px;
+		}
+		.wrap span {
+			float: left;
+			width: 50px;
+			height: 50px;
+			font-size: 30px;
+			text-align: center;
+			line-height: 50px;
+			color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
+	<script>
+		// 获取标签
+		// 计时器来触发函数
+		// 读取系统的当前时间，修改标签里面的内容
+		var spanArr = $('.wrap span');
+		var flag = true;
+		function showTime() {
+			var time = new Date();
+			spanArr.eq(0).text(time.getHours());
+			spanArr.eq(2).text(time.getMinutes());
+			spanArr.eq(4).text(time.getSeconds());
+			if(flag) {
+				spanArr.eq(1).text(':');
+				spanArr.eq(3).text(':');
+				flag = false;
+			} else {
+				spanArr.eq(1).text('');
+				spanArr.eq(3).text('');
+				flag = true;
+			}
+		}
+		setInterval(showTime, 1000);
+	</script>
+</body>
+</html>

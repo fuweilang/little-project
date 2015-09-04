@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+		.wrap {
+			margin: 0 auto;
+			width: 400px;
+			height: 400px;
+			padding: 100px;
+			background: #000;
+		}
+		.main {
+			position: relative;
+			width: 400px;
+			height: 400px;
+
+			-webkit-transform-style: preserve-3d;
+			-moz-transform-style: preserve-3d;
+			-ms-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+		}
+		.ripple-one {
+			position: absolute;
+			left: 100px;
+			top: 100px;
+			width: 196px;
+			height: 196px;
+			border: 2px solid #794617;
+			border-radius: 50%;
+
+			-webkit-animation: changeCircle 2s linear infinite;
+		}
+		.ripple-two {
+			position: absolute;
+			left: 100px;
+			top: 100px;
+			width: 196px;
+			height: 196px;
+			border: 2px solid #794617;
+			border-radius: 50%;
+			/*background: #f8f;*/
+			
+			-webkit-animation: changeCircle 2s linear 1s infinite;
+		}
+		.con {
+			position: absolute;
+			left: 100px;
+			top: 100px;
+			width: 196px;
+			height: 196px;
+			border: 2px solid #794617;
+			border-top: 2px solid #bb9e04;
+			border-radius: 50%;
+			line-height: 200px;
+			font-size: 20px;
+			text-align: center;
+			color: #fff;
+			-webkit-animation: changeCon 2s linear infinite;
+		}
+
+		@-webkit-keyframes changeCircle {
+			0% {
+				-webkit-transform: scale(1, 1)
+			}
+			100% {
+				-webkit-transform: scale(2, 2)
+			}
+		}
+
+		@-webkit-keyframes changeCon {
+			0% {
+				-webkit-transform: rotateZ(0);
+				opacity: 1;
+			}
+			50% {
+				opacity: 0.6;
+			}
+			100% {
+				-webkit-transform: rotateZ(360deg);
+				opacity: 1;
+			}
+		}
+
+		.main span {
+			display: block;
+			position: absolute;
+			left: 102px;
+			top: 102px;
+			width: 196px;
+			height: 196px;
+			border-radius: 50%;
+			line-height: 200px;
+			font-size: 20px;
+			text-align: center;
+			color: #fff;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="main">
+			<div class="ripple-one"></div>
+			<div class="ripple-two"></div>
+			<div class="con">
+			</div>
+			<span>HTML5-CSS3呼吸灯</span>
+		</div>
+	</div>
+	<script></script>
+</body>
+</html>

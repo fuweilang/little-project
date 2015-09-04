@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>HTML5学堂</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+		.outer {
+			position: relative;
+			margin: 10px auto;
+			width: 700px;
+			height: 500px;
+			border: 2px solid black;
+		}
+		.inner {
+			position: absolute;
+			width: 50px;
+			height: 50px;
+			background: #f8f;
+			border-radius: 25px;
+			box-shadow: rgba(255, 255, 0, 0.6);
+		}
+	</style>
+</head>
+<body>
+	<div class="outer" id="outer">
+		<div class="inner" id="inner"></div>
+	</div>
+	<script>
+		// 获取标签
+		var outerBox = document.getElementById("outer");
+		var innerBox = document.getElementById("inner");
+		var posX = 0;
+		var posY = 0;
+		var timer = null;
+		var moveX = true; // true代表是向右运动, false代表向左运动
+		var moveY = true; // true代表是向下运动, false代表向上运动
+
+		/*
+		 * 定义小球碰壁的执行函数
+		 *
+		 */
+		function move() {
+			// 水平方向
+			if (moveX) {
+				posX++;
+				// 父级的宽度 - 子级的宽度（包含边框，该效果没有边框）
+				if (posX >= outerBox.clientWidth - innerBox.offsetWidth) {
+					// 向左运动
+					moveX = false;
+				} 
+			} else {
+				posX--;
+				if(posX <= 0) {
+					// 向右运动
+					moveX = true;
+				}
+			}
+
+			// 垂直方向
+			if (moveY) {
+				posY++;
+				// 父级的高度 - 子级的高度（包含边框，该效果没有边框）
+				if (posY >= outerBox.clientHeight - innerBox.offsetHeight) {
+					// 向下运动
+					moveY = false;
+				} 
+			} else {
+				posY--;
+				if(posY <= 0) {
+					// 向上运动
+					moveY = true;
+				}
+			}
+
+			// 控制标签的样式
+			innerBox.style.left = posX + "px";
+			innerBox.style.top = posY + "px";
+
+		} 
+
+		// 为move函数创建计时器，并执行move函数
+		timer = setInterval(move, 8);
+
+	</script>
+</body>
+</html>

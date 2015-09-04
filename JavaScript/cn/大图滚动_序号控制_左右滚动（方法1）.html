@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+		.wrap {
+			margin: 10px auto;
+			width: 280px;
+		}
+		.outer {
+			margin: 0 auto;
+			overflow: hidden;
+			width: 200px;
+		}
+		.inner {
+			width: 1000px;
+			height: 310px;
+		}
+		.inner img {
+			float: left;
+			width: 200px;
+			height: 310px;
+		}
+		.list {
+			width: 280px;
+			height: 30px;
+		}
+		.list li {
+			float: left;
+			width: 40px;
+			height: 30px;
+			text-align: center;
+			line-height: 30px;
+		}
+		.list li:hover {
+			cursor: pointer;
+			background: #f8f;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap clearfix">
+		<div class="outer" id="outerBox">
+			<div class="inner" id="innerBox">
+				<img src="../images/(1).jpg" alt="" title="1">
+				<img src="../images/(2).jpg" alt="" title="2">
+				<img src="../images/(3).jpg" alt="" title="3">
+				<img src="../images/(4).jpg" alt="" title="4">
+				<img src="../images/(5).jpg" alt="" title="5">
+			</div>
+		</div>
+		<div class="list" id="btn">
+			<ul>
+				<li><--</li>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>--></li>
+			</ul>
+		</div>
+	</div>
+	<script>
+		var outer = document.getElementById("outerBox");
+		var inner = document.getElementById("innerBox");
+		var btns = document.getElementById("btn");
+		var getLi = btns.getElementsByTagName("li");
+		var timer;
+		var timerTwo;
+		var index = 0;
+
+		/*
+		 * [startmove 根据传递过来的参数，确定图片最终滑动到什么位置]
+		 * @endpos  {[number]} [outerBox要滚到的最后位置，也就是outerBox的scroll的最后值]
+		 * @return {[type]}        [description]
+		 */
+		function changeScrollLeft(endpos) {
+			var startpos = outer.scrollLeft;
+			var distance;
+			var speed;
+
+			if(timer) {
+				clearInterval(timer);
+			}
+			timer = setInterval(move, 16);
+			function move() {
+				distance = endpos - startpos;
+				speed = distance / 10;
+				speed = (speed > 0) ? Math.ceil(speed) : Math.floor(speed);
+				startpos += speed;
+				if(Math.abs(distance) < 6) {
+					startpos = endpos;
+					clearInterval(timer);
+					timer = null;
+				}
+				outer.scrollLeft = startpos;
+			}
+		};
+
+		/*
+		 * 实现大图滚动
+		 * @return {[type]} [description]
+		 */
+		function startmove() {
+			index++;
+			if(index == 5) {
+				index = 0;
+			}
+			changeScrollLeft(index * 200);
+		}
+		if(timerTwo) {
+			clearInterval(timerTwo);
+		}
+		timerTwo = setInterval(startmove, 2000);
+
+		/*
+		 * 给对象绑定点击事件或其他事件的函数；选择是IE事件绑定，还是火狐、谷歌事件绑定。
+		 * @obj = 需要绑定事件的对象， @event = 需要绑定的事件类型, @fn = obj要调用的函数
+		 */
+		function addEvent(obj, eventMode, fn) {
+			if(obj.addEventListener) {
+				obj.addEventListener(eventMode, fn, false);
+			} else {
+				obj.attachEvent("on" + eventMode, fn);
+			}
+		}		
+
+		// 根据索引更换图片
+		var len = getLi.length;
+		for (var i = 1; i < len - 1; i++) {
+			addEvent(getLi[i], "click", imgIndex);
+		};
+		
+		/*
+		 * 根据索引更换图片的函数
+		 * @e 事件目标对象
+		 */
+		function imgIndex(e) {
+			var liIndex;  
+			// 事件目标对象委托
+			if (e.target) {
+				liIndex = parseInt(e.target.innerHTML); 	//兼容火狐、谷歌浏览器
+			} else {
+				liIndex = parseInt(e.srcElement.innerHTML); //兼容IE浏览器
+			}
+			clearInterval(timerTwo);
+			index = liIndex - 1;
+			changeScrollLeft(index * 200);
+			timerTwo = setInterval(startmove, 2000);
+		}
+
+		//点击左键，图片转到前一张
+		addEvent(getLi[0], "click", preImg);
+
+		/*
+		 * 点击左键，图片转到前一个的函数
+		 * 
+		 */
+		function preImg() {
+			if(timer) {
+				return;
+			}
+			index--;
+			if(index == -1) {
+				index = 4;
+			}
+			clearInterval(timerTwo);
+			changeScrollLeft(index * 200);
+			timerTwo = setInterval(startmove, 2000);
+		}
+
+		// 点击右键，图片转到下一张
+		addEvent(getLi[6], "click", nextImg);
+
+		/*
+		 * 点击左键，图片转到前一个的函数
+		 * 
+		 */
+		function nextImg() {
+			if(timer) {
+				return;
+			}
+			clearInterval(timerTwo);
+			startmove();
+			timerTwo = setInterval(startmove, 2000);
+		}
+	</script>
+</body>
+</html>

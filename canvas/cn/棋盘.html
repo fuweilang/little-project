@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+		.wrap {
+			margin: 5px auto;
+			width: 800px;
+			height: 800px;
+		}
+		.wrap canvas {
+			/*background: #888;*/
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<canvas class="canvas-con" width="800" height="800">
+		</canvas>
+	</div>
+	<script>
+		var getConvas= $(".canvas-con")[0];
+		var getCon = getConvas.getContext("2d");
+
+		getCon.beginPath();
+		// getCon.lineWidth = "1"
+		getCon.strokeStyle = "#ed61d1";
+		for (var i = 0; i < 31; i++) {
+			getCon.moveTo(0, i * 20);
+			getCon.lineTo(600, i * 20);
+			getCon.stroke();
+		};
+		getCon.closePath();
+
+		getCon.beginPath();
+		// getCon.lineWidth = "2";
+		getCon.strokeStyle = "#1fa7a2";
+		for (var i = 0; i < 31; i++) {
+			getCon.moveTo(i * 20, 0);
+			getCon.lineTo(i * 20, 600);
+			getCon.stroke();
+		};
+		getCon.closePath();
+
+	</script>
+</body>
+</html>

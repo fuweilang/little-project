@@ -1,0 +1,121 @@
+
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<script src="../js/jquery-1.11.3.min.js" charset="utf-8" type="text/javascript"></script>
+	<style>
+		.wrap {
+			overflow: hidden;
+			position: relative;
+			margin: 10px auto;
+			width: 700px;
+			height: 315px;
+			border: 1px solid #000;
+		}
+		.con {
+			overflow: hidden;
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			height: 315px;
+		}
+		.con ul {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			height: 185px;
+		}
+		.con li {
+			position: relative;
+			float: left;
+			overflow: hidden;
+			width: 100px;
+			height: 180px;
+			margin-right: 10px;
+			padding: 0 5px 5px 5px;
+		}
+		.con li h2 {
+			overflow: hidden;
+			width: 100%;
+			height: 32px;
+			line-height: 32px;
+			font-size: 14px;
+			text-align: center;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			font-weight: bold;
+		}
+		.con li p {
+			font-size: 12px;
+			line-height: 19px;
+		}
+		.con li:nth-child(1) {
+			background: #fccfd4;
+		}
+		.con li:nth-child(2) {
+			background: #d6ffd5;
+		}
+		.con li:nth-child(3) {
+			background: #d4d1fc;
+		}
+		.con li:nth-child(4){
+			background: #d5d5d5;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="con">
+			<ul>
+				<li>
+					<h2>厚积薄发</h2>
+					<p>&nbsp;&nbsp;会议确定，集中用半年时间开展专项行动，在全国全面清理涉企行政事业性收费和政府性基金，涉及行政审批前置、市场监管和准入等具有强制垄断性的经营服务性收费，行业协会商会涉企收费等，通过简政放权、放管结合、转变政府职能，立规矩、建机制，用依法、规范、透明的管理制度扼制“任性”收费，挖掉乱收费的“病根”。一是对去年中央和地方政府确定取消、停征和减免的600多项收费规定进行自查、督查，必须落实到位，不得以任何理由拖延或拒绝执行，不得变换名目继续收取，尤其要落实好对小微企业、服务业、保障性住房、高校毕业生就业等减免收费基金的政策。</p>
+				</li>
+				<li>
+					<h2>无独有偶</h2>
+					<p>&nbsp;&nbsp;无独有偶。几年前，湖北某大学的一个班级出台了“盯人”管理办法，每名学生的一言一行都会有一名“神秘同学”在暗中盯梢。班主任说，开展这项活动是为了加强学生间的友谊和互动，也是为了加强学风、班风建设。这样的“温情关怀”，简直让人不寒而栗。</p>
+				</li>
+				<li>
+					<h2>三大经典会议</h2>
+					<p>&nbsp;&nbsp;会议决定，为降低企业成本、稳定市场预期、促进经济增长、有扶有控调整产业结构，适当下调燃煤发电上网电价和工商业用电价格。一是按照煤电价格联动机制，下调全国燃煤发电上网电价平均每千瓦时约2分钱。二是实行商业用电与工业用电同价，将全国工商业用电价格平均每千瓦时下调约1.8分钱，减轻企业电费负担。</p>
+				</li>
+				<li>
+					<h2>厚积薄发</h2>
+					<p>&nbsp;&nbsp;这次拍摄的惊喜，无疑不是有“小王菲”之称的张昊玥，在这次硬照拍摄中，她大胆的演绎泳装新娘LOOK，诠释反叛少女的不羁。KIKI康倩雯这次的装扮，一出场，便被大家惊呼“太像玛丽莲梦露了！”，性感的眼神，完美的曲线，逆光行走的优雅，仿佛置身于电影的画面中。用摩托车载着新娘，这一颠覆性的尝试，被任睿轻松掌控。机车与新娘的搭配，刚与柔的完美结合，展现一种凌驾一切的气势，一股甄嬛出宫的气场扑面而来。</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<script>
+		$(".con li").on("mouseenter", function(){
+			var index = $(this).index();
+			if(index == 0) {
+				$(this).parents(".con")[0].style.left = "130px";
+				$(this).parents(".con")[0].style.width = "590px";
+			} else if(index == 1) {
+				$(this).parents(".con")[0].style.left = "90px";
+			} else if(index == 2) {
+				$(this).parents(".con")[0].style.left = "50px";
+			} else if(index == 3) {
+				$(this).parents(".con")[0].style.left = "0";
+			}
+			$(this).stop(true, true).animate({
+				"width" : "200px",
+				"height" : "310px",
+				"bottom" : "130px"
+			})
+		})
+
+		$(".con li").on("mouseleave", function(){
+			$(this).stop(true, true).animate({
+				"width" : "100px",
+				"height" : "180px",
+				"bottom" : "0"
+			})
+		})
+	</script>
+</body>
+</html>

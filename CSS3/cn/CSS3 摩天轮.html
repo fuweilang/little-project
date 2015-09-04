@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<script src="../js/jquery-1.11.3.min.js" charset="utf-8" type="text/javascript"></script>
+	<style>
+		.wrap {
+			margin: 0 auto;
+			width: 1200px;
+			height: 650px;
+			background: url("../images/2.jpg");
+			padding-top: 30px;
+		}
+		@-webkit-keyframes Clockwise {
+			from {
+				-webkit-transform: rotateZ(0deg) translateZ(50px);
+			}
+			to {
+				-webkit-transform: rotateZ(360deg) translateZ(50px);
+			}
+		}
+		.main {
+			position: relative;
+			width: 600px;
+			height: 100%;
+			margin: 0 auto;
+
+			-webkit-transform-style: preserve-3d;
+		}
+		.main div {
+			position: absolute;
+		}
+		.main div:nth-child(1) {
+			top: 276px;
+			left: 183px;
+			width: 172.9px;
+			height: 351.5px;
+			background: url("../images/bracketsmall.png");
+			opacity: 0.6;
+		}
+		.ferrisWheel {
+			width: 540px;
+			height: 540px;
+			background: url("../images/fsw.png");
+			
+			-webkit-transform-style: preserve-3d;
+			-webkit-transform: translateZ(50px);
+			-webkit-animation: Clockwise 5s linear infinite;
+		}
+		.main div:nth-child(3) {
+			top: 275px;
+			left: 142px;
+			width: 250.6px;
+			height: 369.3px;
+			background: url("../images/bracket.png");
+		}
+		
+		.main div:nth-child(4) {
+			top: 177px;
+			left: 77px;
+			width: 403.9px;
+			height: 179.9px;
+			background: url("../images/big-title.png");
+		}
+		.main div:nth-child(5) {
+			top: 321px;
+			left: 145px;
+			width: 289.1px;
+			height: 97.3px;
+			background: url("../images/title.png");
+		}
+		.main div:nth-child(6) {
+			top: 379px;
+			left: 266px;
+			width: 33.6px;
+			height: 44.8px;
+			background: url("../images/arrow.png");
+		}
+		.main div:nth-child(7) {
+			top: 0px;
+			left: 266px;
+			background: url("../images/boy.png");
+		}
+		.ferrisWheel span {
+			position: absolute;
+			display: block;
+			width: 91px;
+			height: 119px;
+		}
+		.ferrisWheel span:nth-child(1) {
+			left: 231px;
+			top: 20px;
+			background: url("../images/boy.png");	
+		}
+		.ferrisWheel span:nth-child(2) {
+			left: 403px;
+			top: 93px;
+			background: url("../images/dog.png");	
+		}
+		.ferrisWheel span:nth-child(3) {
+			left: 477px;
+			top: 266px;
+			background: url("../images/girl.png");	
+		}
+		.ferrisWheel span:nth-child(4) {
+			left: 407px;
+			top: 438px;
+			background: url("../images/girls.png");	
+		}
+		.ferrisWheel span:nth-child(5) {
+			left: 230px;
+			top: 517px;
+			background: url("../images/hairboy.png");	
+		}
+		.ferrisWheel span:nth-child(6) {
+			left: 50px;
+			top: 447px;
+			background: url("../images/mimi.png");	
+		}
+		.ferrisWheel span:nth-child(7) {
+			left: -20px;
+			top: 271px;
+			background: url("../images/mudog.png");	
+		}
+		.ferrisWheel span:nth-child(8) {
+			left: 53px;
+			top: 93px;
+			background: url("../images/shamegirl.png");	
+		}
+
+		@-webkit-keyframes changeSpan {
+			from {
+				-webkit-transform: rotateZ(0deg);
+			}
+			to {
+				-webkit-transform: rotateZ(-360deg);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="main">
+			<div></div>
+			<div class="ferrisWheel">
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</div>
+	<script>
+		var len = $(".main div").length
+		for (var i = 0; i < len; i++) {
+			$(".main div").eq(i).css({
+				"backgroundSize": "contain"
+			})
+		};
+		for (var i = 3; i < len; i++) {
+			$(".main div").eq(i).css({
+				"transform": "translateZ(100px)"
+			})
+		};
+
+		var spanLen = $(".ferrisWheel span").length;
+		for(var i = 0; i < spanLen; i++) {
+			$(".ferrisWheel span").eq(i).css({
+				"backgroundSize": "contain",
+				"transformOrigin": "50% 0px",
+				"animation": "changeSpan 5s linear infinite"
+			})
+		}
+	</script>
+</body>
+</html>

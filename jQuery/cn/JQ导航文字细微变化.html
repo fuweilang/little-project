@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<script src="../js/jquery-1.11.3.min.js" charset="utf-8" type="text/javascript"></script>
+	<style>
+		.wrap {
+			margin: 10px auto;
+			width: 800px;
+			height: 200px;
+		}
+		.list {
+			/*overflow: hidden;*/
+			width: 800px;
+			height: 200px;
+		}
+		.list ul {
+			width: 810px;
+			height: 200px;
+		}
+		.list li {
+			float: left;
+			width: 190px;
+			height: 40px;
+			margin: 0 10px 10px 0;
+			line-height: 40px;
+			/*padding-left: 10px;*/
+			
+		}
+		.list li a {
+			display: block;
+			width: 180px;
+			height: 40px;
+			padding-left: 10px;
+			background: #fbf;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="list" id="con">
+			<ul>
+				<li><a href="" title="">IE6浏览器兼容汇总</a></li>
+				<li><a href="" title="">hasLayout</a></li>
+				<li><a href="" title="">IE6横向外边距BUG</a></li>
+				<li><a href="" title="">盒模型怪异解析</a></li>
+				<li><a href="" title="">IE6浏览器兼容汇总</a></li>
+				<li><a href="" title="">hasLayout</a></li>
+				<li><a href="" title="">IE6横向外边距BUG</a></li>
+				<li><a href="" title="">盒模型怪异解析</a></li>
+				<li><a href="" title="">IE6浏览器兼容汇总</a></li>
+				<li><a href="" title="">hasLayout</a></li>
+				<li><a href="" title="">IE6横向外边距BUG</a></li>
+				<li><a href="" title="">盒模型怪异解析</a></li>
+				<li><a href="" title="">IE6浏览器兼容汇总</a></li>
+				<li><a href="" title="">hasLayout</a></li>
+				<li><a href="" title="">IE6横向外边距BUG</a></li>
+				<li><a href="" title="">盒模型怪异解析</a></li>
+			</ul>
+		</div>
+	</div>
+	<script>
+		// 鼠标滑到到其中一个li,li背景色变深，字往右飘
+		
+		
+		// 方法1：
+		/*$("#con a").on("mouseover", function(){
+			$(this).stop(true, true).animate({
+				"text-indent" : "10px"
+			})
+			this.style.background = "#f3f";
+		});
+		$("#con a").on("mouseout", function(){
+			$(this).stop(true, true).animate({
+				"text-indent" : "0px"
+			})
+			this.style.background = "#fbf";
+		});*/
+
+		// 方法2：
+		$("#con a").on({
+			"mouseover click" : function(){
+				$(this).stop(true, true).animate({
+					"text-indent" : "10px"
+				});
+				this.style.background = "#f3f";
+			},
+			"mouseout" : function(){
+				$(this).stop(true, true).animate({
+					"text-indent" : "0px"
+				});
+				this.style.background = "#fbf";
+			}
+		})
+
+		//方法三
+		/*var timer;
+		var paddingStart = 10;
+		var widthStart = 180;
+		var flag = true;
+		
+		$("#con a").on("mouseover", function(){
+			var _this = $(this).parent();
+
+			this.style.background = "#f4f";
+			if (timer) {
+				clearInterval(timer);
+			};
+			timer = setInterval(function(){
+				paddingStart += 1;
+				widthStart -= 1;
+				if(paddingStart >= 20) {
+					paddingStart = 20;
+					widthStart = 170;
+					clearInterval(timer);
+					flag = false;
+				}
+				$("#con a")[_this.index()].style.paddingLeft = paddingStart + "px";
+				$("#con a")[_this.index()].style.width = widthStart + "px";
+			}, 10);
+		})
+
+		$("#con a").on("mouseout", function(){
+			var _this = $(this).parent();
+
+			this.style.background = "#fbf";
+			if(flag) {
+				return;
+			}
+			if (timer) {
+				clearInterval(timer);
+			};
+			timer = setInterval(function(){
+				paddingStart -= 1;
+				widthStart += 1;
+				if(paddingStart <= 10) {
+					paddingStart = 10;
+					widthStart = 180;
+					clearInterval(timer);
+				}
+				$("#con a")[_this.index()].style.paddingLeft = paddingStart + "px";
+				$("#con a")[_this.index()].style.width = widthStart + "px";
+			}, 10);
+		})*/
+
+	</script>
+</body>
+</html>

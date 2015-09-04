@@ -1,0 +1,153 @@
+@charset "utf-8";
+
+/* 页面样式设置 */
+/* 整体布局 */
+.wrap {
+	width: 980px; 
+	margin: 0 auto;
+	background: #41464c;
+}
+
+/* 头部布局 */
+.header {
+	width: 980px;
+	height: 110px;
+}
+.logo {
+	width: 980px;
+	height: 66px;
+	border-top: 6px solid #003c62;
+	background: url("../images/layout.png") 0 -64px;
+}
+.logo-info {
+	padding: 15px 0 0 62px;
+}
+.logo-info h1 a {
+	font-size: 18px;
+	font-weight: bold;
+	color: #000;
+	font-family: SimSun;
+}
+.logo-info p {
+	padding-left: 2px;
+	font-size: 8px;
+	font-family: SimSun;
+}
+
+/* 导航栏布局 */
+.nav {
+	width: 892px;
+	height: 34px;
+	padding: 4px 0 0 88px;
+	background: url("../images/nav_bg.png") repeat-x;
+}
+.nav a {
+	float: left;
+	color: #fff;
+	height: 34px;
+	line-height: 34px;
+	padding: 0 16px;
+	font-size: 12px;
+}
+.nav a:hover {
+	padding: 0 15px;
+	border-left: 1px solid #c32944;
+	border-right: 1px solid #c32944;
+	background: url("../images/nav_cover.png") repeat-x;
+} 
+
+/* 页中布局 */
+.main {
+	width: 960px;
+	padding: 10px 10px;
+}
+.main-contant {
+	width: 940px;
+	min-height: 400px;
+	padding: 10px 10px;
+	background: white;
+}
+.con-title {
+	width: 940px;
+	height: 27px;
+	background: #303338;
+}
+
+/* in index logistics, crew center, storage common div */
+.com-list,
+.com-list dl{
+	margin-top: 6px;
+	width: 210px;
+	height: 215px;
+}
+.com-list dt a,
+.com-list dt img {
+	display: block;
+	width: 205px;
+	height: 135px;
+}
+.com-list dd {
+	padding: 12px 1px 0 2px;
+	font-size: 12px;
+	height: 68px;
+}
+.com-list dd p {
+	overflow: hidden;
+	height: 48px;
+	line-height: 16px;
+}
+.com-list dd a {
+	float: right;
+}
+.com-list dd a:hover {
+	color: blue;
+}
+.com-list dd a:active {
+	color: yellow;
+}
+
+/* 模块公共黑色与白色背景标题 */
+.com-black,
+.com-white {
+	height: 27px;
+	padding: 0px 14px 0 24px;
+	background: #303338 url("../images/layout.png") 8px -136px;
+	line-height: 27px;
+	color: #fff;
+	font-size: 12px;
+}
+.com-white {
+	color: #000;
+	background: #fff url("../images/layout.png") 8px -136px;
+}
+.com-black h2,
+.com-white h2 {
+	float: left;
+	font-weight: bold;
+}
+.com-black a {
+	float: right;
+	color: #fff;
+}
+.com-black a:hover {
+	color: #055;
+}
+
+
+/* 页尾布局 */
+.footer {
+	width: 960px;
+	height: 90px;
+	padding: 0px 10px 10px 10px;
+}
+.copyright {
+	width: 960px;
+	height: 63px;
+	padding-top: 27px;
+	background: #303338;
+	color: #fff;
+}
+.copyright h1 {
+	font-size: 12px;
+	text-align: center;
+}

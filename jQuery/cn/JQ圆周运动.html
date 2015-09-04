@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<script src="../js/jquery-1.11.3.min.js" charset="utf-8" type="text/javascript"></script>
+	<style>
+		.wrap {
+			position: relative;
+			width: 400px;
+			height: 400px;
+			margin: 10px 0 0 10px;
+			background: #f8f;
+		}
+		.circle {
+			position: absolute;
+			left: 50px;
+			top: 50px;
+			width: 300px;
+			height: 300px;
+			border: 1px solid #000;
+			border-radius: 150px;
+		}
+		.inner {
+			position: absolute;
+			left: 45px;
+			top: 195px;
+			width: 10px;
+			height: 10px;
+			background-color: #000;
+			border-radius: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="circle"></div>
+		<div class='inner'></div>
+	</div>
+	<script>
+		var index = 0;
+		function move() {
+			index++;
+			var posY = 150 * Math.sin(index * Math.PI / 180);
+			var posX = 150 * Math.cos(index * Math.PI / 180);
+			var topV = 200 - posY - 5;
+			var leftV = 200 - posX -5;
+			$('.inner').css({
+				"top" : topV + "px",
+				"left" : leftV + "px"
+			})
+		}
+		setInterval(move, 16);
+
+	</script>
+</body>
+</html>

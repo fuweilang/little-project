@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+		.wrap {
+			margin: 50px auto;
+			width: 60px;
+		}
+		.wrap div {
+			width: 50px;
+			height: 50px;
+			border: 1px solid #000;
+			border-radius: 25px;
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap" id="box">
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+	<script>
+		var getBox = document.getElementById("box");
+		var getDiv = getBox.getElementsByTagName("div");
+		var len = getDiv.length;
+
+		for (var i = 0; i < len; i++) {
+			getDiv[i].index = i;
+			getDiv[i].onmouseover = function() {		
+				for (var j = this.index; j < len; j++) {
+					getDiv[j].style.backgroundColor = "#f0f";
+				};
+			}
+			getDiv[i].onmouseout = function(){
+				for (var j = 0; j < len; j++) {
+					getDiv[j].style.backgroundColor = "#fff";
+				};
+			}
+		};
+
+	</script>
+</body>
+</html>

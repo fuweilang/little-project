@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>HTML5学堂</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+		.wrap {
+			width: 337px;
+			height: 350px;
+			background-size: contain;
+			margin: 10px 0 0 10px;
+		}
+		.wrap img {
+			display: block;
+			width: 337px;
+			height: 350px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap" id="main">
+		<img src="../images/1.jpg" id="imgOne">
+	</div>
+	<script>
+		var getMain = document.getElementById("main");
+		var getImg = document.getElementById("imgOne");
+		var temp = 0;
+		var timer = true;
+
+		getImg.onclick = function() {
+			if (timer) {
+				clearInterval(timer);
+			};
+			temp = 0;
+			timer = setInterval(changeBg, 100);
+		}
+
+		//没16ms换一张图片
+		function changeBg() {
+			temp += 1;
+			if (temp >= 56) {
+				clearInterval(timer);
+			};
+			getImg.setAttribute("src", "../images/" + temp + ".jpg");
+		}
+		
+	</script>
+</body>
+</html>

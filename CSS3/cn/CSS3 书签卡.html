@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<script src="../js/jquery-1.11.3.min.js" charset="utf-8" type="text/javascript"></script>
+	<style>
+		.wrap {
+			position: relative;
+			width: 400px;
+			height: 300px;
+			margin: 100px auto;
+
+			-webkit-transform-style: preserve-3d;
+		}
+		.wrap div {
+			position: absolute;
+			width: 150px;
+			height: 245px;
+			padding: 5px;
+			border: 1px solid #000;
+			border-radius: 6px;
+			background: #eee;
+
+			-webkit-transition: all 1s ease;
+		}
+		.wrap div:nth-child(1) {
+			left: 0;
+			top: 0;
+			-webkit-transform: rotateZ(-30deg) translateX(-60px);
+		}
+		.wrap div:nth-child(1):hover {
+			-webkit-transform: rotateZ(-30deg) translateX(-60px) translateZ(40px) scale(1.5);
+		}
+		.wrap div:nth-child(2) {
+			left: 50px;
+			top: 0;
+			-webkit-transform: rotateZ(-13deg) translateX(-35px) translateZ(20px);
+		}
+		.wrap div:nth-child(2):hover {
+			-webkit-transform: rotateZ(-13deg) translateX(-35px) translateZ(40px) scale(1.5);
+		}
+		.wrap div:nth-child(3) {
+			left: 100px;
+			top: 0;
+			-webkit-transform: translateZ(30px);
+		}
+		.wrap div:nth-child(3):hover {
+			-webkit-transform: translateZ(30px) translateZ(40px) scale(1.5);
+		}
+		.wrap div:nth-child(4) {
+			left: 150px;
+			top: 0;
+			-webkit-transform: rotateZ(13deg) translateX(35px) translateZ(20px);
+		}
+		.wrap div:nth-child(4):hover {
+			-webkit-transform: rotateZ(13deg) translateX(35px) translateZ(40px) scale(1.5);
+		}
+		.wrap div:nth-child(5) {
+			left: 200px;
+			top: 0;
+			-webkit-transform: rotateZ(30deg) translateX(60px);
+		}
+		.wrap div:nth-child(5):hover {
+			-webkit-transform: rotateZ(30deg) translateX(60px) translateZ(40px) scale(1.5);
+		}
+
+		.wrap img {
+			width: 150px;
+			height: 150px;
+		}
+		.wrap div p {
+			padding-left: 20px;
+			height: 25px;
+			line-height: 25px;
+			font-size: 16px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap clearfix">
+		<div>
+			<img src="../images/liudehua.jpg" alt="" title="">
+			<p>姓名：刘德华</p>
+			<p>微博：刘德华</p>
+			<p>博客：刘德华</p>
+		</div>
+		<div>
+			<img src="../images/zhangxueyou.jpg" alt="" title="">
+			<p>姓名：张学友</p>
+			<p>微博：张学友</p>
+			<p>博客：张学友</p>
+		</div>
+		<div>
+			<img src="../images/h5.png" alt="" title="">
+			<p>姓名：HTML5</p>
+			<p>微博：HTML5</p>
+			<p>博客：HTML5</p>
+		</div>
+		<div>
+			<img src="../images/guofucheng.jpg" alt="" title="">
+			<p>姓名：郭富城</p>
+			<p>微博：郭富城</p>
+			<p>博客：郭富城</p>
+		</div>
+		<div>
+			<img src="../images/liming.jpg" alt="" title="">
+			<p>姓名：黎明</p>
+			<p>微博：黎明</p>
+			<p>博客：黎明</p>
+		</div>
+	</div>
+	<script></script>
+</body>
+</html>

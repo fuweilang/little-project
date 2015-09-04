@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<script src="../js/jquery-1.11.3.min.js" charset="utf-8" type="text/javascript"></script>
+	<style>
+		.wrap {
+			margin: 10px auto;
+			width: 1300px;
+			height: 160px;
+		}
+		.wrap ul {
+			width: 1300px;
+			height: 160px;
+		}
+		.wrap li {
+			float: left;
+			width: 100px;
+			height: 100px;
+			background: #999;
+			font-size: 16px;
+			line-height: 100px;
+			text-align: center;
+			margin-right: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap" id="con">
+		<ul>
+			<li>小时代</li>
+			<li>H5</li>
+			<li>jQuery</li>
+			<li>苹果导航</li>
+			<li>终结者</li>
+			<li>第六日</li>
+			<li>孤独的幸存者</li>
+			<li>小纪</li>
+			<li>淡淡痕迹</li>
+		</ul>
+	</div>
+	<script>
+		$("#con li").on("mouseover", function(){
+			// 方法一
+			$(this).css({
+				"width" : "160px",
+				"height": "160px"
+			})
+
+			$(this).next().css({
+				"width" : "140px",
+				"height": "140px"
+			}).next().css({
+				"width" : "120px",
+				"height": "120px"
+			}).nextAll().css({
+				"width" : "100px",
+				"height": "100px"
+			})
+
+			$(this).prev().css({
+				"width" : "140px",
+				"height": "140px"
+			}).prev().css({
+				"width" : "120px",
+				"height": "120px"
+			}).prevAll().css({
+				"width" : "100px",
+				"height": "100px"
+			})
+		})
+	</script>
+</body>
+</html>

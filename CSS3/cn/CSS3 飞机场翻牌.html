@@ -1,0 +1,208 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<script src="../js/jquery-1.11.3.min.js" charset="utf-8" type="text/javascript"></script>
+	<style>
+		.con {
+			margin: 0 auto;
+			width: 300px;
+			height: 570px;
+			padding: 30px 50px;
+			background-color: #f8f;
+
+			-webkit-transform-style: preserve-3d;
+			-moz-transform-style: preserve-3d;
+			-ms-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+		}
+		.con li {
+			position: relative;
+			width: 300px;
+			height: 50px;
+			margin-bottom: 20px;
+
+			-webkit-transform-style: preserve-3d;
+			-moz-transform-style: preserve-3d;
+			-ms-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+
+			-webkit-transform: skew(-10deg);
+			-moz-transform: skew(-10deg);
+			-ms-transform: skew(-10deg);
+			-o-transform: skew(-10deg);
+			transform: skew(-10deg);
+		}
+
+		@-webkit-keyframes change {
+			0% {
+				-webkit-transform : rotateX(0deg) skew(-10deg);
+			}
+			20% {
+				-webkit-transform: rotateX(180deg) skew(10deg);
+			}
+			50% {
+				-webkit-transform: rotateX(180deg) skew(10deg);
+			}
+			75% {
+				-webkit-transform: rotateX(360deg) skew(-10deg);
+			}
+			100% {
+				-webkit-transform: rotateX(360deg) skew(-10deg);
+			}
+		}
+		@-moz-keyframes change {
+			0% {
+				-moz-transform : rotateX(0deg) skew(-10deg);
+			}
+			20% {
+				-moz-transform: rotateX(180deg) skew(10deg);
+			}
+			50% {
+				-moz-transform: rotateX(180deg) skew(10deg);
+			}
+			75% {
+				-moz-transform: rotateX(360deg) skew(-10deg);
+			}
+			100% {
+				-moz-transform: rotateX(360deg) skew(-10deg);
+			}
+		}
+		@-ms-keyframes change {
+			0% {
+				-ms-transform : rotateX(0deg) skew(-10deg);
+			}
+			20% {
+				-ms-transform: rotateX(180deg) skew(10deg);
+			}
+			50% {
+				-ms-transform: rotateX(180deg) skew(10deg);
+			}
+			75% {
+				-ms-transform: rotateX(360deg) skew(-10deg);
+			}
+			100% {
+				-ms-transform: rotateX(360deg) skew(-10deg);
+			}
+		}
+		@-o-keyframes change {
+			0% {
+				-o-transform : rotateX(0deg) skew(-10deg);
+			}
+			20% {
+				-o-transform: rotateX(180deg) skew(10deg);
+			}
+			50% {
+				-o-transform: rotateX(180deg) skew(10deg);
+			}
+			75% {
+				-o-transform: rotateX(360deg) skew(-10deg);
+			}
+			100% {
+				-o-transform: rotateX(360deg) skew(-10deg);
+			}
+		}
+		@keyframes change {
+			0% {
+				transform : rotateX(0deg) skew(-10deg);
+			}
+			20% {
+				transform: rotateX(180deg) skew(10deg);
+			}
+			50% {
+				transform: rotateX(180deg) skew(10deg);
+			}
+			75% {
+				transform: rotateX(360deg) skew(-10deg);
+			}
+			100% {
+				transform: rotateX(360deg) skew(-10deg);
+			}
+		}
+
+		.con li span {
+			position: absolute;
+			left: 0;
+			top: 0;
+			display: block;
+			width: 300px;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			background: #fff;
+			border-radius: 10px;
+			box-shadow: 0px 0px 10px 2px rgba(0,0,0, 0.5) inset;
+		}
+		.con li span:nth-child(1) {
+			-webkit-transform: translateZ(1px);
+			-moz-transform: translateZ(1px);
+			-ms-transform: translateZ(1px);
+			-o-transform: translateZ(1px);
+			transform: translateZ(1px);
+		}
+		.con li span:nth-child(2) {
+			-webkit-transform: rotateX(180deg) translateZ(1px);
+			-moz-transform: rotateX(180deg) translateZ(1px);
+			-ms-transform: rotateX(180deg) translateZ(1px);
+			-o-transform: rotateX(180deg) translateZ(1px);
+			transform: rotateX(180deg) translateZ(1px);
+		}
+
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="con">
+			<ul>
+				<li>
+					<span>达芬奇</span>
+					<span>列奥纳多·迪·皮耶罗·达·芬奇</span>
+				</li>
+				<li>
+					<span>梵高</span>
+					<span>文森特·威廉·梵高，又称”凡高”</span>
+				</li>
+				<li>
+					<span>米开朗基罗</span>
+					<span>意大利文艺复兴时期伟大的绘画家</span>
+				</li>
+				<li>
+					<span>拉斐尔</span>
+					<span>拉法埃洛·圣乔奥，意大利著名画家</span>
+				</li>
+				<li>
+					<span>毕加索</span>
+					<span>西班牙画家、雕塑家。法国共产党党员</span>
+				</li>
+				<li>
+					<span>齐白石</span>
+					<span>原名纯芝，字渭青，号兰亭</span>
+				</li>
+				<li>
+					<span>莱昂纳多</span>
+					<span>柏林国际电影节最佳男主角奖</span>
+				</li>
+				<li>
+					<span>约翰尼·德普</span>
+					<span>约翰尼·德普在好莱坞显得卓尔不群</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<script>
+	 	var index = -1;
+	 	function changeIndex() {
+	 		index++;
+	 		if(index == 7) {
+	 			index = -1;
+	 		}
+	 		$(".con li").eq(index).css({
+	 			"animation": "change 6s ease 1s infinite"
+			})
+	 	}
+	 	setInterval(changeIndex, 100);
+	</script>
+</body>
+</html>

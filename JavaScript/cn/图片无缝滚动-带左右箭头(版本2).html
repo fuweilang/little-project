@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+		.wrap {
+			position: relative;
+			margin: 20px auto;
+			width: 1000px;
+			height: 320px;
+		}
+		.outer {
+			overflow: hidden;
+			width: 1000px;
+			height: 310px;
+		}
+		.inner {
+			width: 2000px;
+			height: 310px;
+		}
+		.inner img {
+			float: left;
+			display: block;
+			width: 200px;
+			height: 310px;
+		}
+		.left,
+		.right {
+			position: absolute;
+			top: 130px;
+			width: 50px;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			background: rgba(255, 255, 255, 0.5);
+			cursor: pointer;
+		}
+		.left {
+			left: 0;
+		}
+		.right {
+			right: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="outer" id="outerBox">
+			<div class="inner" id="innerBox">
+				<img src="../images/(1).jpg" alt="" title="">
+				<img src="../images/(2).jpg" alt="" title="">
+				<img src="../images/(3).jpg" alt="" title="">
+				<img src="../images/(4).jpg" alt="" title="">
+				<img src="../images/(5).jpg" alt="" title="">
+			</div>
+		</div>
+		<div class="left" id="leftArrow">向左</div>
+		<div class="right" id="rightArrow">向右</div>
+	</div>
+	<script>
+		var outer = document.getElementById("outerBox");
+		var inner = document.getElementById("innerBox");
+		var left = document.getElementById("leftArrow");
+		var right = document.getElementById("rightArrow");
+		inner.innerHTML += inner.innerHTML; 
+		var timer = null;
+		var startpos;
+
+		/**
+		 * 图片向左滚动函数
+		 * @return {[type]} [description]
+		 */
+		function leftMove() {		
+			if(timer) {
+				clearInterval(timer);
+			}
+			timer = setInterval(move, 7);
+			function move(){
+				startpos = outer.scrollLeft;
+				startpos += 1;
+				if(startpos == inner.clientWidth - outer.offsetWidth) {
+					startpos = 0;
+				}
+				outer.scrollLeft = startpos;
+				if(startpos % 200 == 0) {
+					clearInterval(timer);
+					timer = setTimeout(leftMove, 1000);
+				}
+			}
+		} leftMove();
+
+		/*
+		 * 图片向右滚动函数
+		 * @return {[type]} [description]
+		 */
+		function rightMove() {	
+			if(timer) {
+				clearInterval(timer);
+			}
+			timer = setInterval(move, 7);
+			function move() {
+				startpos = outer.scrollLeft;
+				startpos -= 1;
+
+				if(startpos == 0) {
+					startpos = inner.clientWidth - outer.offsetWidth;
+				}
+				outer.scrollLeft = startpos;
+				if(startpos % 200 == 0) {
+					clearInterval(timer);
+					timer = setTimeout(rightMove, 1000);
+				}
+			}
+		}
+
+		// 点击左箭头，图片向左滚动
+		left.onclick = function() {
+			if(timer) {
+				clearInterval(timer);
+			}
+			leftMove();
+		}
+
+		// 点击右箭头，图片向右滚动
+		right.onclick = function() {
+			if(timer) {
+				clearInterval(timer);
+			}
+			rightMove();
+		}
+	</script>
+</body>
+</html>

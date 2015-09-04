@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+		.wrap {
+			padding: 10px 0 0 10px;
+		}
+		.one {
+			width: 200px;
+			height: 100px;
+			background: #f8f;
+			margin-bottom: 10px;
+		}
+		.two {
+			width: 200px;
+			height: 100px;
+			background: #f8f;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="one" id="oneBox"></div>
+		<div class="two" id="twoBox"></div>
+	</div>
+	<script>
+		var one = document.getElementById("oneBox");
+		var two = document.getElementById("twoBox");
+
+		function startMove(ele, json, step, fn) {
+			var startpos;
+			var speed;
+
+			if(ele.timer) {
+				clearInterval(ele.timer);
+			}
+			ele.timer = setInterval(move, 16);
+			function move() {
+				var timejudge = true;
+				for(var prop in json) {
+					if(prop == "opacity") {
+						startpos = parseInt(getStyle(ele, prop) * 100);	
+					} else {
+						startpos = parseInt(getStyle(ele, prop));		
+					}
+
+					if(prop == "opacity") {
+						console.log("speed=" + speed);
+						console.log(startpos);
+					}
+
+					speed = (json[prop] - startpos) / step;
+					speed = (speed > 0) ? Math.ceil(speed) : Math.floor(speed);
+
+					startpos += speed;
+
+					if (Math.abs(json[prop] - startpos) < 10) {
+						startpos = json[prop];
+					};
+
+					if(startpos != json[prop]) {
+						timejudge = false;
+					}
+
+					if(timejudge) {
+						clearInterval(ele.timer);
+						if (fn) {
+							fn();
+						};
+						
+					}
+
+					if(prop == "opacity") {
+						ele.style["opacity"] = startpos / 100;
+						ele.style["filter"] = "alpha(opacity=" + startpos + ")";
+					} else {
+						ele.style[prop] = startpos + "px";
+					}
+				}
+			}
+		}
+
+		one.onclick = function() {
+			startMove(one, {"width": "100","opacity": "30", "height": "50"}, 30, function(){
+				startMove(one, {"width": "200","opacity": "90", "height": "100"}, 30);
+			});
+
+			startMove(two, {"width": "300", "height": "200"}, 30, function(){
+				startMove(two, {"width": "200", "height": "100"}, 30);
+			});
+		}
+
+		/*
+		 * 功能：获取渲染后标签的样式
+		 * @element是标签的对象
+		 * @property是标签的样式属性
+		 */
+		function getStyle(element, property) {
+			var proVal = null;
+			//兼容IE
+			if (!document.defaultView) {
+				proVal = element.currenStyle[property];
+			} else {
+				//兼容谷歌，火狐等
+				proVal = document.defaultView.getComputedStyle(element)[property];
+			}
+			return proVal;
+		} 
+
+	</script>
+</body>
+</html>

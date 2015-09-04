@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<script src="../js/jquery-1.11.3.min.js" charset="utf-8" type="text/javascript"></script>
+	<style>
+		.wrap {
+			margin: 0 auto;
+			width: 400px;
+			padding-top: 10px;
+		}
+		.wrap p {
+			width: 100%;
+			height: 40px;
+			line-height: 40px;
+			font-size: 24px;
+			text-align: center;
+		}
+		.date {
+			width: 100%;
+			height: 80px;
+			background-color: #888;
+			border-radius: 10px;
+		}
+		.date span {
+			float: left;
+			width: 40px;
+			height: 80px;
+			line-height: 80px;
+			font-size: 20px;
+			text-align: center;
+			color: #fff;
+		}
+		.date span:nth-child(1),
+		.date span:nth-child(3),
+		.date span:nth-child(5),
+		.date span:nth-child(7) {
+			width: 60px;
+			font-size: 24px;
+			color: #aff;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap clearfix">
+		<p>距离12月12日0点终极狂欢</p>
+		<div class="date">
+			<span></span>
+			<span>天</span>
+			<span></span>
+			<span>时</span>
+			<span></span>
+			<span>分</span>
+			<span></span>
+			<span>秒</span>
+		</div>
+	</div>
+	<script>
+		function countdown() {
+			var now = new Date();
+			var nowM = now.getTime();
+
+			var end = new Date('2015/12/12');
+			var endM = end.getTime();
+
+			var timerM = endM - nowM;
+
+			var day = timerM / (1000 * 60 * 60 * 24);
+			var days = Math.floor(day);
+			
+			var dayDecimal = day - days;
+			var hour = dayDecimal * 24;
+			var hours = Math.floor(hour);
+			
+			var hourDecimal = hour - hours;
+			var minute = hourDecimal * 60;
+			var minutes = Math.floor(minute);
+			
+			var minuteDecimal = minute - minutes;
+			var second = Math.floor(minuteDecimal * 60);
+			
+			if(days < 10) {
+				$(".date span").eq(0).text("0" + days);
+			} else {
+				$(".date span").eq(0).text(days);
+			}
+			if(hours < 10) {
+				$(".date span").eq(2).text("0" + hours);
+			} else {
+				$(".date span").eq(2).text(hours);
+			}
+			if(minutes < 10) {
+				$(".date span").eq(4).text("0" + minutes);
+			} else {
+				$(".date span").eq(4).text(minutes);
+			}
+			if(second < 10) {
+				$(".date span").eq(6).text("0" + second);
+			} else {
+				$(".date span").eq(6).text(second);
+			}
+		}
+		var timer = setInterval(countdown, 1000);
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="reset.css">
+	<script src="../js/jquery-1.11.3.min.js" charset="utf-8" type="text/javascript"></script>
+	<style>
+		.wrap{
+			margin: 0 auto;
+			width: 1000px;
+		}
+		.wrap div {
+			float: left;
+			width: 200px;
+			height: 400px;
+		}
+		.wrap div:nth-child(1) {
+			background: url("../images/liudehua.jpg") no-repeat;
+			background-size: cover;
+		}
+		.wrap div:nth-child(2) {
+			background: url("../images/zhangxueyou.jpg");
+			background-size: cover;
+		}
+		.wrap div:nth-child(3) {
+			background: url("../images/guofucheng.jpg");
+			background-size: cover;
+		}
+		.wrap div:nth-child(4) {
+			background: url("../images/liming.jpg");
+			background-size: cover;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap clearfix">
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+	<script>
+		$(".wrap div").eq(0).css({
+			"width" : "400px"
+		})
+		$(".wrap div").hover(function(){
+			$(this).stop(true).animate({
+				"width" : "400px"
+			}).siblings().stop(true).animate({
+				"width" : "200px"
+			})
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<script src="../js/jquery-1.11.3.min.js" charset="utf-8" type="text/javascript"></script>
+	<style>
+		.wrap {
+			position: relative;
+			height: 4000px;
+		}
+		.box {
+			position: absolute;
+			right: 100px;
+			width: 100px;
+			height: 100px;
+			background: #ccc;
+		}
+	</style>
+
+</head>
+<body>
+	<form action="">
+		<div class="wrap">
+			<div class="box"></div>
+		</div>
+	</form>
+
+	<script>
+		$(function() {
+			var getBox = $(".box");
+			var boxH = getBox.height() / 2;
+
+			function change() {
+				var screenH = $(window).height() / 2;
+				var changeTop = $("body").scrollTop() + screenH - boxH;
+				
+				getBox.stop(true, true).animate({
+					"top": changeTop
+				}, 200)
+			}change();
+
+			$(window).scroll(change);
+			$(window).resize(change);
+		})
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>HTML5学堂</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+		.outer {
+			overflow: hidden;
+			width: 1000px;
+			margin: 10px auto;
+		}
+		.inner {
+			position: relative;
+			width: 2000px;
+		}
+		.inner img {
+			float: left;
+			width: 200px;
+			height: 310px;
+		}
+	</style>
+</head>
+<body>
+	<div class="outer" id="outerBox">
+		<div class="inner clearfix" id="innerBox">
+			<img src="../images/(1).jpg" alt="" title="">
+			<img src="../images/(2).jpg" alt="" title="">
+			<img src="../images/(3).jpg" alt="" title="">
+			<img src="../images/(4).jpg" alt="" title="">
+			<img src="../images/(5).jpg" alt="" title="">
+		</div>
+	</div>
+	<script>
+		// 1.获取标签
+		var getOuter = document.getElementById("outerBox"),
+			getInner = document.getElementById("innerBox"),
+			   timer = null;
+		innerBox.innerHTML += innerBox.innerHTML;
+
+		/*
+		 * 当使用计时器时，计时器需要触发的函数
+		 *
+		 */
+		function scroll() {
+			// 控制scrollLeft
+			getOuter.scrollLeft += 2;
+			// 注意：scrollLeft系列属性不属于style，也不需要写单位(px)
+
+			// 最末端判断 = 父级可滚动的宽度 - 父级不包含边框的宽度
+			if(getOuter.scrollLeft >= getOuter.scrollWidth - getOuter.clientWidth) {
+				getOuter.scrollLeft = 0;
+			}
+
+			if (getOuter.scrollLeft % 200 == 0) {
+				//清除计时器
+				clearInterval(timer);
+				//一秒之后调用startClock
+				timer = setTimeout(startClock, 100);
+			} 
+		}
+
+		/*
+		 * 启动计时器的函数
+		 *
+		 */
+		function startClock() {
+			timer = setInterval(scroll, 20);
+		} startClock();
+
+		// 鼠标移入的时候，触发事件，然后停止移动
+		outerBox.onmouseover = function() {
+			// 清除计时器
+			clearInterval(timer);
+		}
+
+		// 鼠标移开的时候，触发事件，然后开始滚动
+		outerBox.onmouseout = function() {
+			// 启动计时器
+			startClock();
+		}
+
+
+	</script>
+</body>
+</html>

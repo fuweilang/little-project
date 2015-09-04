@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<script src="../js/jquery-1.11.3.min.js" charset="utf-8" type="text/javascript"></script>
+	<style>
+		body {
+			-webkit-perspective: 900;
+			-moz-perspective: 900;
+			-ms-perspective: 900;
+			perspective: 900;
+		}
+		.wrap {
+			position: relative;
+			margin: 100px auto;
+			width: 200px;
+			height: 200px;
+			-webkit-transform-style: preserve-3d;
+			-moz-transform-style: preserve-3d;
+			-ms-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+			-webkit-transition: all 1s ease;
+			-moz-transition: all 1s ease;
+			-ms-transition: all 1s ease;
+			-o-transition: all 1s ease;
+			transition: all 1s ease;
+		}
+		/*.wrap:hover {
+			-webkit-transform: rotate3d(1, 1, 0, 45deg);
+			-moz-transform: rotate3d(1, 1, 0, 45deg);
+			-ms-transform: rotate3d(1, 1, 0, 45deg);
+			-o-transform: rotate3d(1, 1, 0, 45deg);
+			transform: rotate3d(1, 1, 0, 45deg);
+		}*/
+		.wrap div {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 200px;
+			height: 200px;
+			opacity: 0.5;
+			line-height: 200px;
+			text-align: center;
+		}
+		.wrap div:nth-child(1) {
+			/*前面*/
+			background-color: #f00;
+			-webkit-transform: translateZ(100px);
+			-moz-transform: translateZ(100px);
+			-ms-transform: translateZ(100px);
+			-o-transform: translateZ(100px);
+			transform: translateZ(100px);
+		}
+		.wrap div:nth-child(2) {
+			/*后面*/
+			background-color: #0f0;
+			-webkit-transform: translateZ(-100px);
+			-moz-transform: translateZ(-100px);
+			-ms-transform: translateZ(-100px);
+			-o-transform: translateZ(-100px);
+			transform: translateZ(-100px);
+		}
+		.wrap div:nth-child(3) {
+			/*左边*/
+			background-color: #00f;
+			-webkit-transform: rotateY(-90deg) translateZ(100px);
+			-moz-transform: rotateY(-90deg) translateZ(100px);
+			-ms-transform: rotateY(-90deg) translateZ(100px);
+			-o-transform: rotateY(-90deg) translateZ(100px);
+			transform: rotateY(-90deg) translateZ(100px);
+		}
+		.wrap div:nth-child(4) {
+			/*右边*/
+			background-color: #ff0;
+			-webkit-transform: rotateY(90deg) translateZ(100px);
+			-moz-transform: rotateY(90deg) translateZ(100px);
+			-ms-transform: rotateY(90deg) translateZ(100px);
+			-o-transform: rotateY(90deg) translateZ(100px);
+			transform: rotateY(90deg) translateZ(100px);
+		}
+		.wrap div:nth-child(5) {
+			/*上面*/
+			background-color: #000;
+			-webkit-transform: rotateX(90deg) translateZ(100px);
+			-moz-transform: rotateX(90deg) translateZ(100px);
+			-ms-transform: rotateX(90deg) translateZ(100px);
+			-o-transform: rotateX(90deg) translateZ(100px);
+			transform: rotateX(90deg) translateZ(100px);
+		}
+		.wrap div:nth-child(6) {
+			/*下面*/
+			background-color: #0ff;
+			-webkit-transform: rotateX(-90deg) translateZ(100px);
+			-moz-transform: rotateX(-90deg) translateZ(100px);
+			-ms-transform: rotateX(-90deg) translateZ(100px);
+			-o-transform: rotateX(-90deg) translateZ(100px);
+			transform: rotateX(-90deg) translateZ(100px);
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div>达芬奇</div>
+		<div>谢霆锋</div>
+		<div>王力宏</div>
+		<div>周润发</div>
+		<div>刘德华</div>
+		<div>郭富城</div>
+	</div>
+	<script>
+		$(".wrap").hover(
+			function() {
+				$(this).css({
+					"transform": "rotate3d(1, 1, 0, 45deg)"
+				})
+			}, 
+			function() {
+				$(this).css({
+					"transform": "rotate3d(1, 1, 0, 0deg)"
+				})
+			}
+		)
+	</script>
+</body>
+</html>

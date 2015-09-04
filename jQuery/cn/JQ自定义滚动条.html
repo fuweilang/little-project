@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<script src="../js/jquery-1.11.3.min.js" charset="utf-8" type="text/javascript"></script>
+	<style>
+		.wrap {
+			margin: 10px auto;
+			width: 300px;
+			height: 400px;
+			border: 1px solid #000;
+			background: #1a9;
+		}
+		.box {
+			position: relative;
+			float: right;
+			width: 20px;
+			height: 400px;
+			background: #999;
+		}
+		.scrollBar {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 20px;
+			height: 70px;
+			background-color: #fff;
+			opacity: 0.6;
+			cursor: pointer;
+		}
+		.main {
+			overflow: hidden;
+			float: left;
+			width: 260px;
+			height: 400px;
+			padding: 0 10px;
+			background: #1a9;
+			/*overflow: scroll;*/
+		}
+		.con {	
+			margin: 0 auto;
+			width: 260px;
+			height: 900px;
+			font-size: 16px;
+			line-height: 23px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="box">
+			<div class="scrollBar"></div>
+		</div>
+		<div class="main">
+			<div class="con">
+				公安部出入境管理局负责人表示，在深圳市试行户籍居民赴香港“一签多行”的政策是中央政府根据香港特区政府的请求而推出的，为香港经济发展、扩大就业和增进两地民众交流发挥了重要作用。随着内地居民赴港旅游人数的不断增多，内地与香港出入境口岸压力增大，赴港旅游人数与香港旅游承载能力的矛盾日益显现，针对上述问题，中央政府作出了优化调整深圳市居民赴香港个人旅游政策的决定。公安部出入境管理局负责人表示，在深圳市试行户籍居民赴香港“一签多行”的政策是中央政府根据香港特区政府的请求而推出的，为香港经济发展、扩大就业和增进两地民众交流发挥了重要作用。随着内地居民赴港旅游人数的不断增多，内地与香港出入境口岸压力增大，赴港旅游人数与香港旅游承载能力的矛盾日益显现，针对上述问题，中央政府作出了优化调整深圳市居民赴香港个人旅游政策的决定。公安部出入境管理局负责人表示，在深圳市试行户籍居民赴香港“一签多行”的政策是中央政府根据香港特区政府的请求而推出的，为香港经济发展、扩大就业和增进两地民众交流发挥了重要作用。随着内地居民赴港旅游人数的不断增多，内地与香港出入境口岸压力增大，赴港旅游人数与香港旅游承载能力的矛盾日益显现，针对上述问题，中央政府作出了优化调整深圳市居民赴香港个人旅游政策的决定。
+			</div>
+		</div>
+	</div>
+	<script>
+		var getSBar = $(".scrollBar");
+		var getBox = $(".box");
+		var getCon = $(".con");
+		var getMain = $(".main");
+ 		getSBar.on("mousedown", function(e) {
+ 			e.preventDefault();
+ 			var startTop = e.clientY;
+ 			var offsetY = getSBar[0].offsetTop;
+
+ 			$(document).on("mousemove", function(e){ 
+ 				e.preventDefault();
+ 				var nowTop = e.clientY;
+ 				var endTop = offsetY + nowTop - startTop;
+ 				var maxEndTop = getBox[0].clientHeight - getSBar[0].offsetHeight;
+
+ 				if(endTop <= 0) {
+ 					endTop = 0;
+ 				}
+ 				if(endTop >= maxEndTop) {
+ 					endTop = maxEndTop;
+ 				}
+ 				getSBar.css({
+ 					"top" : endTop + "px"
+ 				})
+ 				getMain[0].scrollTop = (getMain[0].scrollHeight - getMain[0].clientHeight) * endTop / maxEndTop;
+
+ 				//计算比例
+ 				// 内容区域的可滚高度         内容区滚动的距离
+ 				//---------------------------------------------
+ 				// 滚动条的可滚高度           滚动条滚动的距离
+ 			})
+ 		})
+ 		$(document).on("mouseup", function(e){
+ 			e.preventDefault();
+ 			$(document).off("mousemove");
+ 		})
+ 	</script>
+</body>
+</html>

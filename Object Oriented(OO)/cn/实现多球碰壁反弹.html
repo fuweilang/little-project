@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<script src="../js/jquery-1.11.3.min.js" charset="utf-8" type="text/javascript"></script>
+	<style>
+		body {
+			-webkit-perspective: 1000; 
+		}
+		.outer {
+			position: relative;
+			width: 100%;
+			height: 650px;
+			border: 1px solid #000;
+			background: #0b0c0c;
+			-webkit-transform-style: preserve-3d;
+		}
+		.outer div {
+			position: absolute;
+			width: 20px;
+			height: 20px;
+			border-radius: 50%;
+			background: #f8f;
+		}
+	</style>
+</head>
+<body>
+	<div class="outer" id="outerBox">
+	</div>
+	<script>
+		function Bounce(outerid) {
+			var _this = this;
+			this.outer = document.getElementById(outerid); 
+			this.inner = document.createElement("div");
+			this.outer.appendChild(this.inner);
+			console.log(this.outer);
+			// 范围
+			this.limitX = this.outer.clientWidth - this.inner.offsetWidth;
+			this.limitY = this.outer.clientHeight - this.inner.offsetHeight;
+			// 定位
+			this.sportX = 0;
+			this.sportY = 0;
+			this.setPos();
+			// 方向
+			this.flagX = true;
+			this.flagY = true;
+			// 速度
+			this.speed = 1;
+
+			this.timer = setTimeout(function(){
+				_this.move();
+				setTimeout(arguments.callee, 16);	
+			}, 16)
+		}
+
+		Bounce.prototype.setPos = function() {
+			this.inner.style.left = this.sportX + "px";
+			this.inner.style.top = this.sportY + "px";
+		}
+
+		Bounce.prototype.move = function() {
+			if(this.flagX) {
+				this.sportX += this.speed;
+				if(this.sportX >= this.limitX) {
+					this.sportX = this.limitX;
+					this.flagX = false;
+				}
+			} else {
+				this.sportX -= this.speed;
+				if(this.sportX <= 0) {
+					this.sportX = 0;
+					this.flagX = true;
+				}
+			}
+			if(this.flagY) {
+				this.sportY += this.speed;
+				if(this.sportY >= this.limitY) {
+					this.sportY = this.limitY;
+					this.flagY = false;
+				}
+			} else {
+				this.sportY -= this.speed;
+				if(this.sportY <= 0) {
+					this.sportY = 0;
+					this.flagY = true;
+				}
+			}
+			this.setPos();
+		}
+		
+		// var ball = new Bounce("outerBox");
+
+		/*********************实现多个小球碰壁反弹********************************/ 
+		// 1、属性的继承
+		// 2、方法的继承
+		// 3、重写不同的方法
+		function RandomBall(outerid) {
+			// 1、属性的继承
+			Bounce.call(this, outerid);
+			// 颜色随机
+			this.colorR = Math.floor(Math.random() * 256);
+			this.colorG = Math.floor(Math.random() * 256);
+			this.colorB = Math.floor(Math.random() * 256);
+			// 重写属性
+			// 重写速度
+			this.speed = Math.floor(Math.random() * 5 + 1);
+			// 重写方向
+			this.flagX = Math.floor(Math.random() * 2) == 1 ? true: false;
+			this.flagY = Math.floor(Math.random() * 2) == 1 ? true: false;
+			// 重写定位
+			this.sportX = Math.floor(Math.random() * this.limitX);
+			this.sportY = Math.floor(Math.random() * this.limitY);
+
+			this.initial();
+		}
+		// 2、方法的继承
+		for(var i in Bounce.prototype) {
+			RandomBall.prototype[i] = Bounce.prototype[i];
+		}
+
+		RandomBall.prototype.initial = function() {
+			this.inner.style.background = "rgb(" + this.colorR + "," + this.colorG + "," + this.colorB + ")";
+		}
+		// 重写控制位置的方法
+		RandomBall.prototype.setPos = function() {
+			this.inner.style.webkitTransform = "translateX(" + this.sportX + "px) translateY(" + this.sportY + "px)";
+		}
+	
+		for (var i = 0; i < 10; i++) {
+			new RandomBall("outerBox");
+		};
+
+	</script>
+</body>
+</html>

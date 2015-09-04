@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>HTML5学堂</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+		.wrap {
+			margin: 10px auto;
+			width: 280px;
+		}
+		.outer {
+			margin: 0 auto;
+			overflow: hidden;
+			width: 200px;
+		}
+		.inner {
+			width: 1000px;
+			height: 310px;
+		}
+		.inner img {
+			float: left;
+			width: 200px;
+			height: 310px;
+		}
+		.list {
+			width: 280px;
+			height: 30px;
+		}
+		.list li {
+			float: left;
+			width: 40px;
+			height: 30px;
+			text-align: center;
+			line-height: 30px;
+		}
+		.list li:hover {
+			cursor: pointer;
+			background: #f8f;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap clearfix">
+		<div class="outer" id="outerBox">
+			<div class="inner" id="innerBox">
+				<img src="../images/(1).jpg" alt="" title="1">
+				<img src="../images/(2).jpg" alt="" title="2">
+				<img src="../images/(3).jpg" alt="" title="3">
+				<img src="../images/(4).jpg" alt="" title="4">
+				<img src="../images/(5).jpg" alt="" title="5">
+			</div>
+		</div>
+		<div class="list" id="btn">
+			<ul>
+				<li><--</li>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>--></li>
+			</ul>
+		</div>
+	</div>
+	<script>
+		// 获取标签
+		var outer = document.getElementById("outerBox");
+		var inner = document.getElementById("innerBox");
+		var getBtn = document.getElementById("btn");
+		getLi = getBtn.getElementsByTagName("li");
+		// 定义两个计时器
+		var timer = null;
+		var timerTwo = null;
+		var index = 0;
+		var len = getLi.length;
+
+		/*
+		 * [startmove 根据传递过来的参数，确定图片最终滑动到什么位置]
+		 * @endpos  {[number]} [outerBox要滚到的最后位置，也就是outerBox的scroll的最后值]
+		 * @return {[type]}        [description]
+		 */
+		function startmove(endpos) {
+			var startpos = outer.scrollLeft;
+			// speed为步长
+			var speed; 
+
+			if(timer) {
+				clearInterval(timer);
+			}
+			timer = setInterval(move, 20);
+
+			/*
+			 * [图片滑动函数，实现缓冲运动函数]
+			 * @return {[type]} [description]
+			 */
+			function move() {
+				speed = (endpos - startpos) / 10;
+				speed = (speed > 0) ? Math.ceil(speed) : Math.floor(speed);
+				startpos += speed;
+				if(Math.abs((endpos - startpos)) < 6) {
+					startpos = endpos;
+					clearInterval(timer);
+					timer = null;
+				}
+				outer.scrollLeft = startpos;
+			}			
+		} 
+		
+		/*
+		 * [changeIndex 根据索引值多次滚动]
+		 * @return {[type]} [description]
+		 */
+		function changeIndex() {
+			index++;
+			if(index == 5) {
+				index = 0;
+			}
+			startmove(index * 200);
+		}
+		timerTwo = setInterval(changeIndex, 1300);
+		
+		// 循环遍历li, 获取序号，并显示获取同序号的图片
+		for (var i = 0; i < len - 1; i++) {
+			getLi[i].index = i;
+			getLi[i].onclick = function() {
+				console.log(this.index);
+				clearInterval(timerTwo);
+				index = this.index - 1;
+				startmove(index * 200);
+				timerTwo = setInterval(changeIndex, 1300);
+			}
+		};
+
+		//点击左边图标触发的函数
+		getLi[0].onclick = function() {
+			if(timer) {
+				return;
+			}
+			clearInterval(timerTwo);
+			index--;
+			if(index == -1) {
+				index = 4;
+			}
+			startmove(index * 200);
+			timerTwo = setInterval(changeIndex, 1300);
+		}
+
+		//点击右边图标触发的函数
+		getLi[6].onclick = function() {
+			if(timer) {
+				return;
+			}
+			clearInterval(timerTwo);
+			changeIndex()
+			timerTwo = setInterval(changeIndex, 1300);
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,457 @@
+@charset "utf-8";
+
+@media screen and (min-width: 320px) and (max-width: 479px) {
+	html {
+		font-size: 20px;
+	}
+}
+@media screen and (min-width: 480px) and (max-width: 639px) {
+	html {
+		font-size: 30px;
+	}
+}
+@media screen and (min-width:640px){
+	html {
+		font-size: 40px;
+	}
+}
+.wrap {
+	width: 16rem;
+	margin: 0 auto;
+	background: #f2f2f2;
+}
+.wrap header {
+	width: 100%;
+	height: 4.1rem;
+	background: #5eb5e0;
+}
+.header-icon {
+	width: 100%;
+	height: 2.23rem;
+	border-bottom: 0.05rem solid #fff;
+}
+.logo a {
+	display: block;
+	float: left;
+	width: 40%;
+	height: 2.25rem;
+	background: url("../images/beibeiyi.png") 0.1rem -0.13rem no-repeat;
+	background-size: 16rem;
+}
+.menu,
+.shoppingcart,
+.person-center {
+	float: left;
+	width: 20%;
+	height: 2.25rem;
+}
+.menu a,
+.shoppingcart a,
+.person-center a {
+	display: block;
+	margin: 0 auto;
+	width: 50%;
+	height: 2.25rem;
+}
+.menu a{
+	background: url("../images/beibeiyi.png") 0.19rem -2.2rem no-repeat;
+	background-size: 16rem;
+}
+.shoppingcart a{
+	background: url("../images/beibeiyi.png") 0.15rem -4.46rem no-repeat;
+	background-size: 16rem;
+}
+.person-center a{
+	background:  url("../images/beibeiyi.png") 0.09rem -6.71rem no-repeat;
+	background-size: 16rem;
+}
+.search {
+	float: left;
+	width: 100%;
+	height: 1.65rem;
+	padding-top: 0.15rem;
+	background: #5eb5e0;
+}
+.search-icon {
+	margin: 0 auto;
+	width: 14.4rem;
+	height: 1.25rem;
+	padding: 0.25rem 0 0 0rem;
+	border-radius: 0.75rem;
+	background: #fff;
+	background-size: 16rem;
+}
+.search-btn {
+	float: left;
+	width: 1.6rem;
+	height: 100%;
+	border: 0;
+	background: url("../images/beibeiyi.png") -0.17rem -25.44rem no-repeat;
+	background-size: 16rem;
+}
+.search-icon input {
+	display: block;
+	width: 12.25rem;
+	height: 1rem;
+	border: 0px;
+	line-height: 1rem;
+	font-size: 0.6rem;
+	color: #dcdddd;
+	outline:none;
+}
+.show-img a {
+	display: block;
+	width: 100%;
+	height: 9.65rem;
+}
+.show-img img {
+	display: block;
+	width: 100%;
+	height: 9.65rem;
+}
+.main {
+	width: 15.3rem;
+	padding: 0 0.35rem;
+}
+.main-nav {
+	width: 96%;
+	padding: 0 2%;
+	height: 9.4rem;
+}
+.circle-nav {
+	width: 100%;
+	height: 5.4rem;
+}
+.circle-nav ul {
+	width: 100%;
+	height: 5.4rem;
+}
+.circle-nav li {
+	position: relative;
+	float: left;
+	width: 31.33%;
+	height: 4.9rem;
+	padding: 0.5rem 1% 0 1%;
+}
+.circle-nav li img {
+	display: block;
+	width: 4.47rem;
+	height: 4.47rem;
+	border-radius: 2.23rem;
+	box-shadow: 0 0 0  0.10rem #c9c8c8;
+}
+.circle-nav li p {
+	position: absolute;
+	bottom: 0.25rem;
+	left: 0.57rem;
+	width: 3.6rem;
+	height: 0.93rem;
+	line-height: 0.93rem;
+	font-size: 0.6rem;
+	color: #5eb5e0;
+	text-align: center;
+	background: #fcfdfd;
+}
+.circle-nav li a {
+	position: absolute;
+	top: 0;
+	display: block;
+	width: 4.6rem;
+	height: 5.4rem;
+}
+.person-nav {
+	overflow: hidden;
+	width: 13.53rem;
+	height: 3rem;
+	padding: 0.5rem 0.57rem;
+}
+.person-test {
+	width: 15.53rem;
+	height: 3rem;
+}
+.person-nav a {
+	display: block;
+	float: left;
+	margin-right: 0.8rem;
+	width: 2.75rem;
+	height: 1rem;
+	padding-top: 1.75rem;
+	background: #5eb5e0;
+	font-size: 0.45rem;
+	color: #fff;
+	text-align: center;
+	border-radius: 0.25rem;
+}
+.person-nav a:nth-child(1) {
+	background: #5eb5e0 url("../images/beibeiyi.png") 0.55rem -9.1rem no-repeat;
+	background-size: 16rem;
+}
+.person-nav a:nth-child(2) {
+	background: #5eb5e0 url("../images/beibeiyi.png") 0.75rem -2.27rem no-repeat;
+	background-size: 16rem;
+}
+.person-nav a:nth-child(3) {
+	background: #5eb5e0 url("../images/beibeiyi.png") 0.6rem -4.52rem  no-repeat;
+	background-size: 16rem;
+}
+.person-nav a:nth-child(4) {
+	background: #5eb5e0 url("../images/beibeiyi.png") 0.68rem -11.35rem  no-repeat;
+	background-size: 16rem;
+}
+.adverting-img {
+	width: 100%;
+	height: 4.78rem;
+}
+.adverting-img a {
+	display: block;
+	width: 100%;
+	height: 4.78rem;
+}
+.adverting-img a img {
+	display: block;
+	width: 100%;
+	height: 4.17rem;
+}
+.product {
+	width: 100%;
+}
+.pd-title {
+	width: 100%;
+	height: 2.67rem;
+	padding-top: 0.07rem;
+}
+.pd-title h2:after {
+     content: "\200B";
+     display: block;
+     height: 0;
+     clear: both;
+}
+.pd-title h2 {
+	padding: 0.10rem 4.1rem 0 4.1rem;
+}
+.pd-title b,
+.pd-title strong,
+.pd-title span,
+.pd-title em {
+	display: block;
+	float: left;
+	height: 1.48rem;
+}
+.pd-title em,
+.pd-title strong,
+.pd-title b {
+	font-size: 1.1rem;
+}
+.pd-title em {
+	color: #8be457;
+}
+.pd-title strong {
+	color: #fb5005;
+}
+.pd-title b {
+	color: #fd739a;
+	font-weight: normal;
+}
+.pd-title span:nth-child(2) {
+	width: 0.6rem;
+	height: 1.07rem;
+	padding-top: 0.4rem;
+	font-size: 0.6rem;
+	color: #5eb5e0;
+	text-align: center;
+}
+.pd-title span:nth-child(3) {
+	font-size: 1rem;
+	color: #5eb5e0;
+	line-height: 1.48rem;
+}
+.pd-title p {
+	height: 1.1rem;
+}
+.pd-title p a {
+	display: block;
+	float: right;
+	width: 1.7rem;
+	padding-left: 0.25rem;
+	height: 1.1rem;
+	line-height: 1.0rem;
+	font-size: 0.5rem;
+	color: #71ddfc;
+	background: url("../images/beibeiyi.png") 0.8rem -27.58rem no-repeat;
+}
+.demarcation {
+	width: 100%;
+	height: 0.03rem;
+	background-color: #e6e5e5;
+	box-shadow: 0px -0.03rem 0px 0.03rem #fff;
+}
+.pd-content {
+	overflow: hidden;
+	width: 15.28rem;
+	padding: 0.2rem 0 0.3rem 0.03rem;
+}
+.pd-test {
+	width: 16rem;
+}
+.pd-content dl {
+	float: left;
+	width: 7.47rem;
+	height: 8.65rem;
+	margin: 0 0.3rem 0.3rem 0;
+}
+.pd-content dt a,
+.pd-content dl img {
+	display: block;
+	width: 7.47rem;
+	height: 7.47rem;
+}
+.pd-content dt a {
+	box-shadow: 0 0.03rem 0 0.03rem #dfdfdf;
+}
+.pd-content dd {
+	height: 1.18rem;
+	line-height: 1.18rem;
+}
+.pd-content dd em {
+	float: left;
+	font-size: 0.75rem;
+	color: #5eb5e0;
+}
+.likes {
+	float: right;
+	width: 2.25rem;
+	height: 1.18rem;
+	font-size: 0.75rem;
+	color: #fd739a;
+}
+.likes div {
+	float: left;
+	width: 1.1rem;
+	height: 1.18rem;
+	background: url("../images/beibeiyi.png") -0.05rem -14.75rem no-repeat;
+	background-size: 16rem;
+}
+.main nav {
+	width: 100%;
+	height: 5.1rem;
+	background: #fff;
+	margin: 0.38rem 0 ;
+}
+.main nav a {
+	display: block;
+	float: left;
+	width: 25%;
+	height: 50%;
+	color: #0cc6fc;
+}
+.main nav a span {
+	display: block;
+	float: right;
+	width: 1.38rem;
+	height: 2.55rem;
+	font-size: 0.5rem;
+}
+.main nav a:nth-child(1) {
+	background: url("../images/beibeiyi.png") -0.35rem -16.57rem no-repeat;
+	background-size: 16rem;
+}
+.main nav a:nth-child(2) {
+	background: url("../images/beibeiyi.png") -0.4rem -19.5rem no-repeat;
+	background-size: 16rem;
+}
+.main nav a:nth-child(3) {
+	background: url("../images/beibeiyi.png") -0.35rem -16.57rem no-repeat;
+	background-size: 16rem;
+}
+.main nav a:nth-child(4) {
+	background: url("../images/beibeiyi.png") -0.4rem -19.5rem no-repeat;
+	background-size: 16rem;
+}
+.main nav a:nth-child(5) {
+	background: url("../images/beibeiyi.png") -0.35rem -16.57rem no-repeat;
+	background-size: 16rem;
+}
+.main nav a:nth-child(6) {
+	background: url("../images/beibeiyi.png") -0.4rem -19.5rem no-repeat;
+	background-size: 16rem;
+}
+.main nav a:nth-child(7) {
+	background: url("../images/beibeiyi.png") -0.35rem -16.57rem no-repeat;
+	background-size: 16rem;
+}
+.main nav a:nth-child(8) {
+	background: url("../images/beibeiyi.png") -0.4rem -19.5rem no-repeat;
+	background-size: 16rem;
+}
+.main nav a:nth-child(1) span,
+.main nav a:nth-child(2) span,
+.main nav a:nth-child(3) span {
+	height: 1.95rem;
+	padding-top: 0.6rem;
+}
+.main nav a:nth-child(4) span,
+.main nav a:nth-child(5) span,
+.main nav a:nth-child(6) span,
+.main nav a:nth-child(7) span,
+.main nav a:nth-child(8) span {
+	line-height: 2.55rem;
+}
+.wrap footer {
+	width: 100%;
+	height: 7.58rem;
+}
+.login {
+	width: 100%;
+	height: 1.8rem;
+	padding-top: 0.5rem;
+}
+.login p,
+.login p a{
+	font-size: 0.6rem;
+	color: #71defe;
+}
+.login p {
+	padding-left: 0.63rem;
+}
+.back-top {
+	position: fixed;    
+    bottom: 1rem;   
+    right: 0.5rem;       
+    _position: absolute;      
+    _top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.clientHeight)); 
+	width: 1.52rem;
+	height: 1.52rem;
+	background: #fff url("../images/beibeiyi.png") -0.07rem -22.63rem no-repeat;
+	background-size: 16rem;
+	box-shadow: 0 0.03rem 0 0.03rem #dfdfdf;
+}
+.footer-content {
+	float: left;
+	width: 100%;
+	height: 2.75rem;
+	padding-top: 0.7rem;
+}
+.footer-content p:nth-child(1) {
+	overflow: hidden;
+	margin: 0 auto;
+	width: 11.9rem;
+	height: 0.78rem;
+	text-align: center;
+}
+.footer-content p:nth-child(1) a {
+	display: block;
+	float: left;
+	width: 3.95rem;
+	font-size: 0.6rem;
+	color: #a8a8a8;
+	border-left: 0.03rem solid #a8a8a8;
+}
+.footer-content p a:nth-child(1) {
+	margin-left: -0.03rem;
+}
+.footer-content p:nth-child(2) {
+	margin: 0.5rem; auto;
+	font-size: 0.6rem;
+	color: #a8a8a8;
+	text-align: center;
+}

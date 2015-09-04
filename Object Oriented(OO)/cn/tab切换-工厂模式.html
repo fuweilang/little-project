@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<script src="../js/jquery-1.11.3.min.js" charset="utf-8" type="text/javascript"></script>
+	<style>
+		.wrap{
+			margin: 0 auto;
+			width: 300px;
+			height: 350px;
+		}
+		.tit {
+			width: 300px;
+			height: 50px;
+		}
+		.tit span {
+			float: left;
+			width: 100px;
+			height: 50px;
+			background: #e763e2;
+			line-height: 50px;
+			text-align: center;
+			cursor: pointer;
+		}
+		.tit .select {
+			background: #1f3b80;
+		}
+		.con {
+			width: 300px;
+			height: 300px;
+			background: #888;
+		}
+		.con div {
+			width: 300px;
+			height: 300px;
+			display: none;
+		}
+		.con .show {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="tit" id="tabTit">
+			<span class="select">1</span>
+			<span>2</span>
+			<span>3</span>
+		</div>
+		<div class="con" id="tabCon">
+			<div class="show">我是1</div>
+			<div>我是2</div>
+			<div>我是3</div>
+		</div>
+	</div>
+	<script>
+		// 工厂模式
+		function tab(titid, conid, selName, showName) {
+			var obj = {};
+			obj.tit = document.getElementById(titid).getElementsByTagName("span");
+			obj.con = document.getElementById(conid).getElementsByTagName("div");
+			obj.len = obj.tit.length;
+			
+			// 绑定事件
+			for (var i = 0; i < obj.len; i++) {
+				obj.tit[i].index = i;
+				obj.tit[i].onclick = function() {
+					obj.tabSwith(this.index);
+				}
+			};
+
+			obj.tabSwith = function(index) {
+				for(var j = 0; j < obj.len; j++) {
+					obj.tit[j].className = "";
+					obj.con[j].className = "";
+				}
+				obj.tit[index].className = selName;
+				obj.con[index].className = showName;
+			}
+		}tab("tabTit", "tabCon", "select", "show");
+	</script>
+</body>
+</html>

@@ -1,0 +1,538 @@
+@charset "utf-8";
+
+/* color set */ 
+.ct-image1, .ct-image2,
+.ct-image3, .ct-image4,
+.ct-image5, .ct-image6 {
+	background: #51a1bb;
+}
+
+.property,
+.about-us,
+.logistics,
+.crew,
+.storage,
+.contact-us,
+.show-pic,
+.dynamic {
+	background: #fff;
+}
+
+.property, .about-us, .logistics, .crew,
+.storage, .dynamic, .contact-us {
+	padding: 5px 5px 0px 5px;
+}
+
+/* big iamges */
+.show-pic {
+	position: relative;
+	float: left;
+	width: 719px;
+	height: 253px;
+	padding: 8px 5px 7px 6px;
+}
+.show-pic a,
+.show-pic img {
+	display: block;
+	width: 719px;
+	height: 253px;
+}
+.showpic-chose {
+	position: absolute;
+	left: 6px;
+	bottom: 7px;
+	width: 719px;
+	height: 31px;
+	background: #faf7f7;
+	opacity: 0.4;
+	filter:alpha (opacity=50);
+}
+
+
+/* property */
+.property {
+	float: left;
+	width: 210px;
+	height: 263px;
+	margin-left:10px;
+}
+.property-list {
+	overflow: hidden;
+	height: 224px;
+	margin-top: 4px;
+	padding-right: 4px;
+} 
+.property-list dl {
+	height: 44px;
+	border-bottom: 1px dotted #b6b6b6;
+}
+.property-list dt {
+	float: left;
+	padding: 5px 0;
+}
+.property dt a,
+.property dt img {
+	display: block;
+	width: 40px;
+	height: 31px;
+}
+.property dt a {
+	border: 1px solid #303338;
+}
+.property-list dd {
+	float: left;
+	width: 155px;
+	height: 44px;
+	margin-left: 8px;
+	line-height: 44px;
+	background: url("../images/layout.png") 144px -672px;
+	font-size: 12px;
+}
+
+/* property contant */
+.property-con {
+	width: 920px;
+	height: 58px;
+	margin-top: 5px;
+	padding: 12px 10px 0 10px;
+}
+.property-con span {
+	padding-left: 2em;
+	font-size: 14px;
+}
+.property-proj {
+	width: 930px;	
+	padding: 0 5px;
+}
+.property-proj dl {
+	width: 918px;
+	height: 121px;
+	padding: 8px 12px 0 0;
+	border-top: 1px dashed #b6b6b6;
+}
+.property-proj dt {
+	float: left;
+	width: 156px;
+	height: 121px;
+}
+.property-proj dt img {
+	display: block;
+	width: 156px;
+	height: 103px;
+}
+.property-proj dd {
+	float: left;
+	width: 752px;
+	height: 121px;
+	padding-left: 10px;
+}
+.property-proj dd p {
+	height: 25px;
+	background: url("../images/layout.png") 0 -269px;
+}
+.property-proj dl:nth-child(2) p {
+	background: url("../images/layout.png") 0 -307px;
+}
+.property-proj dl:nth-child(3) p {
+	background: url("../images/layout.png") 0 -348px;
+}
+.property-proj dl:nth-child(4) p {
+	background: url("../images/layout.png") 0 -386px;
+}
+.property-proj dl:nth-child(5) p {
+	background: url("../images/layout.png") 0 -427px;
+}
+
+.property-proj dd span {
+	display: block;
+	margin-top: 15px;
+	font-size: 14px;
+}
+
+/* information */
+.information {
+	float: left;
+	width: 923px;
+	height: 36px;
+	margin-top: 10px;
+	padding-left: 37px;
+	background: #fff url("../images/layout.png") 7px -166px;
+}
+.information h2 a {
+	float: left;
+	margin-left: 0;
+	line-height: 36px;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+.information a {
+	margin-left: 30px;
+	line-height: 36px;
+	font-size: 12px;
+}
+
+/* about us */
+.about-us {
+	float: left;
+	width: 260px;
+	height: 263px;
+	margin: 10px 0px;
+}
+.aboutus-list,
+.aboutus-list dl{
+	margin-top: 6px;
+	height: 215px;
+}
+.aboutus-list dt a,
+.aboutus-list dt img {
+	display: block;
+	width: 260px;
+	height: 135px;
+}
+.aboutus-list dd {
+	padding: 12px 7px 0 8px;
+	height: 68px;
+	font-size: 12px;
+}
+
+/* logistics */
+.logistics {
+	float: left;
+	width: 210px;
+	height: 263px;
+	margin: 10px 0 10px 10px;
+}
+
+.crew {
+	float: left;
+	width: 210px;
+	height: 263px;
+	margin: 10px 0px 10px 10px;
+}
+.storage {
+	float: left;
+	width: 209px;
+	height: 263px;
+	margin: 10px 0px 10px 10px;
+}
+
+/* in index news*/
+.dynamic {
+	float: left;
+	width: 720px;
+	height: 221px;
+}
+.dynamic-list {
+	overflow: hidden;
+	height: 191px;
+	padding: 3px 6px 0 12px;
+}
+.dynamic-list ul li {
+	float: left;
+	height: 31px;
+	padding-left: 10px;
+	border-bottom: 1px dotted #b6b6b6;
+	background: url("../images/layout.png") -1px -202px;
+}
+.dynamic-list li a {
+	display: block;
+	float: left;
+	width: 692px;
+	font-size: 12px;
+	line-height: 31px;
+}
+.dynamic-list li strong {
+	float: left;
+}
+.dynamic-list li em {
+	float: left;
+	width: 23px;
+	height: 31px;
+	background: url("../images/layout.png") 0 -238px;
+}
+.dynamic-list li span {
+	float: right;
+}
+
+/* contact us */
+.contact-us {
+	float: left;
+	width: 209px;
+	height: 221px;
+	margin-left: 10px;
+}
+.tel, 
+.fax, 
+.addr {
+	float: left;
+	width: 197px;
+	height: 45px;
+	padding: 6px 0 0 10px;
+	border: 1px solid #b6b6b6;
+	font-size: 16px;
+}
+.tel {
+	margin-top: 7px;
+}
+.fax {
+	margin-top: 10px;
+}
+.addr {
+	margin-top: 10px;
+}
+
+/* company introduce */
+.com-con {
+	width: 920px;
+	height: 400px;
+	min-height: 400px;
+	margin-top: 10px;
+	padding: 7px 10px 0 10px;
+}
+.com-con h2 {
+	text-align: center;
+	font-size: 16px;
+}
+.com-con h3 {
+	margin-top: 31px;
+	text-indent: 2em;
+	font-size: 14px;
+	font-weight: bold;
+}
+.com-con p {
+	text-indent: 2em;
+	font-size: 14px;
+}
+
+/* logistics contant */
+.logistics-con {
+	width: 930px;	
+	padding: 0 5px;
+	min-height: 500px;
+}
+.logistics-con dl {
+	width: 918px;
+	height: 222px;
+	padding: 18px 12px 0 0;
+	border-bottom: 1px dashed #b6b6b6;
+}
+.logistics-con dt {
+	float: left;
+	width: 268px;
+	height: 222px;
+}
+.logistics-con dt img {
+	display: block;
+	width: 268px;
+	height: 203px;
+}
+.logistics-con dd {
+	float: left;
+	width: 640px;
+	height: 222px;
+	padding-left: 10px;
+}
+.logistics-con dd p {
+	height: 25px;
+	background: url("../images/layout.png") 0 -470px;
+}
+.logistics-con dl:nth-child(2) p {
+	background: url("../images/layout.png") 0 -513px;
+}
+.logistics-con dd span {
+	display: block; 
+	padding-left: 7px;
+	margin-top: 15px;
+	font-size: 14px;
+}
+/* crew contant */
+.crew-con-l {
+	float: left;
+	width: 260px;
+	min-height: 400px;
+	margin-top: 15px;
+}
+.crew-con-l img {
+	width: 260px;
+	height: 176px;
+}
+.crew-con-r {
+	float: left;
+	width: 645px;
+	min-height: 400px;
+	padding: 0 5px 0 10px;
+	margin: 6px 0 0 20px;
+}
+.crew-con-r li {
+	border-bottom: 1px dashed #b6b6b6;
+	padding-bottom: 15px;
+	padding-top: 9px;
+}
+.crew-con-r li p {
+	height: 25px;
+	background: url("../images/layout.png") 0 -554px;
+}
+.crew-con-r li:nth-child(2) p {
+	background: url("../images/layout.png") 0 -598px;
+}
+.crew-con-r li:nth-child(3) p {
+	background: url("../images/layout.png") 0 -639px;
+}
+.crew-con-r li span {
+	display: block;
+	padding-left: 7px;
+	margin-top: 15px;
+	font-size: 14px;
+}
+
+/* storage contant */
+.storage-con {
+	width: 940px;
+	min-height: 400px;
+	margin-top: 10px;
+	padding: 8px 0 30px 0;
+}
+.storage-con p {
+	font-size: 14px;
+	padding-left: 36px;
+}
+.storage_pic {
+	margin-top: 35px;
+	text-align: center;
+}
+.storage_pic img {
+	width: 584px;
+	height: 345px;
+}
+/* news contants */
+.news-list {
+	width: 928px;
+	padding-left: 12px;
+	min-height: 400px;
+}
+.news-list li {
+	width: 902px;
+	height: 39px;
+	line-height: 39px;
+	padding: 0 10px 0 16px;
+	border-bottom: 1px dashed #b6b6b6;
+	background: url("../images/layout.png") 0px -197px;
+	font-size: 14px;
+}
+.news-list li strong {
+	float: left;
+}
+.news-list li em {
+	float: left;
+	width: 30px;
+	height: 39px;
+	background: url("../images/layout.png") 0 -230px;
+}
+.news-list li span {
+	float: right;
+}
+
+/* news contant */
+.news-con {
+	width: 928px;
+	padding-left: 12px;
+	min-height: 400px;
+}
+.news-title {
+	width: 928px;
+	height: 56px;
+	padding-top: 17px;
+	border-bottom: 1px dashed black;
+	text-align: center;
+}
+.news-title h2 {
+	font-weight: bold;
+	font-size: 16px;
+}
+.news-title p {
+	margin-top: 10px;
+	font-size: 12px;
+}
+.news-detail {
+	width: 928px;
+	min-height: 400px;
+	padding-bottom: 20px;
+	border-bottom: 1px dashed black;
+}
+.news-detail p{
+	padding: 18px 10px 0 10px;
+	text-indent: 2em;
+	font-size: 14px;
+}
+.news_pic {
+	margin-top: 15px;
+	text-align: center;
+}
+.news_pic img {
+	width: 500px;
+	height: 334px;
+}
+
+
+/* culture */
+.culture-con {
+	overflow: hidden;
+	margin: 0 auto;
+	width: 883px;
+	height: 887px;
+	padding: 27px 0 20px 0;
+	min-height: 400px;
+}
+.culture-con ul {
+	margin-top: -22px;
+	margin-left: -22px;
+}
+.culture-con li {
+	float: left;
+	width: 257px;
+	height: 259px;
+	padding: 22px;
+}
+.culture-con .li-image2 {
+	float: right;
+	width: 560px; 
+	height: 563px;
+}
+.culture-con li img {
+	width: 257px;
+	height: 259px;
+}
+.culture-con .li-image2 img {
+	width: 560px;
+	height: 563px;
+}
+
+
+/* contant us contant */
+.contact-con {
+	width: 930px;
+	min-height: 400px;
+	padding: 0 5px 30px 5px;
+}
+.contact-detail {
+	width: 930px;
+	min-height: 400px;
+}
+.contact-title {
+	width: 930px;
+	height: 65px;
+	padding-top: 17px;
+	border-bottom: 1px dashed black;
+	text-align: center;
+}
+.contact-title h2 {
+	font-weight: bold;
+	font-size: 18px;
+}
+.contact-title p {
+	margin-top: 12px;
+	font-size: 16px;
+}
+
+

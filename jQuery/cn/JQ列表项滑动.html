@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<script src="../js/jquery-1.11.3.min.js" charset="utf-8" type="text/javascript"></script>
+	<style>
+		.wrap {
+			margin: 0 auto;
+			width: 164px;
+		}
+		.list {
+			width: 164px;
+		}
+		.news {
+			overflow: hidden;
+			width: 164px;
+			height: 250px;
+			background: #999;
+		}
+		.text {
+			overflow: hidden;
+			width: 164px;
+			height: 250px;
+			background: #888;
+		}
+		.wrap h2 {
+			margin: 0 auto;
+			width: 140px;
+			height: 40px;
+			line-height: 40px;
+			font-weight: bold;
+			font-size: 16px;
+			color: #fff;
+		}
+		.wrap p {
+			margin: 0 auto;
+			width: 140px;
+			height: 300px;
+			font-size: 12px;
+			line-height: 24px;
+		} 
+		.log {
+			height: 31px;
+			background: #999 url("../images/open.png") no-repeat;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="list" id="con">
+			<div class="news" id="newCon">
+				<h2>最新动态</h2>
+				<p>&nbsp;&nbsp;冠军的争夺已经没有悬念，切尔西主场稳定地再取三分，在周末领先暂时排名第二的阿森纳7分，还少赛一场，在其他对手只剩七轮比赛的情况下，穆里尼奥重归英超之后的第一个联赛冠军，在球队只剩这一项赛事任务的情况下，不会再有多少惊险。只是其他对手各有各的忙碌，也各有各的辛苦。阿森纳在一个被中国球迷戏谑为“阿森纳节”的日子里(4月4日)，主场4比1横扫利物浦，结束的可能不仅是利物浦未来赛季欧冠可能，由于曼联同样获胜，英超赛季收官，争四的悬念，很有可能和冠军锦标争夺一样，提前结束。</p>
+			</div>
+			<div class="log" id="btnOne">
+				<a href="" title=""></a>
+			</div>
+			<div class="text" id="textCon">
+				<h2>相关文章</h2>
+				<p>&nbsp;&nbsp;冠军的争夺已经没有悬念，切尔西主场稳定地再取三分，在周末领先暂时排名第二的阿森纳7分，还少赛一场，在其他对手只剩七轮比赛的情况下，穆里尼奥重归英超之后的第一个联赛冠军，在球队只剩这一项赛事任务的情况下，不会再有多少惊险。只是其他对手各有各的忙碌，也各有各的辛苦。阿森纳在一个被中国球迷戏谑为“阿森纳节”的日子里(4月4日)，主场4比1横扫利物浦，结束的可能不仅是利物浦未来赛季欧冠可能，由于曼联同样获胜，英超赛季收官，争四的悬念，很有可能和冠军锦标争夺一样，提前结束。</p>
+			</div>
+			<div class="log" id="btnTwo">
+				<a href=""></a>
+			</div>
+		</div>
+	</div>
+	<script>
+		var flag = true;
+		function changeShow(obj, id, high) {
+			if(flag) {
+				obj.style.background = "#999 url(../images/close.png)";
+				$(id).stop(true, true).animate({
+					"height" : high + "px"
+				});
+				flag = false;
+			} else {
+				obj.style.background = "#999 url(../images/open.png)";
+				$(id).stop(true, true).animate({
+					"height" : "250px"
+				});
+				flag = true;
+			}
+		}
+		$("#btnOne").on("click", function(){
+			changeShow(this, "#newCon", 325);
+		})
+		$("#btnTwo").on("click", function(){
+			changeShow(this, "#textCon", 297);
+		})
+	</script>
+</body>
+</html>

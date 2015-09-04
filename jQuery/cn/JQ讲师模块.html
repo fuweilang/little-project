@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<script src="../js/jquery-1.11.3.min.js" charset="utf-8" type="text/javascript"></script>
+	<style>
+		.wrap {
+			margin: 0 auto;
+			width: 610px;
+			padding-top: 10px;
+		}
+		.list {
+			width: 610px;
+			height: 250px;
+		}
+		.list dl {
+			overflow: hidden;
+			float: left;
+			width: 140px;
+			height: 230px;
+			border: 1px solid #999;
+			margin-right: 10px;
+			padding-bottom: 10px;
+		}
+		.list dt {
+			overflow: hidden;
+			width: 140px;
+			height: 140px;
+		}
+		.list dt span {
+			display: block;
+			height: 5px;
+			background: #dd5;
+			opacity: 0;
+			margin-bottom: 5px;
+		}
+		.list dt a {
+			overflow: hidden;
+			display: block;
+			margin: 0 auto;
+			width: 130px;
+			height: 130px;
+		}
+		.list img {
+			display: block;
+			width: 130px;
+			height: 130px;
+		}
+		.list dd {
+			padding: 0 5px;
+			width: 130px;
+			height: 127px;
+		}
+		.list h2 {
+			width: 130px;
+			height: 24px;
+			font-size: 14px;
+			text-align: center;
+			color: #f66;
+			line-height: 24px;
+		}
+		.list p {
+			width: 130px;
+			height: 22px;
+			font-size: 12px;
+			line-height: 22px;
+		}
+		.list dd a {
+			float: right;
+			margin-top: 20px;
+			font-size: 13px;
+			color: #f55;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="list" id="con">
+			<dl>
+				<dt>
+					<span></span>
+					<a href="">
+						<img src="../images/liudehua.jpg" alt="" title="">
+					</a>
+				</dt>
+				<dd>
+					<h2>HTML5</h2>
+					<p>讲师团队</p>
+					<p>北京、厦门、广州团队</p>
+					<p>用心学习</p>
+					<a href="">more</a>
+				</dd>
+			</dl>
+			<dl>
+				<dt>
+					<span></span>
+					<a href="" title="">
+						<img src="../images/zhangxueyou.jpg" alt="" title="">
+					</a>
+				</dt>
+				<dd>
+					<h2>张学友</h2>
+					<p>博客：张学友</p>
+					<p>微博：张学友</p>
+					<p>厦门团队</p>
+					<a href="">more</a>
+				</dd>
+			</dl>
+			<dl>
+				<dt>
+					<span></span>
+					<a href="" title="">
+						<img src="../images/guofucheng.jpg" alt="" title="">
+					</a>
+				</dt>
+				<dd>
+					<h2>郭富城</h2>
+					<p>博客：郭富城</p>
+					<p>微博：郭富城</p>
+					<p>厦门团队</p>
+					<a href="">more</a>
+				</dd>
+			</dl>
+			<dl>
+				<dt>
+					<span></span>
+					<a href="" title="">
+						<img src="../images/liming.jpg" alt="" title="">
+					</a>
+				</dt>
+				<dd>
+					<h2>黎明</h2>
+					<p>博客：黎明</p>
+					<p>微博：黎明</p>
+					<p>广州团队</p>
+					<a href="">more</a>
+				</dd>
+			</dl>
+		</div>
+	</div>
+	<script>
+		$("#con dl").on("mouseenter", function(){
+			$(this).children("dt").stop(true, true).animate({
+				"height" : "110px"
+			}, '1000');
+			$(this).find("span").stop(true, true).animate({
+				"opacity" : "1"
+			}, '1000');
+			$(this).find("img").stop(true, true).animate({
+				"marginTop" : "-1px"
+			}, '1000');
+		})
+		$("#con dl").on("mouseleave", function(){
+			$(this).children("dt").stop(true, true).animate({
+				"height" : "140px"
+			}, '1000');
+			$(this).find("span").stop(true, true).animate({
+				"opacity" : "0"
+			}, '1000');
+			$(this).find("img").stop(true, true).animate({
+				"marginTop" : "0"
+			}, '1000');
+		})
+		
+	</script>
+</body>
+</html>

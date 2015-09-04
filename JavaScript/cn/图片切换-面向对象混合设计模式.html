@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>图片切换复习</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+		.wrap {
+			position: relative;
+			margin: 0 auto;
+			padding-top: 20px;
+			width: 400px;
+			height: 400px;
+		}
+		#outer {
+			/*overflow: scroll;*/
+			overflow: hidden;
+			margin: 0 auto;
+			width: 200px;
+			height: 300px;
+		}
+		#inner {
+			width: 1000px;
+			height: 300px;
+		}
+		#inner img {
+			float: left;
+			width: 200px;
+			height: 300px;
+		}
+		#left,
+		#right {
+			position: absolute;
+			top: 135px;
+			width: 50px;
+			height: 50px;
+			background: #f8f;
+			line-height: 50px;
+			border-radius: 50%;
+			cursor: pointer;
+			font-size: 40px;
+			text-align: center;
+		}
+		#left {
+			left: 30px;
+		}
+		#right {
+			right: 30px;
+		}
+		#index-area {
+			position: absolute;
+			bottom: 60px;
+			left: 120px;
+			width: 150px;
+			height: 20px;
+		}
+		#index-area span {
+			float: left;
+			width: 20px;
+			height: 20px;
+			margin-right: 10px;
+			border-radius: 50%;
+			background: #999;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div id="outer">
+			<div id="inner">
+				<img src="../images/(1).jpg" alt="" title="">
+				<img src="../images/(2).jpg" alt="" title="">
+				<img src="../images/(3).jpg" alt="" title="">
+				<img src="../images/(4).jpg" alt="" title="">
+				<img src="../images/(5).jpg" alt="" title="">
+			</div>
+		</div>
+		<div id="left"><</div>
+		<div id="right">></div>
+		<div id="index-area">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div>
+	<script>
+		function addEvent(obj, event, fn, bool) {
+			if(obj.addEventListener) {
+				obj.addEventListener(event, fn, bool)
+			} else {
+				obj.attachEvent("on" + event, fn);
+			}
+		}
+		function imagescroll() {
+			this.outer = document.getElementById("outer");
+			this.inner = document.getElementById("inner");
+			this.imgArr = inner.getElementsByTagName("images");
+			this.selCirleArr = document.getElementById("index-area").getElementsByTagName("span");
+			this.leftBtn = document.getElementById("left");
+			this.rightBtn = document.getElementById("right");
+			this.imgWidth = 200;
+			this.timer = null;
+		}
+
+		/**
+		 * [更加索引值，使图片滑动到指定的位置]
+		 * @param  {[type]} index [滑动到哪张图片的索引值]
+		 * @return {[type]}       [description]
+		 */
+		imagescroll.prototype.changeScrollLeft = function(index) {
+			this.dis = this.imgWidth * index - this.outer.scrollLeft;
+			this.speed = this.dis / 10;
+			this.outer.scrollLeft = this.outer.scrollLeft + this.speed;
+			if (Math.abs(this.dis) <= 10) {
+				this.outer.scrollLeft = this.imgWidth * index;
+				clearInterval(this.timer);
+			}
+		}
+
+		var obj = new imagescroll();
+		var len = obj.selCirleArr.length;
+		var _index;
+
+		//点击小球索引，实现图片滚动
+		for (var i = 0; i < len; i++) {
+			obj.selCirleArr[i].index = i;
+			addEvent(obj.selCirleArr[i], "click", function(){
+				_index = this.index;
+				obj.timer = setInterval(function() {
+					obj.changeScrollLeft(_index);
+				}, 10)
+			}, "false");
+		};
+
+		// 点击向左按钮，实现图片向左滑动一张
+		addEvent(obj.leftBtn, "click", function(){
+			var currentIndex = obj.outer.scrollLeft / 200;
+			if(currentIndex == 0) {
+				_index = 4;
+			} else {
+				_index = currentIndex - 1;
+			}
+			obj.timer = setInterval(function() {
+				obj.changeScrollLeft(_index);
+			}, 10)
+		}, "false");
+
+		// 点击向右按钮，实现实现图片向右滑动一张
+		addEvent(obj.rightBtn, "click", function() {
+			var currentIndex = obj.outer.scrollLeft / 200;
+			if(currentIndex == 4) {
+				_index = 0;
+			} else {
+				_index = currentIndex + 1;
+			}
+			obj.timer = setInterval(function() {
+				obj.changeScrollLeft(_index);
+			}, 10)
+		})
+
+	</script>
+</body>
+</html>

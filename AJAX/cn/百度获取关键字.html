@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>HTML5学堂</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+		.wrap {
+			padding: 20px 0 0 20px;
+		}
+		.main li {
+			height: 20px;
+			line-height: 20px;
+			font-size: 14px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<form>
+			<input type="text" name="" id="ipt">
+			<input type="button" value="获取关键词" id="btn">
+		</form>
+		<div class="main">
+			<ul id="con"></ul>
+		</div>
+	</div>
+	<script>
+		//功能描述
+		//用户在输入框输入值，然后点击获取关键词的按钮。在控制台输出相关的关键词
+
+		var searchIpt = document.getElementById("ipt");
+		var searchBtn = document.getElementById("btn");
+		var getCon = document.getElementById("con");
+
+		searchBtn.onclick = function() {
+			getCon.innerHTML = "";
+			showIpt(searchIpt.value);
+		}
+
+		function showIpt(index) {
+			var hr = new XMLHttpRequest();
+			hr.open("get", "http://localhost/AJAX/cn/baidu.php?keyword=" + index, true);
+			hr.send(null);
+			hr.onload = function() {
+				var obj = JSON.parse(hr.responseText);
+				var len = obj.s.length;
+				var newLi = null;
+				var newIpt = null;
+				for (var i = 0; i < len; i++) {
+					newIpt = document.createTextNode(obj.s[i]);
+					newLi = document.createElement("li");
+					newLi.appendChild(newIpt);
+					getCon.appendChild(newLi);
+				}
+			}
+		}
+	</script>
+</body>
+</html>

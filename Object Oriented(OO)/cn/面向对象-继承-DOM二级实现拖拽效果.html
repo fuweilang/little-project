@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<script src="../js/jquery-1.11.3.min.js" charset="utf-8" type="text/javascript"></script>
+	<style>
+		.wrap {
+			position: relative;
+			margin: 50px auto;
+			width: 500px;
+			height: 350px;
+			border: 1px solid #000;
+		}
+		.innerOne {
+			position: absolute;
+			width: 50px;
+			height: 56px;
+			background: #f8f;
+			cursor: pointer;
+		}
+		.innerTwo {
+			position: absolute;
+			left: 100px;
+			width: 50px;
+			height: 56px;
+			background: #228421;
+			font-size: 12px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap" id="outer">
+		<div class="innerOne" id="boxOne">
+			无边界拖拽
+		</div>
+		<div class="innerTwo" id="boxTwo">
+			有边界拖拽
+		</div>
+	</div>
+	<script>
+		// DOM二级添加事件处理，针对谷歌，IE等不同浏览器兼容性处理
+		function addEvent(obj, event, fn, bool) {
+			if(obj.addEventListener) {
+				obj.addEventListener(event, fn, false);
+			} else {
+				obj.attachEvent("on" + event, fn);
+			}
+		}
+		// DOM二级移除事件处理，针对谷歌，IE等不同浏览器兼容性处理
+		function removeEvent(obj, event, fn, bool) {
+			if(obj.removeEventListener) {
+				obj.removeEventListener(event, fn, bool);
+			} else {
+				obj.detachEvent("on" + event, fn);
+			}
+		}
+		// 实现div无边界拖拽方法
+		function Drag(boxid) {
+			var _this = this;
+			this.box = document.getElementById(boxid);
+			this.sportX = 0;
+			this.sportY = 0;
+			this.disX = 0;
+			this.disX = 0;
+			this.down = this.changeThis(this, this.mousedown);
+			this.move = this.changeThis(this, this.mousemove);
+			this.up = this.changeThis(this, this.mouseup);
+
+			addEvent(this.box, "mousedown", this.down, false);
+		}
+		Drag.prototype.changeThis = function(obj, fn) {
+			return function() {
+				fn.apply(obj, arguments)
+			}
+		}
+		// 鼠标点中"无边界拖拽div"所触发的事件
+		Drag.prototype.mousedown = function(e) {
+			this.sportX = -e.clientX + this.box.offsetLeft;
+			this.sportY = -e.clientY + this.box.offsetTop;
+
+			addEvent(document, "mouseup", this.up, false);
+			addEvent(document, "mousemove", this.move, false);
+		}
+		// 鼠标拖动"无边界拖拽div"所触发的事件
+		Drag.prototype.mousemove = function(e) {
+			this.disX = e.clientX + this.sportX;
+			this.disY = e.clientY + this.sportY;
+			this.box.style.left = this.disX + "px";
+			this.box.style.top = this.disY + "px";
+
+			addEvent(document, "mouseup", this.up, false);
+		}
+		// 鼠标松开所触发的事件
+		Drag.prototype.mouseup = function(e) {
+			removeEvent(document, "mousemove", this.move, false);
+		}
+		var obj = new Drag("boxOne");
+
+		/************************利用继承，实现有边界拖拽*********************************/
+		function limitDrag(boxid, outerid) {
+			Drag.call(this, boxid);
+			this.getOuter = document.getElementById(outerid);
+			this.limitX = this.getOuter.clientWidth - this.box.offsetWidth;
+			this.limitY = this.getOuter.clientHeight - this.box.offsetHeight;
+		}
+		for(var i in Drag.prototype) {
+			limitDrag.prototype[i] = Drag.prototype[i];
+		}
+		limitDrag.prototype.mousemove = function(e) {
+			this.disX = e.clientX + this.sportX;
+			this.disY = e.clientY + this.sportY;
+			if(this.disX <= 0) {
+				this.disX = 0;
+			} else if(this.disX >= this.limitX) {
+				this.disX = this.limitX;
+			}
+			if(this.disY <= 0) {
+				this.disY = 0;
+			} else if(this.disY >= this.limitY) {
+				this.disY = this.limitY;
+			}
+			this.box.style.left = this.disX + "px";
+			this.box.style.top = this.disY + "px";
+
+			addEvent(document, "mouseup", this.up, false);
+		}
+		var limitObj = new limitDrag("boxTwo", "outer");
+
+	</script>
+</body>
+</html>

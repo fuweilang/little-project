@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<script src="../js/jquery-1.11.3.min.js" charset="utf-8" type="text/javascript"></script>
+	<style>
+		.wrap {
+			position: relative;
+			margin: 50px auto;
+			width: 500px;
+			height: 350px;
+			border: 1px solid #000;
+		}
+		.innerOne {
+			position: absolute;
+			width: 50px;
+			height: 56px;
+			background: #f8f;
+			cursor: pointer;
+		}
+		.innerTwo {
+			position: absolute;
+			left: 100px;
+			width: 50px;
+			height: 56px;
+			background: #228421;
+			font-size: 12px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap" id="outer">
+		<div class="innerOne" id="boxOne">
+			无边界拖拽
+		</div>
+		<div class="innerTwo" id="boxTwo">
+			有边界拖拽
+		</div>
+	</div>
+	<script>
+
+		function Drag(dragid) {
+			var _this = this;
+			this.inner = document.getElementById(dragid);
+			this.sportX = 0;
+			this.sportY = 0;
+
+			this.inner.onmousedown = function(e) {
+				_this.dragDown(e);
+			}
+		}
+		// 鼠标点击开始
+		Drag.prototype.dragDown = function(event) {
+			// 事件对象
+			var _this = this;
+			this.sportX = -event.clientX + this.inner.offsetLeft;
+			this.sportY = -event.clientY + this.inner.offsetTop;
+
+			document.onmousemove = function(event) {
+				_this.dragMove(event);
+			}
+			// addEvent(document, "mouseover", _this.dragMove(event), false);
+		}
+		// 鼠标移动
+		Drag.prototype.dragMove = function(event) {
+			this.inner.style.left = this.sportX + event.clientX + "px";
+			this.inner.style.top = this.sportY + event.clientY + "px";
+
+			document.onmouseup = this.dragUp;
+		}
+		// 鼠标松开，结束
+		Drag.prototype.dragUp = function() {
+			document.onmousemove = null;
+		}
+	/*******************************有边界的拖拽**************************************/ 
+		// 需要父级的对象
+		// 两个属性控制移动
+		// 两个属性存储范围大小
+		function LimitDrag(dragid, parentid) {
+			// 1.属性的继承
+			Drag.call(this, dragid);
+
+			this.parent = document.getElementById(parentid);
+			this.LimitSportX = 0;
+			this.LimitSportY = 0;
+			this.LimitWidth = 0;
+			this.LimitHeight = 0;
+		}
+		// 2.方法的继承
+		for(var i in Drag.prototype) {
+			LimitDrag.prototype[i] = Drag.prototype[i];
+		}
+		// 3.哪些方法改变了，就重写哪些
+		LimitDrag.prototype.dragMove = function(event) {
+			// 范围大小
+			this.LimitWidth = this.parent.clientWidth - this.inner.offsetWidth;
+			this.LimitHeight = this.parent.clientHeight - this.inner.offsetHeight;
+
+			this.LimitSportX = this.sportX + event.clientX;
+			this.LimitSportY = this.sportY + event.clientY;
+
+			if(this.LimitSportX <= 0) {
+				this.LimitSportX = 0;
+			}
+			if(this.LimitSportX >= this.LimitWidth) {
+				this.LimitSportX = this.LimitWidth;
+			}
+			if(this.LimitSportY <= 0) {
+				this.LimitSportY = 0;
+			}
+			if(this.LimitSportY >= this.LimitHeight) {
+				this.LimitSportY = this.LimitHeight;
+			}
+			this.inner.style.left = this.LimitSportX + "px";
+			this.inner.style.top = this.LimitSportY + "px";
+
+			document.onmouseup = this.dragUp;
+		}
+
+		var obj = new Drag("boxOne");
+		var limitobj = new LimitDrag("boxTwo", "outer");
+	</script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<script src="../js/jquery-1.11.3.min.js" charset="utf-8" type="text/javascript"></script>
+	<style>
+		.wrap {
+			position: relative;
+			margin: 0 auto;
+			width: 550px;
+			height: 550px;
+			background: #080d23;
+		}
+		.wrap div {
+			position: absolute;
+			border: 2px solid #3a3f55;
+			border-radius: 50%;
+			-webkit-transform-style: preserve-3d;
+		}
+		.wrap div:nth-child(10) {
+			background: #f8f126;
+			border: 2px solid #f8f126;
+			box-shadow: 0px 0px 12px 8px rgba(248, 241, 38, 0.5);
+		}
+ 		.wrap div span {
+			position: absolute;
+			display: block;
+			width: 8px;
+			height: 8px;
+			background: green;
+			border-radius: 50%;
+		}
+		@-webkit-keyframes Clockwise {
+			from {
+				-webkit-transform:rotateZ(0deg);
+			}
+			to {
+				-webkit-transform:rotateZ(360deg);
+			}
+		}
+		.wrap div:nth-child(10) span {
+			display: none;
+		}
+		.wrap div:nth-child(9) span {
+			background: #b6b9c0;
+			top: 41px;
+			left: -5px;
+			-webkit-transform-origin: 46px 0;
+			-webkit-animation: Clockwise 4s linear infinite;
+		}
+		.wrap div:nth-child(8) span {
+			background: #c0863d;
+			top: 67px;
+			left: 131px;
+			-webkit-transform-origin: -64px 0;
+			-webkit-animation: Clockwise 5s linear infinite;
+		}
+		.wrap div:nth-child(7) span {
+			background: #076cc8;
+			top: 93px;
+			left: 183px;
+			-webkit-transform-origin: -90px 0;
+			-webkit-animation: Clockwise 4s linear infinite;
+		}
+		.wrap div:nth-child(7) span i {
+			position: absolute;
+			left: 10px;
+			top: 10px;
+			display: block;
+			width: 4px;
+			height: 4px;
+			background: #fff;
+			border-radius: 50%;
+			-webkit-transform-origin: -6px -6px;
+			-webkit-animation: Clockwise 2s linear infinite;
+		}
+		.wrap div:nth-child(6) span {
+			background: #a33905;
+			top: 235px;
+			left: 116px;
+			-webkit-transform-origin: 3px -116px;
+			-webkit-animation: Clockwise 6s linear infinite;
+		}
+		.wrap div:nth-child(5) span {
+			background: #e2b073;
+			top: 145px;
+			left: -5px;
+			-webkit-transform-origin: 150px 0;
+			-webkit-animation: Clockwise 7s linear infinite;
+		}
+		.wrap div:nth-child(4) span {
+			background: #e2d6ac;
+			top: 288px;
+			left: 46px;
+			-webkit-transform-origin: 125px -117px;
+			-webkit-animation: Clockwise 8s linear infinite;
+		}
+		.wrap div:nth-child(4) span i {
+			position: absolute;
+			left: -5px;
+			top: -6px;
+			display: block;
+			width: 11px;
+			height: 14px;
+			border: 3px solid #5b503e;
+			border-radius: 50%;
+			-webkit-transform: rotateY(57deg);
+		}
+		.wrap div:nth-child(3) span {
+			background: #89b8d4;
+			top: 391px;
+			left: 194px;
+			-webkit-transform-origin: 3px -194px;
+			-webkit-animation: Clockwise 9s linear infinite;
+		}
+		.wrap div:nth-child(2) span {
+			background: #7ecaea;
+			top: 220px;
+			left: 443px;
+			-webkit-transform-origin: -220px 3px;
+			-webkit-animation: Clockwise 10s linear infinite;
+		}
+		.wrap div:nth-child(1) span {
+			background: #7b695d;
+			top: 69px;
+			left: 422px;
+			-webkit-transform-origin: -173px 180px;
+			-webkit-animation: Clockwise 11s linear infinite;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap clearfix"></div>
+	<script>
+		var posTop = 0;
+		var posLeft = 0;
+		var width = 550;
+		var height = 550;
+		for(var i = 0; i < 10; i++) {
+			$(".wrap").append("<div><span></span></div>");
+			width -= (50 + 2);
+			height -= (50 + 2);
+			posLeft += 25;
+			posTop += 25;
+
+			$(".wrap div").eq(i).css({
+				"width" : width + "px",
+				"height" : height + "px",
+				"top" : posTop + "px",
+				"left" : posLeft + "px"
+			})
+		}
+		$(".wrap div").eq(3).children("span").append("<i></i>");
+		$(".wrap div").eq(6).children("span").append("<i></i>");
+	</script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+		body {
+			-webkit-perspective: 1500;
+			-moz-perspective: 1500;
+			-ms-perspective: 1500;
+			perspective: 1500;
+
+		}
+		.wrap {
+			position: relative;
+			margin: 10px auto;
+			width: 800px;
+			height: 400px;
+			background-color: #f9a;
+			padding: 40px 0 0 60px;
+			-webkit-transform-style: preserve-3d;
+			-moz-transform-style: preserve-3d;
+			-ms-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+		}
+		.wrap div {
+			position: relative;
+			float: left;
+			width: 230px;
+			height: 360px;
+			margin-right: 20px;
+			-webkit-transform-style: preserve-3d;
+			-moz-transform-style: preserve-3d;
+			-ms-transform-style: presetranslateZrve-3d;
+			transform-style: preserve-3d;
+
+			-webkit-transition: all 1s ease;
+			-moz-transition: all 1s ease;
+			-ms-transition: all 1s ease;
+			-o-transition: all 1s ease;
+			transition: all 1s ease;
+
+			-webkit-transform: rotateY(45deg);
+			-moz-transform: rotateY(45deg);
+			-ms-transform: rotateY(45deg);
+			-o-transform: rotateY(45deg);
+			transform: rotateY(45deg);
+		}
+		.wrap div:hover{
+			-webkit-transform: rotateY(0);
+			-moz-transform: rotateY(0);
+			-ms-transform: rotateY(0);
+			-o-transform: rotateY(0);
+			transform: rotateY(0);
+		}
+		.wrap img {
+			width: 220px;
+			height: 350px;
+			border: 5px solid #fff;
+		}
+		.wrap p {
+			position: absolute;
+			left: 30px;
+			bottom: 0px;
+			overflow: hidden;
+			width: 160px;
+			height: 160px;
+			background-color: #777;
+			border: 5px solid #fff;
+			font-size: 22px;
+			line-height: 130px;
+			text-align: center;
+			-webkit-transform: translateZ(80px);
+			-moz-transform: translateZ(80px);
+			-ms-transform: translateZ(80px);
+			-o-transform: translateZ(80px);
+			transform: translateZ(80px);
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div>
+			<img src="../images/(1).jpg" alt="" title="1">
+			<p>海底总动员</p>
+		</div>
+		<div>
+			<img src="../images/(2).jpg" alt="" title="2">
+			<p>龙骑士</p>
+		</div>
+		<div>
+			<img src="../images/(3).jpg" alt="" title="3">
+			<p>美人鱼</p>
+		</div>
+	</div>
+	<script>
+	</script>
+</body>
+</html>

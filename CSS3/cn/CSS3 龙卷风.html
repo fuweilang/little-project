@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+		body {
+			-webkit-transform-style: preserve-3d;
+		}
+		.wrap {
+			margin: 70px auto;
+			width: 250px;
+			height: 400px;
+			padding-left: 150px;
+			-webkit-transform-style: preserve-3d;
+			-webkit-animation: changeWrap 10s linear infinite;
+		}
+		@-webkit-keyframes changeWrap {
+			from {
+				-webkit-transform: rotateX(0deg);
+			}
+			to {
+				-webkit-transform: rotateX(360deg);
+			}
+		}
+		.wrap div {
+			position: relative;
+			width: 250px;
+			height: 120px;			
+			-webkit-transform-origin: 20%;
+			-webkit-transform-style: preserve-3d;
+		}
+		.wrap div:nth-child(1),
+		.wrap div:nth-child(3) {
+			-webkit-animation: changeOne 5s linear infinite;
+		}
+		.wrap div:nth-child(2) {
+			-webkit-animation: changeTwo 5s linear infinite;
+		}
+		@-webkit-keyframes changeOne {
+			from {
+				-webkit-transform: rotateY(0);
+			}
+			to {
+				-webkit-transform: rotateY(360deg);
+			}
+		}
+		@-webkit-keyframes changeTwo {
+			from {
+				-webkit-transform: rotateY(0);
+			}
+			to {
+				-webkit-transform: rotateY(-360deg);
+			}
+		}
+		.wrap img {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100px;
+			height: 100px;
+			border-radius: 10px;
+			opacity: 0.8;
+		}
+		.wrap img:nth-child(1) {
+			/*前图*/
+			-webkit-transform: translateZ(130px);
+		}
+		.wrap img:nth-child(5) {
+			/*后图*/
+			-webkit-transform: translateZ(-130px);
+		}
+		.wrap img:nth-child(2) {
+			/*左图*/
+			-webkit-transform: rotateY(-90deg) translateZ(130px);
+		}
+		.wrap img:nth-child(6) {
+			/*右图*/
+			-webkit-transform: rotateY(90deg) translateZ(130px);
+		}
+		.wrap img:nth-child(3) {
+			/*左前图*/
+			-webkit-transform: rotateY(-45deg) translateZ(130px);
+		}
+		.wrap img:nth-child(4) {
+			/*左后图*/
+			-webkit-transform: rotateY(-135deg) translateZ(130px);
+		}
+		.wrap img:nth-child(8) {
+			/*右前图*/
+			-webkit-transform: rotateY(45deg) translateZ(130px);
+		}
+		.wrap img:nth-child(7) {
+			/*右后图*/
+			-webkit-transform: rotateY(135deg) translateZ(130px);
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div>
+			<img src="../images/liudehua.jpg" alt="" title="">
+			<img src="../images/guofucheng.jpg" alt="" title="">
+			<img src="../images/zhangxueyou.jpg" alt="" title="">
+			<img src="../images/liming.jpg" alt="" title="">
+			<img src="../images/liudehua.jpg" alt="" title="">
+			<img src="../images/guofucheng.jpg" alt="" title="">
+			<img src="../images/zhangxueyou.jpg" alt="" title="">
+			<img src="../images/liming.jpg" alt="" title="">
+		</div>
+		<div>
+			<img src="../images/liudehua.jpg" alt="" title="">
+			<img src="../images/guofucheng.jpg" alt="" title="">
+			<img src="../images/zhangxueyou.jpg" alt="" title="">
+			<img src="../images/liming.jpg" alt="" title="">
+			<img src="../images/liudehua.jpg" alt="" title="">
+			<img src="../images/guofucheng.jpg" alt="" title="">
+			<img src="../images/zhangxueyou.jpg" alt="" title="">
+			<img src="../images/liming.jpg" alt="" title="">
+		</div>
+		<div>
+			<img src="../images/liudehua.jpg" alt="" title="">
+			<img src="../images/guofucheng.jpg" alt="" title="">
+			<img src="../images/zhangxueyou.jpg" alt="" title="">
+			<img src="../images/liming.jpg" alt="" title="">
+			<img src="../images/liudehua.jpg" alt="" title="">
+			<img src="../images/guofucheng.jpg" alt="" title="">
+			<img src="../images/zhangxueyou.jpg" alt="" title="">
+			<img src="../images/liming.jpg" alt="" title="">
+		</div>
+	</div>
+	<script>
+	</script>
+</body>
+</html>

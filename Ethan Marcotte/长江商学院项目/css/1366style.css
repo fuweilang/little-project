@@ -1,0 +1,140 @@
+@charset "utf-8";
+
+.wrap {
+	margin: 0 auto;
+	width: 1345px;
+}
+.main-r {
+	width: 239px;
+	height: 700px;
+}
+.activity,
+.course {
+	height: 336px;
+}
+.course {
+	margin-top: 22px;
+}
+.activity h2,
+.course h2 {
+	height: 41px;
+	line-height: 41px;
+}
+.activity ul,
+.course ul {
+	height: 291px;
+}
+.activity li,
+.course li {
+	height: 144px;
+}
+.main-l {
+	overflow: hidden;
+	float: left;
+	width: 1024px;
+	height: 700px;
+}
+.main-l ul {
+	width: 1064px;
+}
+.main-l li {
+	float: left;
+	width: 239px;
+	height: 336px;
+	border: 1px solid #e0e0e0;
+	border-top: 2px solid #0095d8;
+	background: #fff;
+	margin: 0 20px 22px 0;
+}
+
+.demo-one,
+.demo-two {
+	height: 336px;
+}
+.demo-one h2,
+.demo-two h2 {
+	height: 41px;
+	line-height: 41px;
+}
+.demo-one a,
+.demo-one a img {
+	height: 166px;
+}
+.demo-one h3 {
+	overflow: hidden;
+	width: 80%;
+	height: 35px;
+	padding: 0 10%;
+	line-height: 35px; 
+}
+.demo-two h3 {
+	overflow: hidden;
+	width: 80%;
+	min-height: 19px;
+	max-height: 39px;
+	padding: 0 10%;
+	line-height: 19px;
+}
+.demo-one h3 a,
+.demo-two h3 a {
+	display: inline;
+	font-size: 14px;
+	color: #666;
+}
+.demo-one p {
+	width: 80%;
+	height: 40px;
+	padding: 3px 10% 18px;
+}
+.demo-one p span {
+	overflow: hidden;
+	display: block;
+	width: 100%;
+	height: 40px;
+	line-height: 20px;
+	font-size: 12px;
+	color: #999;
+}
+.demo-two p {
+	width: 80%;
+	height: 200px;
+	padding: 13px 10% 10px;
+}
+.demo-two p span {
+	overflow: hidden;
+	display: block;
+	width: 100%;
+	max-height: 200px;
+	line-height: 20px;
+	font-size: 12px;
+	color: #999;
+}
+.time {
+	position: absolute;
+	bottom: 0;
+	left: 2%;
+	width: 90%;
+	height: 33px;
+	padding-left: 6%;
+	border-top: 1px dashed #e0e0e0;
+}
+.time span,
+.time em {
+	display: block;
+	float: left;
+	height: 33px;
+	line-height: 33px;
+	font-size: 12px;
+	color: #999;
+}
+.time span {
+	width: 34%;
+	padding-left: 8%;
+	background: url("../images/layout.png") 0px -602px no-repeat;
+}
+.time em {
+	margin-left: 25%;
+	width: 15%;
+	padding-left: 10%;
+	background: url("../images/layout.png") -142px -602px no-repeat;
+}

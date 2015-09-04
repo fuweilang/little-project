@@ -1,0 +1,272 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<script src="../js/jquery-1.11.3.min.js" charset="utf-8" type="text/javascript"></script>
+	<style>
+		.wrap {
+			position: relative;
+			margin: 0 auto;
+			width: 1000px;
+			height: 600px;
+			background: #888;
+		}
+		.form-area {
+			position: absolute;
+			top: 20px;
+			left: 310px;
+			margin: auto;
+			width: 380px;
+			height: 300px;
+			padding: 25px 40px 0;
+			background: #fff;
+		}
+		.form-area h1 {
+			font-size: 30px;
+			color: #1ba00d;
+			text-align: center;
+		}
+		.row {
+			position: relative;
+			width: 380px;
+			height: 70px;
+			margin-top: 10px;
+		}
+		.username,
+		.password {
+			position: relative;
+			float: left;
+			width: 205px;
+			height: 36px;
+			padding: 4px 0 0 25px;
+			border: 1px solid #aaa;
+		}
+		.username {
+			background: url("../images/form_check.png") 1px 6px no-repeat;
+		}
+		.password {
+			background: url("../images/form_check.png") 2px -39px no-repeat;
+		}
+		.password label,
+		.username label {
+			position: absolute;
+			left: 27px;
+			top: 9px;
+			width: 200px;
+			height: 30px;
+			color: #999;
+			font-size: 16px;
+		}
+		.username input,
+		.password input {
+			width: 200px;
+			height: 30px;
+			line-height: 30px;
+			border: none;
+			outline: none;
+			background: #fff;
+		}
+		.username input:-webkit-autofill,
+		.password input:-webkit-autofill { 
+			-webkit-box-shadow: 0 0 0px 1000px white inset; 
+		} 
+		.username-notes {
+			float: left;
+			width: 124px;
+			height: 42px;
+			margin-left: 20px;
+			line-height: 21px;
+			font-size: 12px;
+		}
+		.user-check,
+		.pass-check {
+			padding-left: 27px;
+			font-size: 14px;
+		}
+		.password-notes {
+			float: left;
+			width: 124px;
+			height: 42px;
+			margin-left: 20px;
+			line-height: 42px;
+			font-size: 12px;
+		}
+		.btn {
+			position: absolute;
+			left: 140px;
+			margin: auto;
+			width: 100px;
+			height: 40px;
+			border: none;
+			background: #25a50c;
+			color: #fff;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<!-- <form action="http://www.svnchina.com/login.php" method="post"> -->
+	<form>
+	<!--[if IE 6]>
+		<script src='../js/IE6PNG.js'></script>
+		<script type='text/javascript'>IEPNG.fix('div')</script>
+	<![endif]-->
+		<div class="wrap">
+			<div class="form-area">
+				<h1>注册表单</h1>
+				<div class="row">
+					<div class="username">
+						<label for="userTxt">请输入用户名</label>
+						<input type="text" id="userTxt" autofocus="autofocus" name="username">
+					</div>
+					<p class="username-notes">用户名有6-12为字母、数字、下划线组成</p>
+					<span class="user-check"></span>
+				</div>
+				<div class="row">
+					<div class="password">
+						<label for="passTxt">请输入密码</label>
+						<input type="password" id="passTxt" name="password">
+					</div>
+					<p class="password-notes">密码长度为6-18位</p>
+					<span class="pass-check"></span>
+				</div>
+				<div class="row">
+					<input type="button" value="注册" class="btn">
+				</div>
+			</div>
+		</div>
+	</form>
+	<script>
+		var usernameLabel = $(".username label");
+		var passwordLabel = $(".password label");
+		var usernameTxt = $("#userTxt");
+		var passwordTxt = $("#passTxt");
+		var usercheck = $(".user-check");
+		var passcheck = $(".pass-check");
+		var getBtn = $(".btn");
+		var choseUsercheckFlag;	//判断用户名表单是否要执行checkMessage方法。（checkMessage是验证表单的方法）
+		var chosePasscheckFlag; //判断密码表单是否要执行checkMessage方法。（checkMessage是验证表单的方法）
+		var userflag;	//判断用户名格式是否输入正确
+		var passflag;	//判断密码格式是否输入正确
+
+		usernameTxt.focus();
+		setTimeout(function(){
+			objLabeldisplay(usernameTxt, usernameLabel);	//刷新页面，默认执行判断表单的Label元素是否需要隐藏
+			objLabeldisplay(passwordTxt, passwordLabel);	//刷新页面，默认执行判断表单的Label元素是否需要隐藏
+		}, 100)
+
+		/**
+		 * [判断表单的Label元素是否需要隐藏]
+		 * [判断是否需要执行checkMessage方法。（checkMessage是验证表单的方法）, 如果是true,则判断表单格式是否正确，并输出验证结果，输出验证结果区域显示；如果是false，则输出验证结果区域隐藏]
+		 * @param  {[type]} objTxt   [JQ的input元素]
+		 * @param  {[type]} objLabel [JQ的Label元素]
+		 * @return {[boolen]}  flag  [如果是true,则判断表单格式是否正确，并输出验证结果；如果是false，则输出验证结果区域隐藏]
+		 */
+		function objLabeldisplay(objTxt, objLabel) {
+			var flag;
+			if(objTxt.val() != "") {
+				objLabel.css({"display":"none"})
+				flag = true;
+			} else {
+				objLabel.css({"display":"block"})
+				flag = false;
+			}
+			return flag;
+		}
+
+		// 用户名表单敲键盘执行事件
+		usernameTxt.on("keyup", function(event) {
+			var e = event || window.event;
+
+			// 判断用户名表单的Label元素是否需要隐藏
+			choseUsercheckFlag = objLabeldisplay(usernameTxt, usernameLabel);
+			// 判断用户名验证信息是否需要隐藏
+			if(choseUsercheckFlag == false) {
+				checkMessage();
+			} 
+
+			// 如果键盘敲enter键，执行checkMessage方法
+			if(e.keyCode == 13) {
+				checkMessage();
+			}
+		})
+
+		// 密码表单敲键盘执行时间
+		passwordTxt.on("keyup", function(event) {
+			var e = event || window.event;
+
+			// 判断密码表单的Label元素是否需要隐藏
+			chosePasscheckFlag = objLabeldisplay(passwordTxt, passwordLabel);
+			// 判断密码验证信息是否需要隐藏
+			if(chosePasscheckFlag == false) {
+				checkMessage();
+			}
+
+			// 如果键盘敲enter键，执行checkMessage方法
+			if(e.keyCode == 13) {
+				checkMessage();
+			}
+		})
+
+		/**
+		 * [判断用户名和密码格式是否正确。同时做了验证信息是显示还是隐藏处理]
+		 * @return {[type]} [description]
+		 */
+		function checkMessage() {
+			if(choseUsercheckFlag) {
+				var reg = /^\w{6,12}$/g;	
+				var userTxt = usernameTxt.val();
+				var userbool = reg.test(userTxt);
+				usercheck.css({"display":"block"});
+				if(!userbool) {
+					usercheck.css({"color":"#d00"});
+					usercheck.html("请输入正确格式的用户名");
+					userflag = false;
+				} else {
+					usercheck.css({"color":"#0aa22a"});
+					usercheck.html("用户名格式输入正确");
+					userflag = true;
+				}
+			} else {
+				usercheck.css({"display":"none"});
+				userflag = false;
+			}
+
+			if(chosePasscheckFlag) {
+				var reg = /^\S{6,18}$/g;
+				var passTxt = passwordTxt.val();
+				var passbool = reg.test(passTxt);
+				passcheck.css({"display":"block"});
+				if(!passbool) {
+					passcheck.css({"color":"#d00"});
+					passcheck.html("请输入正确格式的密码");
+					passflag = false;
+				} else {
+					passcheck.css({"color":"#0aa22a"});
+					passcheck.html("密码格式输入正确");
+					passflag = true;
+				}
+			} else {
+				passcheck.css({"display":"none"});
+				passflag = false;
+			}
+		}
+
+		// 输完input信息后，鼠标页面任意位置，进行验证
+		$(document).on("click", function() {
+			checkMessage();
+		})
+
+		// 点击注册按钮，验证注册信息是否填写正确
+		getBtn.on("click", function(){
+			checkMessage();
+			if(userflag&&passflag) {
+				alert("注册信息填写正确");	
+			}
+		})
+
+	</script>
+</body>
+</html>

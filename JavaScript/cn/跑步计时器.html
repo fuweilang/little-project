@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>HTML5学堂</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+	.wrap {
+		padding: 10px 0 0 10px;
+	}
+	#clock {
+		margin-bottom: 10px;
+	}
+	</style>
+</head>
+<body>
+	<form>
+		<div class="wrap">
+			<div id="clock">
+				<span>00</span>
+				<span>:</span>
+				<span>00</span>
+				<span>:</span>
+				<span>00</span>
+			</div>
+			<div>
+				<input type="button" value="开始计时" id="start">
+				<input type="button" value="停止计时" id="stop">
+				<input type="button" value="重置" id="reset">
+			</div>	
+		</div>
+		
+	</form>
+	<script>
+		//功能：秒表
+		//秒：60秒进1
+		//分：60分钟进1
+		//时：
+
+		//获取标签
+		var spans = document.getElementById("clock").getElementsByTagName("span");
+		var start = document.getElementById("start");
+		var stop = document.getElementById("stop");
+		var reset = document.getElementById("reset");
+		var hour = 0;
+		var minute = 0;
+		var second = 0;
+		var timer = null;
+
+		/**
+		 * [实现计时器函数，当达到60秒，分钟增加1，当分钟达到60，时钟增加1]
+		 * @return {[type]} [description]
+		 */
+		function clock() {
+			second++;
+			if (second == 60) {
+				second = 0;
+				minute++;
+			};
+			if (minute == 60) {
+				minute = 0;
+				hour++;
+			};
+			if (hour == 24) {
+				hour = 0;
+			};
+			spans[0].innerHTML = showTimeGuide(hour);
+			spans[2].innerHTML = showTimeGuide(minute);
+			spans[4].innerHTML = showTimeGuide(second);
+		}
+
+		/*
+		 * 功能：给小于10的数值添加前导0
+		 * @num 需要添加的数值
+		 */
+		function showTimeGuide(num) {
+			if(num < 10) {
+				return num = "0" + num;
+			} else {
+				return num;
+			}
+		}
+
+		start.onclick = function() {
+			if (timer) {
+				clearInterval(timer);
+			};
+			timer = setInterval(clock, 16);
+		}
+		stop.onclick = function() {
+			if (timer) {
+				clearInterval(timer);
+			};
+		}
+		reset.onclick = function() {
+			if (timer) {
+				clearInterval(timer);
+				hour = 0;
+				minute = 0;
+				second = 0;
+			};
+			spans[0].innerHTML = "00";
+			spans[2].innerHTML = "00";
+			spans[4].innerHTML = "00";
+		}
+
+	</script>
+</body>
+</html>

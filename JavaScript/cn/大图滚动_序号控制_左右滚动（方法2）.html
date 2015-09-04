@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>HTML5学堂</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+		.wrap {
+			margin: 10px auto;
+			width: 280px;
+		}
+		.outer {
+			margin: 0 auto;
+			overflow: hidden;
+			width: 200px;
+			border: 2px solid #000;
+		}
+		.inner {
+			width: 1000px;
+			height: 310px;
+			background: #f8f;
+		}
+		.inner img {
+			float: left;
+			width: 200px;
+			height: 310px;
+		}
+		.list {
+			width: 280px;
+			height: 30px;
+		}
+		.list li {
+			float: left;
+			width: 40px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+		}
+		.list li:hover {
+			cursor: pointer;
+			background: #f9f;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap clearfix">
+		<div class="outer" id="outerBox">
+			<div class="inner" id="innerBox">
+				<img src="../images/(1).jpg" alt="" title="1">
+				<img src="../images/(2).jpg" alt="" title="2">
+				<img src="../images/(3).jpg" alt="" title="3">
+				<img src="../images/(4).jpg" alt="" title="4">
+				<img src="../images/(5).jpg" alt="" title="5">
+			</div>
+		</div>
+		<div class="list" id="btn">
+			<ul>
+				<li><--</li>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>--></li>
+			</ul>
+		</div>
+	</div>
+	<script>
+		var outer = document.getElementById("outerBox");
+		var inner = document.getElementById("innerBox");
+		var btns = document.getElementById("btn").getElementsByTagName("li");
+		var timer = null;
+		var timerIndex = null;
+		var index = 0;
+		var len = btns.length;
+
+		/*
+		 * 大图滚动函数
+		 * @return{[type]}[description]
+		 */
+		function startMove(endPos) {
+			// 获取起点
+			var startPos = outer.scrollLeft;
+			// 步长
+			var speed;
+
+			if(timer) {
+				clearInterval(timer);
+			}
+			timer = setInterval(move, 20);
+			
+			/*
+			 * [move 实现缓冲运动函数]
+			 * @return{[type]}[description]
+			 */
+			function move() {
+				//步长 = (终点 - 起点) / 步数;
+				speed = (endPos - startPos) / 10;
+				speed = (speed > 0) ? Math.ceil(speed) : Math.floor(speed);
+				startPos += speed;
+
+				if (Math.abs(endPos - startPos) <= 6) {
+					startPos = endPos;
+					clearInterval(timer);
+					// 如果缓冲函数执行完后，把timer赋值为空
+					timer = null;
+				};
+				outer.scrollLeft = startPos;
+			}
+		}
+
+		
+		/*
+		 * [indexChange 根据索引值多次滚动]
+		 * @return{[type]}[description]
+		 */
+		function indexChange() {
+			index++;
+			if (index == 5) {
+				index = 0;
+			};
+			startMove(index * 200);
+		} 
+		timerIndex =  setInterval(indexChange, 2000);
+
+		// 添加序号功能
+		for (var i = 1; i < len -1 ; i++) {
+			btns[i].index = i;
+			btns[i].onclick = function() {
+				console.log(this.index - 1);
+
+				//清除自动滚动的计时器，防止冲突
+				clearInterval(timerIndex);
+				startMove((this.index - 1) * 200);
+
+				// 序号功能的索引要与自动滚动的索引保持一致
+				index = this.index - 1;
+				timerIndex =  setInterval(indexChange, 2000);
+			}
+		};
+
+		// 添加左键功能
+		btns[0].onclick = function() {
+			// 如果缓冲函数还未执行完（起点还未达到终点），不能执行点击
+			if (timer) {
+				// 直接返回控制权(click里面的代码不执行)
+				return;
+			};
+			// 清除自动滚动的计时器
+			clearInterval(timerIndex);
+			index--;
+			if(index == -1) {
+				index = 4;
+			}
+			startMove(index * 200);
+			// 启动自动滚动的功能
+			timerIndex =  setInterval(indexChange, 2000);
+		}
+
+		// 添加右键功能
+		btns[6].onclick = function() {
+			if (true) {
+				// 直接返回控制权(click里面的代码不执行)
+				return;
+			};
+			alert(0000);
+			// clearInterval(timerIndex);
+			// indexChange();
+			// timerIndex =  setInterval(indexChange, 2000);
+		}
+
+	</script>
+</body>
+</html>

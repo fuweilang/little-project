@@ -1,0 +1,229 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>HTML5学堂</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+		.wrap {
+			margin: 0 auto;
+			width: 760px;
+			padding: 20px 0;
+		}
+		.aside-list {
+			float: left;
+			width: 194px;
+			border-right: 1px solid red;
+		}
+		.con-list {
+			float: left;
+			width: 534px;
+			height: 414px;
+			padding: 10px 0px 0px 24px;
+			border: 1px solid red;
+			border-left: 0;
+			background: #fcfcfc;
+		}
+		.aside-list span {
+			display: block;
+			width: 100%;
+			height: 39px;
+			cursor: pointer;
+		}
+		.aside-list span:nth-child(1) {
+			background: url("../images/tab-all-bg.png") -194px -580px no-repeat;
+		}
+		.aside-list span:nth-child(3) {
+			background: url("../images/tab-all-bg.png") -194px -612px no-repeat;
+		}
+		.aside-list ul {
+			width: 194px;
+			height: 348px; 
+			background: red url("../images/tab-all-bg.png")  -194px 0 no-repeat;
+			cursor: pointer;
+		}
+		.aside-list li {
+			margin-right: -1px;
+			height: 58px;
+			cursor: pointer;
+		}
+		.li-one {
+			background: url("../images/tab-all-bg.png") 0px 0px no-repeat;
+		} 
+		.li-two {
+			background: url("../images/tab-all-bg.png") 0px -58px no-repeat;
+		} 
+		.li-three {
+			background: url("../images/tab-all-bg.png") 0px -116px no-repeat;
+		} 
+		.li-four {
+			background: url("../images/tab-all-bg.png") 0px -174px no-repeat;
+		} 
+		.li-five {
+			background: url("../images/tab-all-bg.png") 0px -232px no-repeat;
+		} 
+		.li-six {
+			background: url("../images/tab-all-bg.png") 0px -290px no-repeat;
+		} 
+
+
+		/*conList页面的CSS代码*/
+		.con-list h1 {
+			font-size: 16px;
+		}
+		.con {
+			overflow: hidden;
+			width: 507px;
+			height: 382px; 
+			margin-top: 10px;
+		}
+		.con ul {
+			width: 555px;
+			height: 382px;
+		}
+		.con li {
+			float: left;
+			width: 153px;
+			height: 183px;
+			margin: 0 24px 5px 0;
+		}
+		.con li a {
+			border: 1px solid #e7e7e7;
+		}
+		.con li a,
+		.con li img {
+			display: block;
+			width: 151px;
+			height: 151px;
+		}
+		.con li span {
+			height: 30px;
+			display: block;
+			font-size: 14px;
+			line-height: 30px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap clearfix">
+		<div class="aside-list clearfix" id="aside">
+			<span></span>
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<span></span>
+		</div>
+		<div class="con-list clearfix" id="conList">
+			<h1 id="conH1"></h1>
+			<div class="con" id="content">
+				<ul>
+					<li>
+						<a href="">
+							<img>
+						</a>
+						<span></span>
+					</li>
+					<li>
+						<a href="">
+							<img>
+						</a>
+						<span></span>
+					</li>
+					<li>
+						<a href="">
+							<img>
+						</a>
+						<span></span>
+					</li>
+					<li>
+						<a href="">
+							<img>
+						</a>
+						<span></span>
+					</li>
+					<li>
+						<a href="">
+							<img>
+						</a>
+						<span></span>
+					</li>
+					<li>
+						<a href="">
+							<img>
+						</a>
+						<span></span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script>
+		var getAside = document.getElementById("aside");
+		var getLI = getAside.getElementsByTagName("li");
+		var lilen = getLI.length;
+		var getCon = document.getElementById("conList");
+		var getH1 = document.getElementById("conH1"); 
+		var getConnet = document.getElementById("content");
+		var getImg = getConnet.getElementsByTagName("img");
+		var getSpan = getConnet.getElementsByTagName("span");
+		var ImgLen = getImg.length;
+
+		var path = "http://localhost/AJAX/tabsucai2/cn/date.json";
+		var hr = new XMLHttpRequest();
+		hr.open("get", path, true);
+		hr.send(null);
+		var obj = null;
+		hr.onreadystatechange = function() {
+			if(hr.readyState == 4) {
+				if((hr.status >= 200 && hr.status < 300) || (hr.status == 304)) {
+					obj = JSON.parse(hr.responseText);
+					getH1.innerHTML = obj[0].h1;
+					for (var i = 0; i < ImgLen; i++) {
+						getImg[i].setAttribute("src", obj[0].imgUrl[i]);
+						getSpan[i].innerHTML = obj[0].info[i];
+					};
+				}
+			}
+		}
+
+		for (var i = 0; i < lilen; i++) {
+			getLI[i].index = i;
+			getLI[i].onmouseover = function() {
+				for(var j = 0; j < lilen; j++) {
+					getLI[j].className = "";
+				}
+				changeLiBg(this.index);
+
+				getH1.innerHTML = obj[this.index].h1;
+				for (var i = 0; i < ImgLen; i++) {
+					getImg[i].setAttribute("src", obj[this.index].imgUrl[i]);
+					getSpan[i].innerHTML = obj[this.index].info[i];
+				}
+			}
+		}
+
+		/*
+		 * 根据li索引值，改变li的背景图片样式
+		 *
+		 */
+		function changeLiBg(index) {
+			var path = null;
+			switch(index){
+				case 0: path = "li-one"; break;
+				case 1: path = "li-two"; break;
+				case 2: path = "li-three"; break;
+				case 3: path = "li-four"; break;
+				case 4: path = "li-five"; break;
+				case 5: path = "li-six"; break;
+			}
+			getLI[index].className = path;
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+@charset "utf-8";
+
+*html {    
+    background-image: url(about:blank);
+    background-attachment: fixed;
+}
+html,body {
+	height: 100%;
+}
+.wrap {
+	margin: 0 auto;
+	width: 1280px;
+	background: #191d20;
+}
+
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	_position: absolute;      
+	_top: expression(eval(document.documentElement.scrollTop));
+	width: 100%;
+	height: 85px;
+	background: #a60d73;
+	padding-left: 137px;
+	z-index: 1;
+}
+
+.logo-div {
+	float: left;
+	width: 171px;
+	height: 62px;
+	padding-left: 50px;
+	padding-top: 23px;
+	background: url("../images/layout.png") 0 -127px;
+}
+.logo-div h1 a{
+	font-size: 16px;
+	color: #fff;
+	font-weight: bold;
+}
+.logo-div h2 a {
+	font-size: 12px;
+	color: #fff;
+	font-weight: bold;
+}
+.nav {
+	float: left;
+	left: 360px;
+	overflow: hidden;
+	width: 668px;
+	height: 85px;
+}
+.nav a {
+	float: left;
+	width: 83px;
+	height: 85px;
+	font-size: 15px;
+	font-family: SimSun;
+	line-height: 85px;
+	color: #fff;
+	text-align: center;
+} 
+.nav a:hover {
+	background: url("../images/layout.png") 0 -242px;
+}
+.weibo,
+.wechat {
+	float: left;
+	width: 30px;
+	height: 55px;
+	padding-top: 30px;
+	padding-left: 20px;
+}
+.weibo img,
+.wechat img {
+	display: block;
+}
+.weibo a{
+	display: block;
+	width: 30px;
+	height: 30px;
+	background: url("../images/layout.png") 0 -426px;
+}
+.wechat a{
+	display: block;
+	width: 30px;
+	height: 30px;
+	background: url("../images/layout.png") 0 -480px;
+}
+.main {
+	margin: 0 auto;
+	width: 881px;
+	padding: 166px 71px 10px 71px;
+	background: #ededed;
+}
+.recruitment-title {
+	height: 50px;
+	border-bottom: 2px solid #bfbfbf;
+}
+.recruitment-title h2 {
+	float: left;
+	height: 40px;
+	font-size: 30px;
+	color: #404040;
+	line-height: 40px;
+}
+.recruitment-title span {
+	display: block;
+	float: left;
+	margin-left: 10px;
+	padding-top: 3px;
+	color: #bebec1;
+	font-size: 28px;
+}
+.recruitment-info {
+	width: 752px;
+	padding: 27px 64px 0 64px;
+}
+.recruitment-info strong {
+	padding-left: 20px;
+	font-size: 22px;
+	line-height: 24px;
+	color: #dab866;
+}
+.info-table {
+	margin: 20px auto;
+	font-size: 12px;
+	color: #797979;
+}
+.td-label {
+	width: 80px;
+}
+.td-input {
+	width: 280px;
+}
+.info-table tr {
+	height: 30px;
+}
+.info-table tr td {
+	text-align: right;
+	padding-right: 8px;
+}
+.text-bg {
+	padding: 0 1px;
+	height: 22px;
+	background: url("../images/layout.png") 0 -809px;
+}
+.text-bg input {
+	width: 225px;
+	height: 21px;
+	border: 0;
+	background: transparent;
+	outline: none;
+}
+.radionchose {
+	padding-left: 10px;
+}
+.td-ability {
+	vertical-align: top;
+	padding-top: 9px;
+}
+
+.text-bg,
+.radionchose,
+.attach-style,
+.address-text {
+	text-align: left;
+}
+.attach-style {
+	float: left;
+	height: 22px;
+	padding-left: 10px;
+}
+.attach-style input {
+	width: 81px;
+	height: 20px;
+	text-align: center;
+	outline: none;
+}
+.address-text {
+	height:22px;
+	padding-left: 2px;
+	background: url("../images/layout.png") 0 -842px;
+}
+.address-text input {
+	width: 600px;
+	height: 20px;
+	border: 0px;
+	background: transparent;
+	outline: none;
+}
+.textarea_bg {
+	float: left;
+	width: 607px;
+	height: 97px;
+	padding: 2px 0 0 2px;
+	background: url("../images/layout.png") 0 -899px;
+}
+.textarea_bg textarea {
+	float: left;
+	width: 600px;
+	height: 90px;
+	border: 0;
+	background: transparent;
+	resize: none;
+	overflow: hidden;
+	outline: none;
+}
+
+.btn {
+	float: left;
+	padding-left: 95px;
+}
+.btn-submit,
+.btn-reset {
+	float: left;
+	display: block;
+	width: 62px;
+	height: 26px;
+	border: 0px;
+	outline: none;
+}
+.btn-submit {
+	background: url("../images/layout.png") 0px -554px;
+}
+.btn-reset {
+	margin-left: 20px;
+	background: url("../images/layout.png") 0px -632px;
+}
+
+
+.footer {
+	width: 1180px;
+	height: 39px;
+	padding-left: 100px;
+	background: #fff;
+	line-height: 39px;
+}
+.footer em {
+	float: left;
+	font-weight: bold;
+	font-size: 12px;
+	color: #e67122;
+}
+.footer strong {
+	float: left;
+	margin-left: 18px;
+	font-weight: bold;
+	font-size: 17.75px;
+	color: #e67122;
+}
+.footer span {
+	float: right;
+	margin-right: 160px;
+	font-size: 10px;
+	color: #6e6e6e;
+}

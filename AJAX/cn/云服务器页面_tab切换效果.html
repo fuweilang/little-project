@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>HTML5学堂</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+		.wrap {
+			margin: 0 auto;
+			width: 1000px;
+		}
+		.con-bg {
+			width: 1000px;
+			height: 398px;
+			/*background: url("../images/index_server.jpg") no-repeat;*/
+			background-size: contain;
+		}
+		.index_backup {
+			background: url("../images/index_backup.jpg") no-repeat;
+		}
+		.index_cloud {
+			background: url("../images/index_cloud.jpg") no-repeat;
+		}
+		.index_linux {
+			background: url("../images/index_linux.jpg") no-repeat;
+		}
+		.index_server {
+			background: url("../images/index_server.jpg") no-repeat;
+		}
+		.index_web {
+			background: url("../images/index_web.jpg") no-repeat;
+		}
+		.tab-tit {
+			width: 1000px;
+			height: 45px;
+			background: #6899e3;
+		}
+		.tab-tit ul {
+			margin: 0 auto;
+			width: 770px;
+			height: 45px;
+		}
+		.tab-tit li {
+			float: left;
+			height: 45px;
+			padding: 0 30px;
+			border-left: 1px solid #92bbf7;
+			background: #6899e3;
+			color: #fff;
+			line-height: 45px;
+			cursor: pointer;
+		}
+		.tab-tit .sel {
+			background: #4280dc;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap clearfix">
+		<div class="con-bg" id="con"></div>
+		<div class="tab-tit" id="tabTit">
+			<ul>
+				<li class="sel">服务器安全狗</li>
+				<li>网站安全狗</li>
+				<li>云备份</li>
+				<li>服务器安全狗Linux</li>
+				<li>云中心客户端</li>
+			</ul>
+		</div>
+	</div>
+	<script>
+		var getCon = document.getElementById("con");
+		var getTab = document.getElementById("tabTit");
+		var getLi = getTab.getElementsByTagName("li");
+		var len = getLi.length;
+
+		for(var i = 0; i < len; i++) {
+			getLi[i].index = i;
+			getLi[i].onclick = function() {
+				for (var i = 0; i < len; i++) {
+					getLi[i].className = "";
+					getCon.className = "con-bg";
+				};
+				getLi[this.index].className = "sel";
+				changeConBg(this.index);
+			}
+		}
+
+		/*	
+		 * 作用：修改id为con的div的背景图片
+		 * 作者：付维浪
+		 */
+		function changeConBg(index) {
+			if (index == 0) {
+				getCon.className += " index_server";
+			} else if (index == 1) {
+				getCon.className += " index_web";
+			} else if (index == 2) {
+				getCon.className += " index_backup";
+			} else if (index == 3) {
+				getCon.className += " index_linux";
+			} else {
+				getCon.className += " index_cloud";
+			}
+		}changeConBg(0); 
+	</script>
+</body>
+</html>

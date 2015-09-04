@@ -1,0 +1,369 @@
+@charset "utf-8";
+
+.wrap {
+	position: relative;
+	width: 1008px;
+	margin: 0 auto;
+	padding: 0 96px;
+	background: #f1f1f1;
+	border-bottom: 10px solid #fff;
+}
+
+/* header css */
+.header {
+	width:998px;
+	height: 62px;
+	padding: 13px 5px 0 5px;
+}
+.header-content {
+	height: 60px;
+	padding-top: 2px;
+	background: url("../images/nav_bg.png") no-repeat;
+}
+.logo{
+	float: left;
+}
+.logo h1 a {
+	display: block;
+	width: 140px;
+	height: 54px;
+	background: url("../images/layout.png") 5px 5px;
+}
+.nav {
+	overflow: hidden;
+	float: left;	
+	width: 734px;
+	height: 47px;
+	margin-left: 115px;
+	padding-top: 7px;
+}
+.nav-list {
+	width: 735px;
+	height: 40px;
+	margin-left: -1px;
+}
+.nav a {
+	display: block;
+	float: left;
+	height: 40px;
+	padding: 0 21px 0 18px;
+	background: url("../images/layout.png") -12px -63px;
+	line-height: 40px;
+	font-size: 16px;
+}
+.nav a:hover {
+	background: #f70;
+}
+/* main css */
+.main {
+	position: relative;
+	width:1008px;
+	height: 1415px;
+}
+.main h2 {
+	height: 19px;
+	padding: 10px 0 0 62px;
+	font-size: 16px;
+	color: #a50f18;
+}
+.main-content {
+	position: relative;
+	left: -22px;
+	width: 998px;
+	height: 442px;
+	padding: 7px 0 0 33px;
+	background: url("../images/main_content_bg.png") no-repeat;
+}
+.show-video {
+	float: left;
+}
+.show-video a,
+.show-video a img {
+	display: block;
+	width: 724px;
+	height: 416px;
+}
+.weibo {
+	float: left;
+	width: 230px;
+	height: 418px;
+	margin-left: 5px;
+	padding: 0 11px 0 14px;
+	background: url("../images/weibo_bg.png") 0px 2px no-repeat;
+}
+.weibo-title {
+	height: 48px;
+	background: url("../images/layout.png") 50px -118px;
+	line-height: 48px;
+	text-align: center;
+}
+.weibo-content {
+	overflow: hidden;
+	height: 312px;
+	margin-top: 15px;
+}
+.weibo-content li {
+	overflow: hidden;
+	height: 38px;
+	padding: 10px 0 3px 0;
+	border-bottom: 1px dashed #acacac;
+}
+.weibo-content li a {
+	line-height: 19px;
+	font-size: 12px;
+	color: #acacac;
+}
+.weibo-content li a:hover {
+	text-decoration: underline;
+}
+.weibo-content li a span {
+	color: #aa1a1a;
+}
+.main-video {
+	overflow: hidden;
+	width: 997px;
+	height: 299px;
+	padding: 28px 5px 0 6px;
+}
+.videos {
+	width: 1016px;
+	height: 280px;
+}
+.videos dl {
+	float: left;
+	width: 185px;
+	height: 124px;
+	background: url("../images/layout.png") 1px -606px no-repeat;
+	margin: 0 18px 15px 0;
+}
+.videos dl dt {
+	padding: 4px 4px 0 4px;
+	width: 177px;
+	height: 84px;
+}
+.videos dt a,
+.videos dt a img {
+	display: block;
+	width: 177px;
+	height: 83px;
+}
+.videos dt a {
+	border-bottom: 1px dashed #acacac;
+}
+.videos dd p {
+	position: relative;
+	height: 34px;
+	line-height: 34px;
+	text-align: center;
+}
+.videos dd p a {
+	position: absolute;
+	right: 8px;
+	bottom: 0;
+	display: block;
+	width: 26px;
+	height: 34px;
+	background: url("../images/layout.png") -1px -295px no-repeat;
+} 
+
+.activity-news {
+	width: 1004px;
+	height: 242px;
+	padding-left: 4px;
+}
+.activity {
+	float: left;
+	width: 599px;
+	height: 220px;
+	padding: 0 1 0 2px;
+}
+.ac-title {
+	/*float: left;*/
+	width: 589px;
+	height: 36px;
+	padding-left: 10px;
+	background: url("../images/layout.png") 0 -764px no-repeat;
+}
+.ac-content {
+	overflow: hidden;
+	width: 586px;
+	height: 174px;
+	padding: 10px 0 0 13px;
+	background: url("../images/activity_bg.png") 0 -30px no-repeat;
+}
+.ac-content dl {
+	float: left;
+	width: 125px;
+	margin-right: 20px;
+}
+.ac-content dt {
+	width: 114px;
+	height: 114px;
+	padding: 5.5px;
+	background: #fff;
+}
+.ac-content dt a,
+.ac-content dt img {
+	display: block;
+	width: 114px;
+	height: 114px;
+}
+
+.ac-content dd {
+	width: 125px;
+	height: 36px;
+}
+.ac-content dd p {
+	height: 36px;
+	line-height: 36px;
+	text-align: center;
+}
+.ac-content dd p a {
+	font-size: 12px;
+}
+.news {
+	float: left;
+	width: 380px;
+	height: 220px;
+	margin-left: 20px;
+}
+.news-title {
+	width: 370px;
+	height: 36px;
+	padding-left: 10px;
+	background: url("../images/layout.png") 0 -844px no-repeat;
+}
+.news-content {
+	width: 366px;
+	height: 174px;
+	padding: 10px 0 0 14px;
+	background: url("../images/news_bg.png") 4px -25px no-repeat;
+}
+.news-content ul {
+	overflow: hidden;
+	width: 352px;
+	height: 170px;
+}
+.news-content ul li {
+	width: 312px;
+	height: 33px;
+	padding: 1px 19px;
+	margin-bottom: 5px;
+	background: url("../images/layout.png") -2px -1224px no-repeat;
+}
+.news-content li a {
+	display: block;
+	height: 33px;
+	width: 312px;
+	line-height: 33px;
+	font-size: 12px;
+}
+.news-content li a em {
+	float: left;
+}
+.news-content li a span {
+	float: right;
+}
+.partner {
+	width: 1008px;
+	height: 177px;
+}
+.partner-content {
+	width: 998px;
+	height: 131px;
+	padding: 10px 0 0 20px;
+	background: url("../images/partner_bg.png") 0px -14px no-repeat;
+}
+.partner-content ul {
+	overflow: hidden;
+	width: 980px;
+	height: 85px;
+}
+.partner-content li {
+	float: left;
+	margin-right: 22px;
+}
+.partner-content li a,
+.partner-content li img {
+	display: block;
+	width: 140px;
+	height: 85px;
+}
+.Platform {
+	width: 1008px;
+	height: 193px;
+}
+.platform-content {
+	width: 978px;
+	height: 147px;
+	padding: 10px 0 0 30px;
+	background: url("../images/partner_bg.png") 0px -14px no-repeat;
+}
+.platform-content ul {
+	overflow: hidden;
+	width: 968px;
+	height: 86px;
+}
+.platform-content li {
+	float: left;
+	margin-right: 30px;
+}
+.platform-content li a,
+.platform-content li img {
+	width: 161px;
+	height: 86px;
+}
+/*position line*/
+.position-line {
+	position: absolute;
+	left: 0;
+	width: 1200px;
+	height: 10px;
+	background: url("../images/layout.png") 0 -1091px no-repeat;
+}
+/* footer css */
+.footer {
+	width: 982px;
+	height: 284px;
+	padding: 35px 13px 0 13px;
+}
+.info {
+	width: 982px;
+	height: 198px;
+}
+.info-title {
+	width: 982px;
+	height: 38px;
+	background: url("../images/layout.png") 0 -1138px no-repeat;
+}
+.info-content {
+	width: 910px;
+	height: 160px;
+	padding-left: 75px;
+	background: url("../images/footerinfo_bg.png") -1px -14px no-repeat;
+}
+.footer-nav {
+	float: left;
+	width: 108px;
+	height: 152px;
+	padding-top: 8px;
+}
+.info-content h3 a {
+	font-size: 14px;
+	color: #787474;
+	font-weight: bold;
+}
+.info-content p {
+	margin-top: 2px;
+}
+.info-content p a {
+	font-size: 11px;
+	color: #787474;
+}
+.program-nav p {
+	margin-top: 0px;
+}
+.footer-logo {
+	height: 86px;
+	background: url("../images/layout.png") 400px -1270px no-repeat;
+}
